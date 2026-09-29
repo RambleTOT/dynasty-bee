@@ -22,6 +22,19 @@
 Свои участки (§14) хранятся в таблице `regions`; число инженеров — `len(roster)`,
 заявок — из последней загрузки (`RegionRecord.request_count`).
 
+**Форматы загрузки: CSV и JSON.**
+
+| Формат | Как загрузить | Что внутри |
+|---|---|---|
+| CSV в выданном формате | интерфейс диспетчера, «Загрузить CSV» → `POST /api/v1/data/import-beeline` | файл заявок участка и, по желанию, контрольное распределение; разбор — §5 и §6 |
+| JSON | только через API (Swagger `/docs`, вход диспетчером): `POST /api/v1/data/load` — тело `{"name": …, "engineers": [...], "requests": [...]}`; `POST /api/v1/data/load-files` — файлы `engineers_file` и `requests_file` с расширением `.json` (массив объектов или `{"items": [...]}`) или `.csv` | поля заявки — §2, инженера — §3; готовый пример — `backend/app/data/demo_scenario.json` |
+
+Сценарий из JSON планируется так же: `POST /api/v1/planning/run` с его `scenario_id`,
+план — `GET /api/v1/planning/{id}`, маршруты для карты — `GET /api/v1/visualization/{plan_id}/geojson`.
+В календаре диспетчера такой сценарий не появляется: у него нет участка и даты.
+Проверено 29.09.2026 на `demo_scenario.json`: 12 инженеров, 45 заявок — план за 1,7 с,
+назначены все 45 заявок.
+
 ## 2. Поля заявки
 
 Схемы: вход — `backend/app/schemas/request.py: RequestIn`, выход — `RequestOut`.
