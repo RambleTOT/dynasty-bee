@@ -1,0 +1,62 @@
+{
+  "origin": "SYNTHETIC_DEMO_NOT_BEELINE",
+  "feature_columns": [
+    "engineer_id",
+    "required_skill",
+    "type_bk",
+    "type_hd",
+    "transport",
+    "zone",
+    "technology",
+    "gigabit",
+    "hour",
+    "weekday",
+    "skill_level",
+    "engineer_experience",
+    "normative_duration",
+    "planned_start_minute",
+    "slack_minutes",
+    "planned_travel_minutes",
+    "route_position"
+  ],
+  "categorical": [
+    "engineer_id",
+    "required_skill",
+    "type_bk",
+    "type_hd",
+    "transport",
+    "zone",
+    "technology",
+    "gigabit"
+  ],
+  "duration_p90_offset": 1.9876953952323504,
+  "metrics": {
+    "duration": {
+      "p50_mae_minutes": 10.959110513400184,
+      "p90_coverage": 0.9094444444444445,
+      "p90_target_coverage": 0.9,
+      "p90_calibration_level": 0.91,
+      "test_rows": 1800
+    },
+    "first_time_fix": {
+      "roc_auc": 0.7318654493323409,
+      "brier": 0.1412918739880895,
+      "ece": 0.03831576981189865
+    },
+    "late_start": {
+      "roc_auc": 0.8666264705882353,
+      "brier": 0.04533363319541653,
+      "ece": 0.01737100640992284
+    },
+    "operational_success": {
+      "roc_auc": 0.7359690996306041,
+      "brier": 0.16264199264551926,
+      "ece": 0.044184147205343284
+    },
+    "split": {
+      "train": 8400,
+      "calibration": 1800,
+      "test": 1800
+    }
+  }
+}

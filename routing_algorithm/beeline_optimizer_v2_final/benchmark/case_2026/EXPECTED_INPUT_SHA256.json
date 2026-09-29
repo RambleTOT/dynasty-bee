@@ -1,0 +1,22 @@
+{
+  "data/raw_case/beeline_case_csv/Восток Контрольное распределение.csv": "d4406b60abb1fe43728f15ca989f3ee675791f533ba1c3ebaac279b5f32029af",
+  "data/raw_case/beeline_case_csv/Восток Синтетические данные.csv": "a871f6caab3b767d147def3cbfdc31b18211b3175e5d3b158fbffa8d93bdf270",
+  "data/raw_case/beeline_case_csv/Юго-восток Контрольное распределение.csv": "42dbebd1bcbc3cfc0a630a1bfacbf9fb75b40c5c5cdc3f6f92becd9377110993",
+  "data/raw_case/beeline_case_csv/Юго-восток Синтетические данные.csv": "001e9c6e231f6c7263b5fbe4ebfad2b83d73238eb979f58f3daf76a2a2e57655",
+  "data/raw_case/beeline_case_csv/Югоцентр Контрольное распределение.csv": "d86d8f972bf0d31ad04dfdbea8c4e5f5b24b76472c328ed2ec34205c34e52022",
+  "data/raw_case/beeline_case_csv/Югоцентр Синтетические данные.csv": "729da6eaa66d3dda8bac6eef37b906f6528fb2f363eca2a047e77bab6518f084",
+  "reports/reproduced/prepared/east/engineers.json": "fbcc0822f07d8a0a054e4deb5834daced2857daf7aa049b5a9ca83dc487673bf",
+  "reports/reproduced/prepared/east/instance.json": "22515b331d3cdfda70df7453d9310c6c13bd5dfba49dd0d8082731426e6a91b1",
+  "reports/reproduced/prepared/east/metadata.json": "8b378e2db81af6adfdd0decb60424b172f69e005a780c7042724629e6cf60462",
+  "reports/reproduced/prepared/east/requests.json": "0fc9846358567ac24de593984b06203410d5e85fb80ad72aa11248cb6524a0c5",
+  "reports/reproduced/prepared/index.json": "81d3d90f8578a790c00f3258c49536e2c7ffe5338cdf33f8a67254d5fb5dbc6c",
+  "reports/reproduced/prepared/south_centre/engineers.json": "a1dbabe5b80d0ceb5d735d31e5d8c5a1cc46fd30027aa19d2a4b6064b144dadf",
+  "reports/reproduced/prepared/south_centre/instance.json": "a657e003bde208526c02ad99fd7e7b0ebfe2e45a1e3e3f5c1b2a05655afaaa1c",
+  "reports/reproduced/prepared/south_centre/metadata.json": "9e5418f36e264d090b7b199a4e31cbd314327bb543afb823c5491311ddc571ad",
+  "reports/reproduced/prepared/south_centre/requests.json": "09b60dad75511203ec2b1e70a877ffde3e5add85547f38cf3b5ecc008843f332",
+  "reports/reproduced/prepared/south_east/engineers.json": "d0611f54e9b0acd601d76ce3acf4d0420bf89bc65e85d558f08acaa5cf96fa36",
+  "reports/reproduced/prepared/south_east/instance.json": "efe3448115031a55efeeab9c5f323594bd3f9a03dce94e082c62d8981f7074ec",
+  "reports/reproduced/prepared/south_east/metadata.json": "84f623e1bc6b80d5d901c8dd4c4b35e1f5d590c216d8f3eb99069b70832c9eb9",
+  "reports/reproduced/prepared/south_east/requests.json": "38ed6b118720d71b84209358df0807c13cb6979b22e404a4f99603e03e4f8250",
+  "reports/reproduced/synthetic_ml_history.csv": "fd62928fc6b4febd28a8c4a3798d43b42d673236575dd6cf5ee794d7532b9df1"
+}

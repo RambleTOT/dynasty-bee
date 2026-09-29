@@ -1,0 +1,53 @@
+[
+  {
+    "region": "Восток",
+    "accepted": true,
+    "risk_before": 16.642509029006174,
+    "risk_after": 16.2214369459721,
+    "risk_reduction_pct": 2.5300997722169627,
+    "urgent_delay_before": 48.0,
+    "urgent_delay_after": 46.0,
+    "objective": [
+      0,
+      0,
+      0,
+      9,
+      328838,
+      0
+    ]
+  },
+  {
+    "region": "Юго-восток",
+    "accepted": true,
+    "risk_before": 20.85211775914887,
+    "risk_after": 19.96749840733397,
+    "risk_reduction_pct": 4.242347765501058,
+    "urgent_delay_before": 11516.0,
+    "urgent_delay_after": 11465.0,
+    "objective": [
+      0,
+      1,
+      0,
+      11,
+      334420,
+      4
+    ]
+  },
+  {
+    "region": "Югоцентр",
+    "accepted": true,
+    "risk_before": 10.449074245633327,
+    "risk_after": 10.081565691438277,
+    "risk_reduction_pct": 3.5171398494812287,
+    "urgent_delay_before": 0.0,
+    "urgent_delay_after": 0.0,
+    "objective": [
+      0,
+      0,
+      0,
+      7,
+      246786,
+      0
+    ]
+  }
+]

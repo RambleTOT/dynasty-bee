@@ -1,0 +1,254 @@
+[
+  {
+    "region": "Восток",
+    "seed": 1,
+    "n": 66,
+    "k": 12,
+    "baseline_objective": [
+      1,
+      16,
+      16,
+      12,
+      279199,
+      0
+    ],
+    "ours_objective": [
+      0,
+      0,
+      0,
+      9,
+      285448,
+      0
+    ],
+    "baseline_planned": 33,
+    "ours_planned": 66,
+    "baseline_km": 279.199,
+    "ours_km": 285.448,
+    "seconds": 0.8689600839861669,
+    "violations": 0
+  },
+  {
+    "region": "Восток",
+    "seed": 2,
+    "n": 66,
+    "k": 12,
+    "baseline_objective": [
+      3,
+      15,
+      16,
+      12,
+      244885,
+      0
+    ],
+    "ours_objective": [
+      1,
+      0,
+      0,
+      9,
+      288649,
+      0
+    ],
+    "baseline_planned": 32,
+    "ours_planned": 65,
+    "baseline_km": 244.885,
+    "ours_km": 288.649,
+    "seconds": 1.0477198340231553,
+    "violations": 0
+  },
+  {
+    "region": "Восток",
+    "seed": 3,
+    "n": 66,
+    "k": 12,
+    "baseline_objective": [
+      2,
+      15,
+      16,
+      12,
+      276918,
+      0
+    ],
+    "ours_objective": [
+      0,
+      0,
+      0,
+      8,
+      217922,
+      0
+    ],
+    "baseline_planned": 33,
+    "ours_planned": 66,
+    "baseline_km": 276.918,
+    "ours_km": 217.922,
+    "seconds": 0.6727850000024773,
+    "violations": 0
+  },
+  {
+    "region": "Юго-восток",
+    "seed": 1,
+    "n": 83,
+    "k": 12,
+    "baseline_objective": [
+      7,
+      18,
+      11,
+      12,
+      448702,
+      7
+    ],
+    "ours_objective": [
+      0,
+      1,
+      0,
+      11,
+      364119,
+      5
+    ],
+    "baseline_planned": 47,
+    "ours_planned": 82,
+    "baseline_km": 448.702,
+    "ours_km": 364.119,
+    "seconds": 1.033766167005524,
+    "violations": 0
+  },
+  {
+    "region": "Юго-восток",
+    "seed": 2,
+    "n": 83,
+    "k": 12,
+    "baseline_objective": [
+      11,
+      17,
+      14,
+      12,
+      456531,
+      1
+    ],
+    "ours_objective": [
+      0,
+      5,
+      1,
+      11,
+      371603,
+      9
+    ],
+    "baseline_planned": 41,
+    "ours_planned": 77,
+    "baseline_km": 456.531,
+    "ours_km": 371.603,
+    "seconds": 0.8073631249717437,
+    "violations": 0
+  },
+  {
+    "region": "Юго-восток",
+    "seed": 3,
+    "n": 83,
+    "k": 12,
+    "baseline_objective": [
+      11,
+      15,
+      14,
+      12,
+      456817,
+      7
+    ],
+    "ours_objective": [
+      0,
+      2,
+      1,
+      10,
+      328812,
+      8
+    ],
+    "baseline_planned": 43,
+    "ours_planned": 80,
+    "baseline_km": 456.817,
+    "ours_km": 328.812,
+    "seconds": 1.251143041998148,
+    "violations": 0
+  },
+  {
+    "region": "Югоцентр",
+    "seed": 1,
+    "n": 56,
+    "k": 11,
+    "baseline_objective": [
+      0,
+      11,
+      9,
+      11,
+      324420,
+      0
+    ],
+    "ours_objective": [
+      0,
+      0,
+      0,
+      7,
+      226222,
+      0
+    ],
+    "baseline_planned": 36,
+    "ours_planned": 56,
+    "baseline_km": 324.42,
+    "ours_km": 226.222,
+    "seconds": 0.6204855000250973,
+    "violations": 0
+  },
+  {
+    "region": "Югоцентр",
+    "seed": 2,
+    "n": 56,
+    "k": 11,
+    "baseline_objective": [
+      0,
+      11,
+      11,
+      11,
+      242391,
+      0
+    ],
+    "ours_objective": [
+      0,
+      0,
+      0,
+      7,
+      255313,
+      0
+    ],
+    "baseline_planned": 34,
+    "ours_planned": 56,
+    "baseline_km": 242.391,
+    "ours_km": 255.313,
+    "seconds": 0.787128959025722,
+    "violations": 0
+  },
+  {
+    "region": "Югоцентр",
+    "seed": 3,
+    "n": 56,
+    "k": 11,
+    "baseline_objective": [
+      0,
+      10,
+      11,
+      11,
+      320963,
+      0
+    ],
+    "ours_objective": [
+      0,
+      0,
+      0,
+      6,
+      165384,
+      0
+    ],
+    "baseline_planned": 35,
+    "ours_planned": 56,
+    "baseline_km": 320.963,
+    "ours_km": 165.384,
+    "seconds": 0.6867997499648482,
+    "violations": 0
+  }
+]

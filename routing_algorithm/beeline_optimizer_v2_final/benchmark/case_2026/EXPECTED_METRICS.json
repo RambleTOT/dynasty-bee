@@ -1,0 +1,174 @@
+{
+  "solver": {
+    "case_runs": 9,
+    "case_total_requests": 615,
+    "baseline_planned": 334,
+    "ours_planned": 604,
+    "coverage_pct": 98.21138211382114,
+    "baseline_unassigned_by_rank": [
+      35,
+      128,
+      118
+    ],
+    "ours_unassigned_by_rank": [
+      1,
+      8,
+      2
+    ],
+    "baseline_unassigned_total": 281,
+    "ours_unassigned_total": 11,
+    "engineers_median_before": 12,
+    "engineers_median_after": 9,
+    "engineers_reduction_pct": 25.0,
+    "km_median_before": 320.963,
+    "km_median_after": 285.448,
+    "median_km_difference_pct": 11.065138349280149,
+    "unassigned_reduction_pct": 96.08540925266904,
+    "hard_violations": 0,
+    "exact_small_matches": 20,
+    "exact_small_total": 20,
+    "urgent_assigned": 20,
+    "urgent_total": 20,
+    "per_region": {
+      "Восток": {
+        "n": 66,
+        "ours_engineers_median": 9,
+        "fifo_engineers_median": 12,
+        "ours_km_median": 285.448,
+        "fifo_km_median": 276.918,
+        "ours_unassigned_median": 0,
+        "fifo_unassigned_median": 33,
+        "ours_planned_median": 66,
+        "fifo_planned_median": 33
+      },
+      "Юго-восток": {
+        "n": 83,
+        "ours_engineers_median": 11,
+        "fifo_engineers_median": 12,
+        "ours_km_median": 364.119,
+        "fifo_km_median": 456.531,
+        "ours_unassigned_median": 3,
+        "fifo_unassigned_median": 40,
+        "ours_planned_median": 80,
+        "fifo_planned_median": 43
+      },
+      "Югоцентр": {
+        "n": 56,
+        "ours_engineers_median": 7,
+        "fifo_engineers_median": 11,
+        "ours_km_median": 226.222,
+        "fifo_km_median": 320.963,
+        "ours_unassigned_median": 0,
+        "fifo_unassigned_median": 21,
+        "ours_planned_median": 56,
+        "fifo_planned_median": 35
+      }
+    }
+  },
+  "ml": {
+    "origin": "SYNTHETIC_DEMO_NOT_BEELINE",
+    "metrics": {
+      "duration": {
+        "p50_mae_minutes": 10.959110513400184,
+        "p90_coverage": 0.9094444444444445,
+        "p90_target_coverage": 0.9,
+        "p90_calibration_level": 0.91,
+        "test_rows": 1800
+      },
+      "first_time_fix": {
+        "roc_auc": 0.7318654493323409,
+        "brier": 0.1412918739880895,
+        "ece": 0.03831576981189865
+      },
+      "late_start": {
+        "roc_auc": 0.8666264705882353,
+        "brier": 0.04533363319541653,
+        "ece": 0.01737100640992284
+      },
+      "operational_success": {
+        "roc_auc": 0.7359690996306041,
+        "brier": 0.16264199264551926,
+        "ece": 0.044184147205343284
+      },
+      "split": {
+        "train": 8400,
+        "calibration": 1800,
+        "test": 1800
+      }
+    },
+    "rerank_regions": 3,
+    "rerank_accepted": 3,
+    "risk_reduction_pct_by_region": {
+      "Восток": 2.5300997722169627,
+      "Юго-восток": 4.242347765501058,
+      "Югоцентр": 3.5171398494812287
+    },
+    "mean_risk_reduction_pct": 3.4298624623997496,
+    "urgent_response_nonworsening": true
+  },
+  "dispatcher": {
+    "Восток": {
+      "requests": 66,
+      "assigned_rows": 64,
+      "unassigned_rows": 2,
+      "engineers_used": 12,
+      "km_total": 328.669,
+      "travel_minutes": 1629,
+      "started_in_window": 20,
+      "started_in_window_pct_assigned": 31.2,
+      "violation_visits": 53,
+      "violation_events": 106,
+      "violation_breakdown": {
+        "WINDOW": 44,
+        "SHIFT": 35,
+        "NO_TRANSPORT": 4,
+        "NO_SKILL": 23
+      },
+      "engineer_shifts_per_100_assigned": 18.8
+    },
+    "Юго-восток": {
+      "requests": 83,
+      "assigned_rows": 83,
+      "unassigned_rows": 0,
+      "engineers_used": 12,
+      "km_total": 401.263,
+      "travel_minutes": 1509,
+      "started_in_window": 30,
+      "started_in_window_pct_assigned": 36.1,
+      "violation_visits": 69,
+      "violation_events": 120,
+      "violation_breakdown": {
+        "SHIFT": 35,
+        "WINDOW": 53,
+        "NO_SKILL": 26,
+        "NO_TRANSPORT": 6
+      },
+      "engineer_shifts_per_100_assigned": 14.5
+    },
+    "Югоцентр": {
+      "requests": 56,
+      "assigned_rows": 56,
+      "unassigned_rows": 0,
+      "engineers_used": 11,
+      "km_total": 371.485,
+      "travel_minutes": 1706,
+      "started_in_window": 21,
+      "started_in_window_pct_assigned": 37.5,
+      "violation_visits": 44,
+      "violation_events": 84,
+      "violation_breakdown": {
+        "SHIFT": 29,
+        "WINDOW": 35,
+        "NO_TRANSPORT": 2,
+        "NO_SKILL": 18
+      },
+      "engineer_shifts_per_100_assigned": 19.6
+    }
+  },
+  "notes": {
+    "runtime_metrics": "Wall-clock times are hardware-dependent and intentionally excluded from exact equality checks.",
+    "case_design": "205 distinct source requests are evaluated in three generated scenarios: 615 request-runs across nine region-seed runs.",
+    "distance_comparison": "The ratio of median distances is descriptive only: FIFO completes fewer requests, so this is not a like-for-like mileage saving.",
+    "ml_demo": "ML accuracy and risk reduction are from the included SYNTHETIC demonstration history, not real Beeline telemetry."
+  }
+}

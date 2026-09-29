@@ -1,0 +1,2889 @@
+[
+  {
+    "region": "Восток",
+    "requests": 66,
+    "assigned_rows": 64,
+    "unassigned_rows": 2,
+    "engineers_used": 12,
+    "km_total": 328.669,
+    "travel_minutes": 1629,
+    "started_in_window": 20,
+    "started_in_window_pct_assigned": 31.2,
+    "violation_visits": 53,
+    "violation_events": 106,
+    "violation_breakdown": {
+      "WINDOW": 44,
+      "SHIFT": 35,
+      "NO_TRANSPORT": 4,
+      "NO_SKILL": 23
+    },
+    "engineer_shifts_per_100_all": 18.2,
+    "engineer_shifts_per_100_assigned": 18.8,
+    "statuses": {
+      "Не отправлена": 2,
+      "Отправлена": 12,
+      "В пути": 2,
+      "Отменена": 6,
+      "В работе": 4,
+      "Выполнена": 36,
+      "Просрочена": 4
+    },
+    "km_by_engineer": {
+      "Бригада Арташкин": 7.751,
+      "Бригада Белузин": 14.227,
+      "Бригада Гусаковский": 51.624,
+      "Бригада Зверев": 49.741,
+      "Бригада Каушнян": 31.525,
+      "Бригада Комарь": 22.483,
+      "Бригада Матвеев": 41.172,
+      "Бригада Мельников": 16.373,
+      "Бригада Перов": 10.47,
+      "Бригада Попов": 29.564,
+      "Бригада Свеженцев": 35.373,
+      "Бригада Соколов": 18.366
+    },
+    "unknown_engineers": [],
+    "routes": [
+      {
+        "engineer_id": "Бригада Арташкин",
+        "count": 4,
+        "km": 7.751,
+        "visits": [
+          {
+            "idx": 7,
+            "task_id": "61540",
+            "seq": 1,
+            "arrival": 618,
+            "start": 960,
+            "end": 1030,
+            "km": 4.812,
+            "codes": []
+          },
+          {
+            "idx": 21,
+            "task_id": "10245",
+            "seq": 2,
+            "arrival": 1037,
+            "start": 1037,
+            "end": 1107,
+            "km": 1.026,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 56,
+            "task_id": "32807",
+            "seq": 3,
+            "arrival": 1113,
+            "start": 1113,
+            "end": 1143,
+            "km": 0.677,
+            "codes": [
+              "NO_TRANSPORT",
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 57,
+            "task_id": "73572",
+            "seq": 4,
+            "arrival": 1150,
+            "start": 1150,
+            "end": 1180,
+            "km": 1.236,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          }
+        ]
+      },
+      {
+        "engineer_id": "Бригада Белузин",
+        "count": 6,
+        "km": 14.227,
+        "visits": [
+          {
+            "idx": 32,
+            "task_id": "31260",
+            "seq": 1,
+            "arrival": 634,
+            "start": 1200,
+            "end": 1220,
+            "km": 10.205,
+            "codes": []
+          },
+          {
+            "idx": 42,
+            "task_id": "43506",
+            "seq": 2,
+            "arrival": 1220,
+            "start": 1220,
+            "end": 1250,
+            "km": 0.0,
+            "codes": []
+          },
+          {
+            "idx": 47,
+            "task_id": "41912",
+            "seq": 3,
+            "arrival": 1255,
+            "start": 1255,
+            "end": 1285,
+            "km": 0.649,
+            "codes": [
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 58,
+            "task_id": "41962",
+            "seq": 4,
+            "arrival": 1290,
+            "start": 1290,
+            "end": 1370,
+            "km": 0.662,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 59,
+            "task_id": "97886",
+            "seq": 5,
+            "arrival": 1378,
+            "start": 1378,
+            "end": 1458,
+            "km": 1.389,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 61,
+            "task_id": "54964",
+            "seq": 6,
+            "arrival": 1465,
+            "start": 1465,
+            "end": 1545,
+            "km": 1.322,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW",
+              "SHIFT"
+            ]
+          }
+        ]
+      },
+      {
+        "engineer_id": "Бригада Гусаковский",
+        "count": 6,
+        "km": 51.624,
+        "visits": [
+          {
+            "idx": 34,
+            "task_id": "22634",
+            "seq": 1,
+            "arrival": 707,
+            "start": 840,
+            "end": 860,
+            "km": 8.542,
+            "codes": []
+          },
+          {
+            "idx": 35,
+            "task_id": "98815",
+            "seq": 2,
+            "arrival": 991,
+            "start": 1080,
+            "end": 1100,
+            "km": 10.444,
+            "codes": []
+          },
+          {
+            "idx": 36,
+            "task_id": "33527",
+            "seq": 3,
+            "arrival": 1240,
+            "start": 1240,
+            "end": 1260,
+            "km": 11.177,
+            "codes": [
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 53,
+            "task_id": "26645",
+            "seq": 4,
+            "arrival": 1399,
+            "start": 1399,
+            "end": 1429,
+            "km": 11.099,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 54,
+            "task_id": "24076",
+            "seq": 5,
+            "arrival": 1557,
+            "start": 1557,
+            "end": 1587,
+            "km": 10.186,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 55,
+            "task_id": "30243",
+            "seq": 6,
+            "arrival": 1590,
+            "start": 1590,
+            "end": 1620,
+            "km": 0.176,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW",
+              "SHIFT"
+            ]
+          }
+        ]
+      },
+      {
+        "engineer_id": "Бригада Зверев",
+        "count": 3,
+        "km": 49.741,
+        "visits": [
+          {
+            "idx": 16,
+            "task_id": "37272",
+            "seq": 1,
+            "arrival": 623,
+            "start": 623,
+            "end": 693,
+            "km": 10.029,
+            "codes": [
+              "NO_SKILL"
+            ]
+          },
+          {
+            "idx": 17,
+            "task_id": "71388",
+            "seq": 2,
+            "arrival": 739,
+            "start": 840,
+            "end": 910,
+            "km": 20.488,
+            "codes": [
+              "NO_SKILL"
+            ]
+          },
+          {
+            "idx": 44,
+            "task_id": "48227",
+            "seq": 3,
+            "arrival": 953,
+            "start": 953,
+            "end": 983,
+            "km": 19.224,
+            "codes": [
+              "WINDOW"
+            ]
+          }
+        ]
+      },
+      {
+        "engineer_id": "Бригада Каушнян",
+        "count": 5,
+        "km": 31.525,
+        "visits": [
+          {
+            "idx": 13,
+            "task_id": "35675",
+            "seq": 1,
+            "arrival": 632,
+            "start": 960,
+            "end": 1030,
+            "km": 13.997,
+            "codes": []
+          },
+          {
+            "idx": 14,
+            "task_id": "82388",
+            "seq": 2,
+            "arrival": 1034,
+            "start": 1034,
+            "end": 1104,
+            "km": 0.741,
+            "codes": [
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 27,
+            "task_id": "77563",
+            "seq": 3,
+            "arrival": 1126,
+            "start": 1126,
+            "end": 1196,
+            "km": 9.472,
+            "codes": [
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 30,
+            "task_id": "7939",
+            "seq": 4,
+            "arrival": 1207,
+            "start": 1207,
+            "end": 1277,
+            "km": 4.285,
+            "codes": [
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 65,
+            "task_id": "57299",
+            "seq": 5,
+            "arrival": 1285,
+            "start": 1285,
+            "end": 1365,
+            "km": 3.03,
+            "codes": [
+              "NO_SKILL",
+              "SHIFT"
+            ]
+          }
+        ]
+      },
+      {
+        "engineer_id": "Бригада Комарь",
+        "count": 4,
+        "km": 22.483,
+        "visits": [
+          {
+            "idx": 11,
+            "task_id": "93086",
+            "seq": 1,
+            "arrival": 631,
+            "start": 720,
+            "end": 790,
+            "km": 7.226,
+            "codes": []
+          },
+          {
+            "idx": 22,
+            "task_id": "52405",
+            "seq": 2,
+            "arrival": 801,
+            "start": 801,
+            "end": 871,
+            "km": 2.511,
+            "codes": [
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 23,
+            "task_id": "30769",
+            "seq": 3,
+            "arrival": 920,
+            "start": 920,
+            "end": 990,
+            "km": 11.566,
+            "codes": []
+          },
+          {
+            "idx": 39,
+            "task_id": "17892",
+            "seq": 4,
+            "arrival": 996,
+            "start": 1080,
+            "end": 1110,
+            "km": 1.18,
+            "codes": [
+              "NO_SKILL"
+            ]
+          }
+        ]
+      },
+      {
+        "engineer_id": "Бригада Матвеев",
+        "count": 8,
+        "km": 41.172,
+        "visits": [
+          {
+            "idx": 3,
+            "task_id": "46393",
+            "seq": 1,
+            "arrival": 622,
+            "start": 1200,
+            "end": 1270,
+            "km": 6.093,
+            "codes": []
+          },
+          {
+            "idx": 4,
+            "task_id": "10135",
+            "seq": 2,
+            "arrival": 1276,
+            "start": 1276,
+            "end": 1346,
+            "km": 0.982,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 5,
+            "task_id": "18754",
+            "seq": 3,
+            "arrival": 1358,
+            "start": 1358,
+            "end": 1428,
+            "km": 2.706,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 19,
+            "task_id": "67554",
+            "seq": 4,
+            "arrival": 1460,
+            "start": 1460,
+            "end": 1530,
+            "km": 9.559,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 29,
+            "task_id": "82808",
+            "seq": 5,
+            "arrival": 1538,
+            "start": 1538,
+            "end": 1608,
+            "km": 1.358,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 40,
+            "task_id": "51115",
+            "seq": 6,
+            "arrival": 1641,
+            "start": 1641,
+            "end": 1671,
+            "km": 10.008,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 49,
+            "task_id": "68476",
+            "seq": 7,
+            "arrival": 1703,
+            "start": 1703,
+            "end": 1733,
+            "km": 9.561,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 50,
+            "task_id": "50219",
+            "seq": 8,
+            "arrival": 1739,
+            "start": 1739,
+            "end": 1769,
+            "km": 0.905,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          }
+        ]
+      },
+      {
+        "engineer_id": "Бригада Мельников",
+        "count": 6,
+        "km": 16.373,
+        "visits": [
+          {
+            "idx": 2,
+            "task_id": "50104",
+            "seq": 1,
+            "arrival": 639,
+            "start": 1080,
+            "end": 1150,
+            "km": 11.827,
+            "codes": [
+              "NO_TRANSPORT"
+            ]
+          },
+          {
+            "idx": 10,
+            "task_id": "87693",
+            "seq": 2,
+            "arrival": 1155,
+            "start": 1155,
+            "end": 1225,
+            "km": 0.61,
+            "codes": [
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 18,
+            "task_id": "34366",
+            "seq": 3,
+            "arrival": 1235,
+            "start": 1235,
+            "end": 1305,
+            "km": 2.019,
+            "codes": [
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 28,
+            "task_id": "53587",
+            "seq": 4,
+            "arrival": 1311,
+            "start": 1311,
+            "end": 1381,
+            "km": 0.716,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 45,
+            "task_id": "60720",
+            "seq": 5,
+            "arrival": 1387,
+            "start": 1387,
+            "end": 1417,
+            "km": 0.679,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 46,
+            "task_id": "48238",
+            "seq": 6,
+            "arrival": 1422,
+            "start": 1422,
+            "end": 1452,
+            "km": 0.522,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          }
+        ]
+      },
+      {
+        "engineer_id": "Бригада Перов",
+        "count": 4,
+        "km": 10.47,
+        "visits": [
+          {
+            "idx": 20,
+            "task_id": "94409",
+            "seq": 1,
+            "arrival": 670,
+            "start": 720,
+            "end": 790,
+            "km": 5.552,
+            "codes": []
+          },
+          {
+            "idx": 33,
+            "task_id": "69967",
+            "seq": 2,
+            "arrival": 817,
+            "start": 817,
+            "end": 837,
+            "km": 2.117,
+            "codes": [
+              "NO_TRANSPORT",
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 51,
+            "task_id": "76678",
+            "seq": 3,
+            "arrival": 856,
+            "start": 856,
+            "end": 886,
+            "km": 1.446,
+            "codes": [
+              "NO_SKILL",
+              "NO_TRANSPORT",
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 52,
+            "task_id": "47330",
+            "seq": 4,
+            "arrival": 903,
+            "start": 903,
+            "end": 933,
+            "km": 1.355,
+            "codes": [
+              "NO_SKILL"
+            ]
+          }
+        ]
+      },
+      {
+        "engineer_id": "Бригада Попов",
+        "count": 6,
+        "km": 29.564,
+        "visits": [
+          {
+            "idx": 6,
+            "task_id": "84627",
+            "seq": 1,
+            "arrival": 610,
+            "start": 1200,
+            "end": 1270,
+            "km": 3.521,
+            "codes": [
+              "NO_SKILL"
+            ]
+          },
+          {
+            "idx": 12,
+            "task_id": "57866",
+            "seq": 2,
+            "arrival": 1279,
+            "start": 1279,
+            "end": 1349,
+            "km": 3.476,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 24,
+            "task_id": "98182",
+            "seq": 3,
+            "arrival": 1370,
+            "start": 1370,
+            "end": 1440,
+            "km": 8.832,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 25,
+            "task_id": "76082",
+            "seq": 4,
+            "arrival": 1444,
+            "start": 1444,
+            "end": 1514,
+            "km": 0.764,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 26,
+            "task_id": "29890",
+            "seq": 5,
+            "arrival": 1521,
+            "start": 1521,
+            "end": 1591,
+            "km": 2.492,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 43,
+            "task_id": "48174",
+            "seq": 6,
+            "arrival": 1615,
+            "start": 1615,
+            "end": 1645,
+            "km": 10.479,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          }
+        ]
+      },
+      {
+        "engineer_id": "Бригада Свеженцев",
+        "count": 5,
+        "km": 35.373,
+        "visits": [
+          {
+            "idx": 38,
+            "task_id": "47670",
+            "seq": 1,
+            "arrival": 612,
+            "start": 1200,
+            "end": 1230,
+            "km": 4.836,
+            "codes": []
+          },
+          {
+            "idx": 48,
+            "task_id": "4893",
+            "seq": 2,
+            "arrival": 1234,
+            "start": 1234,
+            "end": 1264,
+            "km": 0.762,
+            "codes": [
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 62,
+            "task_id": "21367",
+            "seq": 3,
+            "arrival": 1296,
+            "start": 1296,
+            "end": 1376,
+            "km": 13.927,
+            "codes": [
+              "NO_SKILL",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 63,
+            "task_id": "24980",
+            "seq": 4,
+            "arrival": 1410,
+            "start": 1410,
+            "end": 1490,
+            "km": 14.718,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 64,
+            "task_id": "15648",
+            "seq": 5,
+            "arrival": 1494,
+            "start": 1494,
+            "end": 1574,
+            "km": 1.13,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW",
+              "SHIFT"
+            ]
+          }
+        ]
+      },
+      {
+        "engineer_id": "Бригада Соколов",
+        "count": 7,
+        "km": 18.366,
+        "visits": [
+          {
+            "idx": 1,
+            "task_id": "86160",
+            "seq": 1,
+            "arrival": 640,
+            "start": 1080,
+            "end": 1150,
+            "km": 9.565,
+            "codes": [
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 8,
+            "task_id": "74949",
+            "seq": 2,
+            "arrival": 1155,
+            "start": 1155,
+            "end": 1225,
+            "km": 1.024,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 9,
+            "task_id": "41077",
+            "seq": 3,
+            "arrival": 1232,
+            "start": 1232,
+            "end": 1302,
+            "km": 1.497,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 15,
+            "task_id": "23380",
+            "seq": 4,
+            "arrival": 1309,
+            "start": 1309,
+            "end": 1379,
+            "km": 1.422,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 37,
+            "task_id": "21571",
+            "seq": 5,
+            "arrival": 1389,
+            "start": 1389,
+            "end": 1419,
+            "km": 2.121,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 41,
+            "task_id": "76643",
+            "seq": 6,
+            "arrival": 1426,
+            "start": 1426,
+            "end": 1456,
+            "km": 1.446,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 60,
+            "task_id": "17349",
+            "seq": 7,
+            "arrival": 1462,
+            "start": 1462,
+            "end": 1542,
+            "km": 1.291,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW",
+              "SHIFT"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "region": "Юго-восток",
+    "requests": 83,
+    "assigned_rows": 83,
+    "unassigned_rows": 0,
+    "engineers_used": 12,
+    "km_total": 401.263,
+    "travel_minutes": 1509,
+    "started_in_window": 30,
+    "started_in_window_pct_assigned": 36.1,
+    "violation_visits": 69,
+    "violation_events": 120,
+    "violation_breakdown": {
+      "SHIFT": 35,
+      "WINDOW": 53,
+      "NO_SKILL": 26,
+      "NO_TRANSPORT": 6
+    },
+    "engineer_shifts_per_100_all": 14.5,
+    "engineer_shifts_per_100_assigned": 14.5,
+    "statuses": {
+      "Отправлена": 21,
+      "В пути": 4,
+      "Отменена": 10,
+      "В работе": 3,
+      "Выполнена": 39,
+      "Просрочена": 6
+    },
+    "km_by_engineer": {
+      "Бригада Андреев": 65.374,
+      "Бригада Белоновский": 20.85,
+      "Бригада Бузань": 10.905,
+      "Бригада Горбанев": 76.14,
+      "Бригада Демин": 2.079,
+      "Бригада Каушнян": 8.878,
+      "Бригада Козырь": 86.162,
+      "Бригада Макаров": 14.651,
+      "Бригада Паршин": 16.288,
+      "Бригада Рыбин": 62.193,
+      "Бригада Саламатин": 27.35,
+      "Бригада Царьков": 10.393
+    },
+    "unknown_engineers": [],
+    "routes": [
+      {
+        "engineer_id": "Бригада Андреев",
+        "count": 7,
+        "km": 65.374,
+        "visits": [
+          {
+            "idx": 1,
+            "task_id": "84466",
+            "seq": 1,
+            "arrival": 630,
+            "start": 1080,
+            "end": 1150,
+            "km": 8.93,
+            "codes": [
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 10,
+            "task_id": "58066",
+            "seq": 2,
+            "arrival": 1165,
+            "start": 1165,
+            "end": 1235,
+            "km": 3.974,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 31,
+            "task_id": "58129",
+            "seq": 3,
+            "arrival": 1291,
+            "start": 1291,
+            "end": 1361,
+            "km": 17.627,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 44,
+            "task_id": "33880",
+            "seq": 4,
+            "arrival": 1413,
+            "start": 1413,
+            "end": 1443,
+            "km": 16.205,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 47,
+            "task_id": "88209",
+            "seq": 5,
+            "arrival": 1452,
+            "start": 1452,
+            "end": 1482,
+            "km": 1.96,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 63,
+            "task_id": "40919",
+            "seq": 6,
+            "arrival": 1528,
+            "start": 1528,
+            "end": 1558,
+            "km": 14.257,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 64,
+            "task_id": "36961",
+            "seq": 7,
+            "arrival": 1569,
+            "start": 1569,
+            "end": 1599,
+            "km": 2.421,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          }
+        ]
+      },
+      {
+        "engineer_id": "Бригада Белоновский",
+        "count": 8,
+        "km": 20.85,
+        "visits": [
+          {
+            "idx": 2,
+            "task_id": "14416",
+            "seq": 1,
+            "arrival": 624,
+            "start": 960,
+            "end": 1030,
+            "km": 7.004,
+            "codes": []
+          },
+          {
+            "idx": 11,
+            "task_id": "2915",
+            "seq": 2,
+            "arrival": 1036,
+            "start": 1036,
+            "end": 1106,
+            "km": 0.832,
+            "codes": [
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 12,
+            "task_id": "3566",
+            "seq": 3,
+            "arrival": 1106,
+            "start": 1106,
+            "end": 1176,
+            "km": 0.0,
+            "codes": [
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 32,
+            "task_id": "93798",
+            "seq": 4,
+            "arrival": 1184,
+            "start": 1184,
+            "end": 1254,
+            "km": 1.445,
+            "codes": [
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 35,
+            "task_id": "40698",
+            "seq": 5,
+            "arrival": 1261,
+            "start": 1261,
+            "end": 1331,
+            "km": 1.232,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 45,
+            "task_id": "37590",
+            "seq": 6,
+            "arrival": 1350,
+            "start": 1350,
+            "end": 1380,
+            "km": 5.066,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 66,
+            "task_id": "95692",
+            "seq": 7,
+            "arrival": 1397,
+            "start": 1397,
+            "end": 1427,
+            "km": 4.625,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 70,
+            "task_id": "20055",
+            "seq": 8,
+            "arrival": 1432,
+            "start": 1432,
+            "end": 1462,
+            "km": 0.646,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          }
+        ]
+      },
+      {
+        "engineer_id": "Бригада Бузань",
+        "count": 7,
+        "km": 10.905,
+        "visits": [
+          {
+            "idx": 6,
+            "task_id": "23807",
+            "seq": 1,
+            "arrival": 663,
+            "start": 663,
+            "end": 733,
+            "km": 5.004,
+            "codes": []
+          },
+          {
+            "idx": 7,
+            "task_id": "60484",
+            "seq": 2,
+            "arrival": 745,
+            "start": 840,
+            "end": 910,
+            "km": 0.925,
+            "codes": []
+          },
+          {
+            "idx": 8,
+            "task_id": "63591",
+            "seq": 3,
+            "arrival": 923,
+            "start": 923,
+            "end": 993,
+            "km": 1.02,
+            "codes": []
+          },
+          {
+            "idx": 19,
+            "task_id": "76173",
+            "seq": 4,
+            "arrival": 1009,
+            "start": 1009,
+            "end": 1079,
+            "km": 1.239,
+            "codes": []
+          },
+          {
+            "idx": 20,
+            "task_id": "876",
+            "seq": 5,
+            "arrival": 1088,
+            "start": 1088,
+            "end": 1158,
+            "km": 0.648,
+            "codes": [
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 46,
+            "task_id": "33507",
+            "seq": 6,
+            "arrival": 1172,
+            "start": 1172,
+            "end": 1202,
+            "km": 1.059,
+            "codes": [
+              "NO_SKILL"
+            ]
+          },
+          {
+            "idx": 58,
+            "task_id": "11899",
+            "seq": 7,
+            "arrival": 1215,
+            "start": 1215,
+            "end": 1245,
+            "km": 1.01,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW"
+            ]
+          }
+        ]
+      },
+      {
+        "engineer_id": "Бригада Горбанев",
+        "count": 14,
+        "km": 76.14,
+        "visits": [
+          {
+            "idx": 5,
+            "task_id": "52041",
+            "seq": 1,
+            "arrival": 620,
+            "start": 720,
+            "end": 790,
+            "km": 8.21,
+            "codes": [
+              "NO_SKILL"
+            ]
+          },
+          {
+            "idx": 17,
+            "task_id": "65717",
+            "seq": 2,
+            "arrival": 798,
+            "start": 798,
+            "end": 868,
+            "km": 2.752,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 18,
+            "task_id": "44117",
+            "seq": 3,
+            "arrival": 872,
+            "start": 872,
+            "end": 942,
+            "km": 0.76,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 36,
+            "task_id": "2427",
+            "seq": 4,
+            "arrival": 945,
+            "start": 1080,
+            "end": 1100,
+            "km": 0.5,
+            "codes": [
+              "NO_SKILL"
+            ]
+          },
+          {
+            "idx": 39,
+            "task_id": "72476",
+            "seq": 5,
+            "arrival": 1124,
+            "start": 1124,
+            "end": 1144,
+            "km": 10.068,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 48,
+            "task_id": "24482",
+            "seq": 6,
+            "arrival": 1167,
+            "start": 1200,
+            "end": 1230,
+            "km": 9.831,
+            "codes": []
+          },
+          {
+            "idx": 51,
+            "task_id": "75282",
+            "seq": 7,
+            "arrival": 1255,
+            "start": 1255,
+            "end": 1285,
+            "km": 10.788,
+            "codes": [
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 53,
+            "task_id": "7610",
+            "seq": 8,
+            "arrival": 1309,
+            "start": 1309,
+            "end": 1339,
+            "km": 10.327,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 54,
+            "task_id": "19216",
+            "seq": 9,
+            "arrival": 1344,
+            "start": 1344,
+            "end": 1374,
+            "km": 1.305,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 55,
+            "task_id": "11872",
+            "seq": 10,
+            "arrival": 1378,
+            "start": 1378,
+            "end": 1408,
+            "km": 1.031,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 56,
+            "task_id": "54422",
+            "seq": 11,
+            "arrival": 1412,
+            "start": 1412,
+            "end": 1442,
+            "km": 0.746,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 57,
+            "task_id": "4724",
+            "seq": 12,
+            "arrival": 1445,
+            "start": 1445,
+            "end": 1475,
+            "km": 0.331,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 81,
+            "task_id": "1287",
+            "seq": 13,
+            "arrival": 1509,
+            "start": 1509,
+            "end": 1589,
+            "km": 14.806,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 82,
+            "task_id": "31495",
+            "seq": 14,
+            "arrival": 1601,
+            "start": 1601,
+            "end": 1681,
+            "km": 4.685,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          }
+        ]
+      },
+      {
+        "engineer_id": "Бригада Демин",
+        "count": 1,
+        "km": 2.079,
+        "visits": [
+          {
+            "idx": 65,
+            "task_id": "12329",
+            "seq": 1,
+            "arrival": 606,
+            "start": 720,
+            "end": 750,
+            "km": 2.079,
+            "codes": []
+          }
+        ]
+      },
+      {
+        "engineer_id": "Бригада Каушнян",
+        "count": 1,
+        "km": 8.878,
+        "visits": [
+          {
+            "idx": 33,
+            "task_id": "89696",
+            "seq": 1,
+            "arrival": 638,
+            "start": 840,
+            "end": 910,
+            "km": 8.878,
+            "codes": []
+          }
+        ]
+      },
+      {
+        "engineer_id": "Бригада Козырь",
+        "count": 9,
+        "km": 86.162,
+        "visits": [
+          {
+            "idx": 9,
+            "task_id": "53552",
+            "seq": 1,
+            "arrival": 648,
+            "start": 840,
+            "end": 910,
+            "km": 15.066,
+            "codes": []
+          },
+          {
+            "idx": 26,
+            "task_id": "78876",
+            "seq": 2,
+            "arrival": 914,
+            "start": 914,
+            "end": 984,
+            "km": 0.045,
+            "codes": [
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 27,
+            "task_id": "23094",
+            "seq": 3,
+            "arrival": 991,
+            "start": 991,
+            "end": 1061,
+            "km": 1.034,
+            "codes": [
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 38,
+            "task_id": "13404",
+            "seq": 4,
+            "arrival": 1069,
+            "start": 1200,
+            "end": 1220,
+            "km": 1.653,
+            "codes": []
+          },
+          {
+            "idx": 43,
+            "task_id": "65268",
+            "seq": 5,
+            "arrival": 1286,
+            "start": 1286,
+            "end": 1316,
+            "km": 21.093,
+            "codes": [
+              "NO_TRANSPORT"
+            ]
+          },
+          {
+            "idx": 49,
+            "task_id": "40111",
+            "seq": 6,
+            "arrival": 1316,
+            "start": 1316,
+            "end": 1346,
+            "km": 0.0,
+            "codes": [
+              "NO_TRANSPORT",
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 69,
+            "task_id": "45778",
+            "seq": 7,
+            "arrival": 1415,
+            "start": 1415,
+            "end": 1445,
+            "km": 22.119,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 78,
+            "task_id": "81698",
+            "seq": 8,
+            "arrival": 1518,
+            "start": 1518,
+            "end": 1598,
+            "km": 23.39,
+            "codes": [
+              "NO_TRANSPORT",
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 79,
+            "task_id": "97168",
+            "seq": 9,
+            "arrival": 1607,
+            "start": 1607,
+            "end": 1687,
+            "km": 1.762,
+            "codes": [
+              "NO_TRANSPORT",
+              "WINDOW",
+              "SHIFT"
+            ]
+          }
+        ]
+      },
+      {
+        "engineer_id": "Бригада Макаров",
+        "count": 5,
+        "km": 14.651,
+        "visits": [
+          {
+            "idx": 23,
+            "task_id": "2245",
+            "seq": 1,
+            "arrival": 641,
+            "start": 840,
+            "end": 910,
+            "km": 12.496,
+            "codes": []
+          },
+          {
+            "idx": 24,
+            "task_id": "14494",
+            "seq": 2,
+            "arrival": 915,
+            "start": 915,
+            "end": 985,
+            "km": 0.41,
+            "codes": [
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 25,
+            "task_id": "78920",
+            "seq": 3,
+            "arrival": 990,
+            "start": 990,
+            "end": 1060,
+            "km": 0.369,
+            "codes": [
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 37,
+            "task_id": "51603",
+            "seq": 4,
+            "arrival": 1060,
+            "start": 1080,
+            "end": 1100,
+            "km": 0.0,
+            "codes": []
+          },
+          {
+            "idx": 42,
+            "task_id": "89067",
+            "seq": 5,
+            "arrival": 1108,
+            "start": 1108,
+            "end": 1138,
+            "km": 1.376,
+            "codes": [
+              "NO_TRANSPORT"
+            ]
+          }
+        ]
+      },
+      {
+        "engineer_id": "Бригада Паршин",
+        "count": 11,
+        "km": 16.288,
+        "visits": [
+          {
+            "idx": 0,
+            "task_id": "67472",
+            "seq": 1,
+            "arrival": 697,
+            "start": 960,
+            "end": 1030,
+            "km": 7.713,
+            "codes": []
+          },
+          {
+            "idx": 4,
+            "task_id": "66944",
+            "seq": 2,
+            "arrival": 1040,
+            "start": 1040,
+            "end": 1110,
+            "km": 0.736,
+            "codes": [
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 14,
+            "task_id": "55454",
+            "seq": 3,
+            "arrival": 1120,
+            "start": 1120,
+            "end": 1190,
+            "km": 0.773,
+            "codes": [
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 15,
+            "task_id": "35057",
+            "seq": 4,
+            "arrival": 1201,
+            "start": 1201,
+            "end": 1271,
+            "km": 0.807,
+            "codes": [
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 16,
+            "task_id": "75745",
+            "seq": 5,
+            "arrival": 1281,
+            "start": 1281,
+            "end": 1351,
+            "km": 0.791,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 40,
+            "task_id": "90989",
+            "seq": 6,
+            "arrival": 1359,
+            "start": 1359,
+            "end": 1389,
+            "km": 0.591,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 41,
+            "task_id": "7660",
+            "seq": 7,
+            "arrival": 1411,
+            "start": 1411,
+            "end": 1441,
+            "km": 1.691,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 50,
+            "task_id": "46199",
+            "seq": 8,
+            "arrival": 1452,
+            "start": 1452,
+            "end": 1482,
+            "km": 0.853,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 52,
+            "task_id": "63577",
+            "seq": 9,
+            "arrival": 1497,
+            "start": 1497,
+            "end": 1527,
+            "km": 1.162,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 67,
+            "task_id": "13583",
+            "seq": 10,
+            "arrival": 1531,
+            "start": 1531,
+            "end": 1561,
+            "km": 0.308,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 71,
+            "task_id": "7258",
+            "seq": 11,
+            "arrival": 1572,
+            "start": 1572,
+            "end": 1652,
+            "km": 0.863,
+            "codes": [
+              "NO_TRANSPORT",
+              "WINDOW",
+              "SHIFT"
+            ]
+          }
+        ]
+      },
+      {
+        "engineer_id": "Бригада Рыбин",
+        "count": 8,
+        "km": 62.193,
+        "visits": [
+          {
+            "idx": 3,
+            "task_id": "68359",
+            "seq": 1,
+            "arrival": 619,
+            "start": 960,
+            "end": 1030,
+            "km": 7.925,
+            "codes": [
+              "NO_SKILL"
+            ]
+          },
+          {
+            "idx": 28,
+            "task_id": "79144",
+            "seq": 2,
+            "arrival": 1061,
+            "start": 1061,
+            "end": 1131,
+            "km": 13.397,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 29,
+            "task_id": "60141",
+            "seq": 3,
+            "arrival": 1134,
+            "start": 1134,
+            "end": 1204,
+            "km": 0.416,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 30,
+            "task_id": "79450",
+            "seq": 4,
+            "arrival": 1207,
+            "start": 1207,
+            "end": 1277,
+            "km": 0.589,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 59,
+            "task_id": "60886",
+            "seq": 5,
+            "arrival": 1280,
+            "start": 1280,
+            "end": 1310,
+            "km": 0.388,
+            "codes": [
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 60,
+            "task_id": "32066",
+            "seq": 6,
+            "arrival": 1342,
+            "start": 1342,
+            "end": 1372,
+            "km": 13.881,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 61,
+            "task_id": "63894",
+            "seq": 7,
+            "arrival": 1401,
+            "start": 1401,
+            "end": 1431,
+            "km": 12.509,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 62,
+            "task_id": "64168",
+            "seq": 8,
+            "arrival": 1461,
+            "start": 1461,
+            "end": 1491,
+            "km": 13.088,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          }
+        ]
+      },
+      {
+        "engineer_id": "Бригада Саламатин",
+        "count": 11,
+        "km": 27.35,
+        "visits": [
+          {
+            "idx": 21,
+            "task_id": "62011",
+            "seq": 1,
+            "arrival": 634,
+            "start": 634,
+            "end": 704,
+            "km": 15.152,
+            "codes": [
+              "NO_SKILL"
+            ]
+          },
+          {
+            "idx": 22,
+            "task_id": "57353",
+            "seq": 2,
+            "arrival": 708,
+            "start": 720,
+            "end": 790,
+            "km": 0.791,
+            "codes": [
+              "NO_SKILL"
+            ]
+          },
+          {
+            "idx": 34,
+            "task_id": "20362",
+            "seq": 3,
+            "arrival": 795,
+            "start": 840,
+            "end": 910,
+            "km": 1.425,
+            "codes": [
+              "NO_SKILL"
+            ]
+          },
+          {
+            "idx": 68,
+            "task_id": "3151",
+            "seq": 4,
+            "arrival": 916,
+            "start": 916,
+            "end": 946,
+            "km": 1.946,
+            "codes": [
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 72,
+            "task_id": "78673",
+            "seq": 5,
+            "arrival": 951,
+            "start": 951,
+            "end": 1031,
+            "km": 1.221,
+            "codes": [
+              "NO_SKILL"
+            ]
+          },
+          {
+            "idx": 73,
+            "task_id": "98998",
+            "seq": 6,
+            "arrival": 1038,
+            "start": 1038,
+            "end": 1118,
+            "km": 2.41,
+            "codes": [
+              "NO_SKILL"
+            ]
+          },
+          {
+            "idx": 74,
+            "task_id": "32589",
+            "seq": 7,
+            "arrival": 1122,
+            "start": 1122,
+            "end": 1202,
+            "km": 1.017,
+            "codes": [
+              "NO_SKILL"
+            ]
+          },
+          {
+            "idx": 75,
+            "task_id": "51774",
+            "seq": 8,
+            "arrival": 1204,
+            "start": 1204,
+            "end": 1284,
+            "km": 0.086,
+            "codes": [
+              "NO_SKILL"
+            ]
+          },
+          {
+            "idx": 76,
+            "task_id": "90915",
+            "seq": 9,
+            "arrival": 1288,
+            "start": 1288,
+            "end": 1368,
+            "km": 0.788,
+            "codes": [
+              "NO_SKILL",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 77,
+            "task_id": "45243",
+            "seq": 10,
+            "arrival": 1374,
+            "start": 1374,
+            "end": 1454,
+            "km": 1.748,
+            "codes": [
+              "NO_SKILL",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 80,
+            "task_id": "65034",
+            "seq": 11,
+            "arrival": 1458,
+            "start": 1458,
+            "end": 1538,
+            "km": 0.766,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW",
+              "SHIFT"
+            ]
+          }
+        ]
+      },
+      {
+        "engineer_id": "Бригада Царьков",
+        "count": 1,
+        "km": 10.393,
+        "visits": [
+          {
+            "idx": 13,
+            "task_id": "68946",
+            "seq": 1,
+            "arrival": 644,
+            "start": 960,
+            "end": 1030,
+            "km": 10.393,
+            "codes": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "region": "Югоцентр",
+    "requests": 56,
+    "assigned_rows": 56,
+    "unassigned_rows": 0,
+    "engineers_used": 11,
+    "km_total": 371.485,
+    "travel_minutes": 1706,
+    "started_in_window": 21,
+    "started_in_window_pct_assigned": 37.5,
+    "violation_visits": 44,
+    "violation_events": 84,
+    "violation_breakdown": {
+      "SHIFT": 29,
+      "WINDOW": 35,
+      "NO_TRANSPORT": 2,
+      "NO_SKILL": 18
+    },
+    "engineer_shifts_per_100_all": 19.6,
+    "engineer_shifts_per_100_assigned": 19.6,
+    "statuses": {
+      "Отправлена": 10,
+      "Отменена": 5,
+      "В работе": 4,
+      "Выполнена": 37
+    },
+    "km_by_engineer": {
+      "Бахарев Андрей": 74.418,
+      "Брюзгин Ярослав": 17.647,
+      "Выговский Сергей": 26.382,
+      "Данилов Даниил": 6.452,
+      "Ионов Геннадий": 31.445,
+      "Исхаков Денис": 86.279,
+      "Капитанчук Александр": 48.574,
+      "Переладов Алексей": 13.045,
+      "Прокопенко Вячеслав": 19.807,
+      "Рыбалкин Егор": 34.136,
+      "Сакур Тимофей": 13.3
+    },
+    "unknown_engineers": [],
+    "routes": [
+      {
+        "engineer_id": "Бахарев Андрей",
+        "count": 9,
+        "km": 74.418,
+        "visits": [
+          {
+            "idx": 4,
+            "task_id": "97770",
+            "seq": 1,
+            "arrival": 625,
+            "start": 1200,
+            "end": 1270,
+            "km": 7.132,
+            "codes": [
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 7,
+            "task_id": "75881",
+            "seq": 2,
+            "arrival": 1282,
+            "start": 1282,
+            "end": 1352,
+            "km": 2.701,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 20,
+            "task_id": "52576",
+            "seq": 3,
+            "arrival": 1400,
+            "start": 1400,
+            "end": 1470,
+            "km": 15.077,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 21,
+            "task_id": "66315",
+            "seq": 4,
+            "arrival": 1518,
+            "start": 1518,
+            "end": 1588,
+            "km": 15.036,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 29,
+            "task_id": "49105",
+            "seq": 5,
+            "arrival": 1601,
+            "start": 1601,
+            "end": 1621,
+            "km": 3.123,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 50,
+            "task_id": "26896",
+            "seq": 6,
+            "arrival": 1646,
+            "start": 1646,
+            "end": 1676,
+            "km": 7.268,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 51,
+            "task_id": "87819",
+            "seq": 7,
+            "arrival": 1690,
+            "start": 1690,
+            "end": 1720,
+            "km": 3.679,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 52,
+            "task_id": "5406",
+            "seq": 8,
+            "arrival": 1753,
+            "start": 1753,
+            "end": 1783,
+            "km": 9.813,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 53,
+            "task_id": "86864",
+            "seq": 9,
+            "arrival": 1818,
+            "start": 1818,
+            "end": 1848,
+            "km": 10.589,
+            "codes": [
+              "NO_TRANSPORT",
+              "WINDOW",
+              "SHIFT"
+            ]
+          }
+        ]
+      },
+      {
+        "engineer_id": "Брюзгин Ярослав",
+        "count": 7,
+        "km": 17.647,
+        "visits": [
+          {
+            "idx": 3,
+            "task_id": "23637",
+            "seq": 1,
+            "arrival": 635,
+            "start": 1200,
+            "end": 1270,
+            "km": 10.543,
+            "codes": []
+          },
+          {
+            "idx": 19,
+            "task_id": "94431",
+            "seq": 2,
+            "arrival": 1275,
+            "start": 1275,
+            "end": 1345,
+            "km": 0.515,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 28,
+            "task_id": "78036",
+            "seq": 3,
+            "arrival": 1355,
+            "start": 1355,
+            "end": 1375,
+            "km": 2.276,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 32,
+            "task_id": "77795",
+            "seq": 4,
+            "arrival": 1384,
+            "start": 1384,
+            "end": 1414,
+            "km": 1.727,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 47,
+            "task_id": "46513",
+            "seq": 5,
+            "arrival": 1419,
+            "start": 1419,
+            "end": 1449,
+            "km": 0.339,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 48,
+            "task_id": "35265",
+            "seq": 6,
+            "arrival": 1454,
+            "start": 1454,
+            "end": 1484,
+            "km": 0.643,
+            "codes": [
+              "NO_TRANSPORT",
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 49,
+            "task_id": "13203",
+            "seq": 7,
+            "arrival": 1492,
+            "start": 1492,
+            "end": 1522,
+            "km": 1.604,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          }
+        ]
+      },
+      {
+        "engineer_id": "Выговский Сергей",
+        "count": 4,
+        "km": 26.382,
+        "visits": [
+          {
+            "idx": 6,
+            "task_id": "76944",
+            "seq": 1,
+            "arrival": 714,
+            "start": 960,
+            "end": 1030,
+            "km": 9.112,
+            "codes": []
+          },
+          {
+            "idx": 9,
+            "task_id": "19376",
+            "seq": 2,
+            "arrival": 1035,
+            "start": 1035,
+            "end": 1105,
+            "km": 0.393,
+            "codes": []
+          },
+          {
+            "idx": 30,
+            "task_id": "27023",
+            "seq": 3,
+            "arrival": 1113,
+            "start": 1113,
+            "end": 1143,
+            "km": 0.597,
+            "codes": [
+              "NO_SKILL"
+            ]
+          },
+          {
+            "idx": 55,
+            "task_id": "18023",
+            "seq": 4,
+            "arrival": 1347,
+            "start": 1347,
+            "end": 1427,
+            "km": 16.28,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          }
+        ]
+      },
+      {
+        "engineer_id": "Данилов Даниил",
+        "count": 3,
+        "km": 6.452,
+        "visits": [
+          {
+            "idx": 8,
+            "task_id": "85188",
+            "seq": 1,
+            "arrival": 611,
+            "start": 960,
+            "end": 1030,
+            "km": 4.211,
+            "codes": [
+              "NO_SKILL"
+            ]
+          },
+          {
+            "idx": 26,
+            "task_id": "79719",
+            "seq": 2,
+            "arrival": 1034,
+            "start": 1034,
+            "end": 1104,
+            "km": 1.037,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 27,
+            "task_id": "6957",
+            "seq": 3,
+            "arrival": 1109,
+            "start": 1109,
+            "end": 1179,
+            "km": 1.204,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW"
+            ]
+          }
+        ]
+      },
+      {
+        "engineer_id": "Ионов Геннадий",
+        "count": 3,
+        "km": 31.445,
+        "visits": [
+          {
+            "idx": 17,
+            "task_id": "94447",
+            "seq": 1,
+            "arrival": 620,
+            "start": 620,
+            "end": 690,
+            "km": 8.577,
+            "codes": [
+              "NO_SKILL"
+            ]
+          },
+          {
+            "idx": 39,
+            "task_id": "12263",
+            "seq": 2,
+            "arrival": 716,
+            "start": 716,
+            "end": 746,
+            "km": 10.967,
+            "codes": []
+          },
+          {
+            "idx": 40,
+            "task_id": "95501",
+            "seq": 3,
+            "arrival": 774,
+            "start": 1200,
+            "end": 1230,
+            "km": 11.901,
+            "codes": []
+          }
+        ]
+      },
+      {
+        "engineer_id": "Исхаков Денис",
+        "count": 8,
+        "km": 86.279,
+        "visits": [
+          {
+            "idx": 2,
+            "task_id": "66376",
+            "seq": 1,
+            "arrival": 659,
+            "start": 1080,
+            "end": 1150,
+            "km": 14.061,
+            "codes": []
+          },
+          {
+            "idx": 18,
+            "task_id": "94575",
+            "seq": 2,
+            "arrival": 1215,
+            "start": 1215,
+            "end": 1285,
+            "km": 15.44,
+            "codes": [
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 41,
+            "task_id": "86002",
+            "seq": 3,
+            "arrival": 1290,
+            "start": 1290,
+            "end": 1320,
+            "km": 0.883,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 42,
+            "task_id": "92618",
+            "seq": 4,
+            "arrival": 1361,
+            "start": 1361,
+            "end": 1391,
+            "km": 9.813,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 43,
+            "task_id": "26845",
+            "seq": 5,
+            "arrival": 1435,
+            "start": 1435,
+            "end": 1465,
+            "km": 10.465,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 44,
+            "task_id": "80308",
+            "seq": 6,
+            "arrival": 1540,
+            "start": 1540,
+            "end": 1570,
+            "km": 18.014,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 45,
+            "task_id": "93276",
+            "seq": 7,
+            "arrival": 1643,
+            "start": 1643,
+            "end": 1673,
+            "km": 17.369,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 46,
+            "task_id": "61311",
+            "seq": 8,
+            "arrival": 1675,
+            "start": 1675,
+            "end": 1705,
+            "km": 0.234,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW",
+              "SHIFT"
+            ]
+          }
+        ]
+      },
+      {
+        "engineer_id": "Капитанчук Александр",
+        "count": 5,
+        "km": 48.574,
+        "visits": [
+          {
+            "idx": 0,
+            "task_id": "32840",
+            "seq": 1,
+            "arrival": 623,
+            "start": 1080,
+            "end": 1150,
+            "km": 6.458,
+            "codes": []
+          },
+          {
+            "idx": 1,
+            "task_id": "78540",
+            "seq": 2,
+            "arrival": 1157,
+            "start": 1157,
+            "end": 1227,
+            "km": 1.185,
+            "codes": []
+          },
+          {
+            "idx": 13,
+            "task_id": "47560",
+            "seq": 3,
+            "arrival": 1289,
+            "start": 1289,
+            "end": 1359,
+            "km": 19.625,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 14,
+            "task_id": "79707",
+            "seq": 4,
+            "arrival": 1415,
+            "start": 1415,
+            "end": 1485,
+            "km": 17.677,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 36,
+            "task_id": "51133",
+            "seq": 5,
+            "arrival": 1499,
+            "start": 1499,
+            "end": 1529,
+            "km": 3.629,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          }
+        ]
+      },
+      {
+        "engineer_id": "Переладов Алексей",
+        "count": 5,
+        "km": 13.045,
+        "visits": [
+          {
+            "idx": 10,
+            "task_id": "6185",
+            "seq": 1,
+            "arrival": 634,
+            "start": 1080,
+            "end": 1150,
+            "km": 10.276,
+            "codes": []
+          },
+          {
+            "idx": 22,
+            "task_id": "93544",
+            "seq": 2,
+            "arrival": 1157,
+            "start": 1157,
+            "end": 1227,
+            "km": 1.013,
+            "codes": [
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 23,
+            "task_id": "19203",
+            "seq": 3,
+            "arrival": 1232,
+            "start": 1232,
+            "end": 1302,
+            "km": 0.407,
+            "codes": [
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 33,
+            "task_id": "24132",
+            "seq": 4,
+            "arrival": 1306,
+            "start": 1306,
+            "end": 1336,
+            "km": 0.242,
+            "codes": [
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 54,
+            "task_id": "17896",
+            "seq": 5,
+            "arrival": 1343,
+            "start": 1343,
+            "end": 1373,
+            "km": 1.107,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          }
+        ]
+      },
+      {
+        "engineer_id": "Прокопенко Вячеслав",
+        "count": 4,
+        "km": 19.807,
+        "visits": [
+          {
+            "idx": 5,
+            "task_id": "55711",
+            "seq": 1,
+            "arrival": 704,
+            "start": 720,
+            "end": 790,
+            "km": 8.311,
+            "codes": []
+          },
+          {
+            "idx": 12,
+            "task_id": "76452",
+            "seq": 2,
+            "arrival": 802,
+            "start": 802,
+            "end": 872,
+            "km": 0.889,
+            "codes": []
+          },
+          {
+            "idx": 34,
+            "task_id": "99841",
+            "seq": 3,
+            "arrival": 982,
+            "start": 1080,
+            "end": 1110,
+            "km": 8.736,
+            "codes": [
+              "NO_SKILL"
+            ]
+          },
+          {
+            "idx": 35,
+            "task_id": "20263",
+            "seq": 4,
+            "arrival": 1134,
+            "start": 1134,
+            "end": 1164,
+            "km": 1.871,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW"
+            ]
+          }
+        ]
+      },
+      {
+        "engineer_id": "Рыбалкин Егор",
+        "count": 5,
+        "km": 34.136,
+        "visits": [
+          {
+            "idx": 15,
+            "task_id": "23142",
+            "seq": 1,
+            "arrival": 620,
+            "start": 620,
+            "end": 690,
+            "km": 8.283,
+            "codes": [
+              "NO_SKILL"
+            ]
+          },
+          {
+            "idx": 16,
+            "task_id": "10776",
+            "seq": 2,
+            "arrival": 695,
+            "start": 720,
+            "end": 790,
+            "km": 1.308,
+            "codes": [
+              "NO_SKILL"
+            ]
+          },
+          {
+            "idx": 31,
+            "task_id": "26177",
+            "seq": 3,
+            "arrival": 816,
+            "start": 1200,
+            "end": 1230,
+            "km": 11.033,
+            "codes": []
+          },
+          {
+            "idx": 37,
+            "task_id": "90709",
+            "seq": 4,
+            "arrival": 1257,
+            "start": 1257,
+            "end": 1287,
+            "km": 11.753,
+            "codes": [
+              "WINDOW"
+            ]
+          },
+          {
+            "idx": 38,
+            "task_id": "84074",
+            "seq": 5,
+            "arrival": 1293,
+            "start": 1293,
+            "end": 1323,
+            "km": 1.759,
+            "codes": [
+              "WINDOW",
+              "SHIFT"
+            ]
+          }
+        ]
+      },
+      {
+        "engineer_id": "Сакур Тимофей",
+        "count": 3,
+        "km": 13.3,
+        "visits": [
+          {
+            "idx": 11,
+            "task_id": "80548",
+            "seq": 1,
+            "arrival": 606,
+            "start": 960,
+            "end": 1030,
+            "km": 1.951,
+            "codes": [
+              "NO_SKILL"
+            ]
+          },
+          {
+            "idx": 24,
+            "task_id": "16024",
+            "seq": 2,
+            "arrival": 1053,
+            "start": 1053,
+            "end": 1123,
+            "km": 10.026,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW",
+              "SHIFT"
+            ]
+          },
+          {
+            "idx": 25,
+            "task_id": "90373",
+            "seq": 3,
+            "arrival": 1128,
+            "start": 1128,
+            "end": 1198,
+            "km": 1.323,
+            "codes": [
+              "NO_SKILL",
+              "WINDOW",
+              "SHIFT"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
