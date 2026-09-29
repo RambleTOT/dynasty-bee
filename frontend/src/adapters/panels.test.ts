@@ -138,16 +138,11 @@ describe('constraints', () => {
     ]);
   });
 
-  it('неназначенная «нет места»: причина — текст бэка, и «Что поможет»', () => {
+  it('неназначенная: причина по шаблону с подходящими бригадами и «Что поможет»', () => {
     const request2 = model.requestById.get('305830002')!;
-    const explain = unassignedExplain(
-      model,
-      request2,
-      'NO_CAPACITY',
-      'Подходящие инженеры есть, но свободного исполнителя в найденном плане нет.',
-    );
+    const explain = unassignedExplain(model, request2, 'NO_CAPACITY', 'Нет свободных.');
     expect(explain.reason).toBe(
-      'Подходящие инженеры есть, но свободного исполнителя в найденном плане нет',
+      'Все подходящие инженеры заняты в окне 14–16: Бригада Соколов, Бригада Мельников, Бригада Перов',
     );
     expect(explain.help).toBe('Добавьте инженера или переназначьте вручную менее срочную заявку');
     expect(unassignedExplain(model, request2, 'SOMETHING', 'Текст бэка.').reason).toBe('Текст бэка');
