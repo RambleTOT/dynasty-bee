@@ -10,7 +10,7 @@
 |---|---|
 | **Прототип (демо)** | [bee-dynasty.ru](https://bee-dynasty.ru) |
 | **Видео демонстрации** | [Google Диск](https://drive.google.com/file/d/1jlPw4G6F65b0bT56AeQFtQsSzS_GmQNr/view?usp=sharing) |
-| **Презентация** | ⬅ ЗАПОЛНИТЬ |
+| **Презентация** | [Google Диск](https://drive.google.com/file/d/1wr1AMmfXQnau97Xphfz1yGU3l0acD_ot/view?usp=sharing) |
 | **Репозиторий backend** | [backend/](backend/) — в этом репозитории |
 | **Репозиторий frontend** | [frontend/](frontend/) — в этом репозитории |
 
