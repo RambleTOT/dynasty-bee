@@ -118,13 +118,12 @@ describe('O-01 шаг 1', () => {
     );
   });
 
-  it('гигабит → «Автомобиль» по правилу; ручной выбор правило не трогает', async () => {
+  it('гигабит машину не требует (D-40); ручной выбор правило не трогает', async () => {
     await fillStepOne();
     const transport = screen.getByRole('combobox', { name: /Требуемый транспорт/ });
     expect(transport).toHaveValue('none');
     fireEvent.click(screen.getByRole('switch', { name: 'Гигабит' }));
-    expect(transport).toHaveValue('car');
-    expect(screen.getByText('по правилу')).toBeInTheDocument();
+    expect(transport).toHaveValue('none');
     fireEvent.change(transport, { target: { value: 'walk' } });
     expect(screen.queryByText('по правилу')).not.toBeInTheDocument();
     fireEvent.click(screen.getByRole('switch', { name: 'Гигабит' }));

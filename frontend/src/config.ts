@@ -13,8 +13,9 @@ export const POLL = { day: 10_000, engineer: 15_000, calendar: 30_000, slots: 30
  */
 export const REALTIME = {
   /**
-   * Опрос при открытом сокете. Бэк пока шлёт только события плана, а действия инженеров, часы дня и
-   * записи оператора — нет (п. 38): опрос не реже обычного. Когда пришлёт всё — 60 с.
+   * Опрос при открытом сокете. С 29.09 (9dc3a17) бэк шлёт почти все виды событий, кроме
+   * booking.cancelled / booking.rescheduled, roster.changed и plan.built / plan.published (п. 38):
+   * опрос не реже обычного. Когда пришлёт всё — 60 с.
    */
   safetyPollMs: 10_000,
   /** Сервер шлёт `ping` раз в 25 с; тишина дольше — соединение мёртвое, переподключаемся. */
@@ -61,19 +62,19 @@ const FEATURE_DEFAULTS = {
   extendResourceCheck: true, // P1-5 «кого не хватает» — extend-resource/check, без сохранения предложения
   comparePlanStrategy: true, // P1-8 «Наш план» в сравнении — стратегия plan тем же расчётом, что FIFO
   // п. 38: WebSocket живых обновлений (/realtime/ticket, /realtime/ws) — есть с 29.09 (85cbf26),
-  // бэк пока шлёт только plan.proposed / plan.applied / plan.rejected
+  // с 9dc3a17 — перезапуск сервера (resumed: false) и почти все виды событий
   realtime: true,
   // п. 47: поле time («сейчас» дня) в reassign/check и reassign — есть с 29.09 (85cbf26)
   reassignTime: true,
   // §14 (docs/spec/BACKEND_ANY_REGION.md): свои участки — POST/PATCH /regions, ростер участка,
-  // колонки «Навык», «Длительность», «Широта», «Долгота» в import-beeline — у бэка ещё нет.
-  // Включать руками не нужно: фронт включит сам, когда в GET /regions появится поле builtin
+  // колонки «Навык», «Длительность», «Широта», «Долгота» в import-beeline — есть с 29.09 (85cbf26).
+  // Включать руками не нужно: фронт включает сам, когда в GET /regions есть поле builtin
   // (lib/regions.ts `anyRegionEnabled`)
   anyRegion: false,
   // п. 55: правило D-06 без гигабита (D-40) — автомобиль нужен кабелю и аварии, гигабит остаётся
-  // признаком заявки; у бэка ещё нет. Отчёт импорта берёт правило из ответа бэка сам
+  // признаком заявки; у бэка — с 29.09 (9dc3a17). Отчёт импорта берёт правило из ответа бэка сам
   // (required_transport.rule), флаг — для формы оператора и подсказок мастера участка
-  transportRuleNoGigabit: false,
+  transportRuleNoGigabit: true,
 };
 
 export type FeatureFlag = keyof typeof FEATURE_DEFAULTS;

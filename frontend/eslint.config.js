@@ -11,6 +11,7 @@ export default defineConfig([
     'dist',
     'coverage',
     'design/_unpacked',
+    'dynasty-bee', // репозиторий сдачи лежит в этой же папке, в нём — копия фронта
     'public/mockServiceWorker.js',
     'src/api/schema.d.ts',
   ]),

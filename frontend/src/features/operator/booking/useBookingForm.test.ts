@@ -57,7 +57,7 @@ describe('useBookingForm', () => {
     expect(f.form.typeHd).toBe('Нет линка');
   });
 
-  it('транспорт по правилу: кабель или гигабит → автомобиль «по правилу»', () => {
+  it('транспорт по правилу: кабель → автомобиль «по правилу», гигабит машину не требует (D-40)', () => {
     const f = renderForm();
     f.dispatch({ type: 'typeBk', value: 'Локальная заявка' });
     f.dispatch({ type: 'typeHd', value: 'Работа с кабелем' });
@@ -66,7 +66,7 @@ describe('useBookingForm', () => {
     f.dispatch({ type: 'typeHd', value: 'Нет линка' });
     expect(f.form.transport).toBeNull();
     f.dispatch({ type: 'gigabit', value: true });
-    expect(f.form.transport).toBe('car');
+    expect(f.form.transport).toBeNull();
     f.dispatch({ type: 'gigabit', value: false });
     expect(f.form.transport).toBeNull();
   });

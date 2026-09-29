@@ -84,9 +84,9 @@ describe('requiredTransportByRule', () => {
     expect(requiredTransportByRule('Работа с кабелем', false)).toBe('car');
   });
 
-  it('гигабит → car (до п. 55 бэка, флаг transportRuleNoGigabit выключен)', () => {
-    expect(requiredTransportByRule('Конвергенция абонента', true)).toBe('car');
-    expect(transportRuleText()).toBe('кабель, гигабит, авария');
+  it('гигабит машину не требует (D-40, п. 55 бэка)', () => {
+    expect(requiredTransportByRule('Конвергенция абонента', true)).toBeNull();
+    expect(transportRuleText()).toBe('кабель, авария');
   });
 
   it('авария → car', () => {
