@@ -13,7 +13,7 @@
 | **Прототип (демо)** | [bee-dynasty.ru](https://bee-dynasty.ru) |
 | **Видео демонстрации (5–7 мин)** | ⬅ ЗАПОЛНИТЬ |
 | **Презентация** | ⬅ ЗАПОЛНИТЬ |
-| **Репозиторий backend** | ⬅ ЗАПОЛНИТЬ |
+| **Репозиторий backend** | [backend/](backend/) — в этом репозитории |
 | **Репозиторий frontend** | [frontend/](frontend/) — в этом репозитории |
 
 ### Доступ к прототипу
@@ -75,16 +75,49 @@ CSV (заявки, инженеры)
 
 ## Запуск
 
-### Backend
+### Backend (`backend/`)
 
-⬅ ЗАПОЛНИТЬ (раздел готовит backend)
+**Требования.** Python 3.11+ (проверено на 3.12), зависимости — `backend/requirements.txt`.
 
+```bash
+cd backend
+python -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+cp .env.example .env          # значения по умолчанию — SQLite
+uvicorn app.main:app --reload --port 8000
 ```
-1. Требования: Python X.X
-2. git clone <backend>
-3. Установка зависимостей
-4. Команда запуска backend, порт API
+
+- **API** — http://localhost:8000, Swagger — http://localhost:8000/docs.
+- **База** — SQLite по умолчанию; PostgreSQL задаётся `DATABASE_URL`.
+- **Демо-учётки** создаются при старте, пароль — `DEMO_PASSWORD`
+  (по умолчанию `demo2026`): диспетчер `dispatcher`, оператор `operator`,
+  инженеры `eng-east-01…12`, `eng-se-01…12`, `eng-sc-01…11`.
+- **Данные** — CSV загружаются бэкендом, разбор файлов и маппинг типов заявок на
+  навыки описаны в [docs/DATA.md](docs/DATA.md); логика оптимизации и ограничения —
+  в [docs/SOLUTION.md](docs/SOLUTION.md).
+- **Алгоритм** — вендорный оптимизатор в `routing_algorithm/` (не изменялся),
+  подключается адаптером `backend/app/services/algorithm_adapter.py`.
+
+**Docker (PostgreSQL).** Из корня репозитория:
+
+```bash
+cp .env.example .env
+docker compose up -d --build api        # API на http://localhost:8000
 ```
+
+Локальный OSRM (автомобильные маршруты) — необязательный профиль: `bash osrm/init_osrm.sh`
+и `docker compose --profile osrm up -d osrm`. Без него машина считается через
+OpenRouteService (если задан `ORS_API_KEY`), иначе по прямой.
+
+**Тесты.**
+
+```bash
+cd backend
+pip install -r requirements-dev.txt
+python -m pytest
+```
+
+Подробнее — [backend/README.md](backend/README.md).
 
 ### Frontend (`frontend/`)
 

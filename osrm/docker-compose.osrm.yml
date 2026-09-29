@@ -1,0 +1,25 @@
+# Локальный OSRM (автомобильный профиль, MLD) как основной провайдер маршрутов.
+#
+# Данные графа готовятся скриптом osrm/init_osrm.sh в /root/osrm-data.
+# Запуск:  docker compose up -d osrm
+# API достаёт его по имени сервиса: http://osrm:5000
+services:
+  osrm:
+    image: osrm/osrm-backend:latest
+    container_name: beeline_osrm
+    command: >
+      osrm-routed --algorithm mld
+      --max-table-size 10000
+      --max-trip-size 100
+      /data/map.osrm
+    volumes:
+      - /root/osrm-data:/data
+    ports:
+      - "127.0.0.1:5000:5000"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "bash", "-c", "exec 3<>/dev/tcp/127.0.0.1/5000"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 60s

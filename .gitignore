@@ -12,3 +12,16 @@ venv/
 # Макеты и распакованные прототипы
 frontend/design/
 **/_unpacked/
+
+# Python / backend
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.db
+*.sqlite
+*.sqlite3
+*.nbc
+*.nbi
+osrm-data/
+

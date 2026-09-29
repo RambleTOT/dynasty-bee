@@ -1,0 +1,13 @@
+# Контекст сборки для backend/Dockerfile.
+.venv
+.git
+.gitignore
+**/__pycache__
+**/*.pyc
+**/*.nbc
+**/*.nbi
+**/.pytest_cache
+**/beeline.db
+**/*.db
+docs
+*.pdf

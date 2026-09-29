@@ -1,0 +1,92 @@
+# Запуск сервиса: FastAPI + PostgreSQL.
+#
+#   docker compose up -d --build api
+#
+# API:        http://localhost:8000
+# Swagger:    http://localhost:8000/docs
+# PostgreSQL: внутри compose (beeline/beeline), наружу порт не публикуется
+#
+# Для запуска без внешней БД используйте SQLite (значение по умолчанию):
+#   docker compose run --rm -e DATABASE_URL=sqlite:////app/backend/data/beeline.db api
+#
+# Необязательный локальный OSRM (автомобильные маршруты) — профиль `osrm`:
+#   bash osrm/init_osrm.sh                 # скачает карту и соберёт граф (нужен ~/osrm-data)
+#   docker compose --profile osrm up -d osrm
+# Без него машина считается через OpenRouteService (если задан ORS_API_KEY), иначе по прямой.
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: beeline
+      POSTGRES_PASSWORD: beeline
+      POSTGRES_DB: beeline
+    volumes:
+      - beeline_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U beeline -d beeline"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  api:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql+psycopg://beeline:beeline@db:5432/beeline
+      LOG_LEVEL: INFO
+      ALGORITHM_WARMUP: "true"
+      SOLVER_TOTAL_SECONDS: "20"
+      # Ключ OpenRouteService берётся из корневого .env (не коммитится).
+      ORS_API_KEY: ${ORS_API_KEY:-}
+      ORS_BASE_URL: ${ORS_BASE_URL:-https://api.openrouteservice.org}
+      # Основной провайдер маршрутов — локальный OSRM (только car).
+      OSRM_LOCAL_ENABLED: ${OSRM_LOCAL_ENABLED:-true}
+      OSRM_LOCAL_URL: ${OSRM_LOCAL_URL:-http://osrm:5000}
+      AUTH_ENABLED: ${AUTH_ENABLED:-true}
+      JWT_SECRET: ${JWT_SECRET:-change-me-in-production}
+      JWT_EXPIRE_DAYS: ${JWT_EXPIRE_DAYS:-21}
+      DEMO_PASSWORD: ${DEMO_PASSWORD:-demo2026}
+      TIMEZONE: ${TIMEZONE:-Europe/Moscow}
+      TZ: ${TZ:-Europe/Moscow}
+      ALLOW_DESTRUCTIVE: ${ALLOW_DESTRUCTIVE:-false}
+      DEFAULT_REGION_ID: ${DEFAULT_REGION_ID:-east}
+      # CORS и геокодер (см. backend/.env.example). Пока нет ключа Яндекса,
+      # оставляем демо-геокодер, чтобы стенд не остался без точек.
+      CORS_ORIGINS: ${CORS_ORIGINS:-https://bee-dynasty.ru,https://bee-dynasty.ru:8443,https://bee-dynasty.ru:9443}
+      ALLOW_DEMO_GEOCODING: ${ALLOW_DEMO_GEOCODING:-true}
+      GEOCODER_PROVIDER: ${GEOCODER_PROVIDER:-none}
+      YANDEX_GEOCODER_API_KEY: ${YANDEX_GEOCODER_API_KEY:-}
+    ports:
+      # Порт слушает только localhost — наружу отдаёт nginx (S3).
+      - "127.0.0.1:8000:8000"
+    restart: unless-stopped
+
+  osrm:
+    image: osrm/osrm-backend:latest
+    container_name: beeline_osrm
+    profiles: ["osrm"]
+    # Граф готовится скриптом osrm/init_osrm.sh (car.lua + MLD + customise).
+    command: >
+      osrm-routed --algorithm mld
+      --max-table-size 10000
+      --max-trip-size 100
+      /data/map.osrm
+    volumes:
+      - /root/osrm-data:/data
+    ports:
+      - "127.0.0.1:5000:5000"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "bash", "-c", "exec 3<>/dev/tcp/127.0.0.1/5000"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 60s
+
+volumes:
+  beeline_pgdata:

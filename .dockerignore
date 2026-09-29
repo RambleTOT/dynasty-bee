@@ -1,0 +1,14 @@
+.venv
+.git
+.gitignore
+.env
+**/.env
+**/__pycache__
+**/*.pyc
+**/*.nbc
+**/*.nbi
+**/.pytest_cache
+**/beeline.db
+**/*.db
+docs
+*.pdf

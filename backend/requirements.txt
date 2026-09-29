@@ -1,0 +1,15 @@
+# Основные зависимости API и алгоритма.
+fastapi>=0.115,<1
+uvicorn[standard]>=0.30,<1
+sqlalchemy>=2.0,<3
+pydantic>=2.7,<3
+pydantic-settings>=2.4,<3
+python-multipart>=0.0.9
+
+# Математическое ядро существующего алгоритма (не изменяется).
+numpy>=2.2,<3
+scipy>=1.13,<2
+numba>=0.61,<1
+
+# Драйвер PostgreSQL (опционален при использовании SQLite).
+psycopg[binary]>=3.2,<4

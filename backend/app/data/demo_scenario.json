@@ -1,0 +1,721 @@
+{
+  "name": "Демонстрационный рабочий день (Москва)",
+  "description": "Синтетический набор из 12 инженеров и 45 заявок. Создан для демонстрации MVP: все навыки, все типы транспорта, пересекающиеся окна и конфликты распределения.",
+  "metadata": {
+    "synthetic": true,
+    "seed": 20260917,
+    "assumption": "Координаты синтетические, дорожный коэффициент и скорости — упрощённые."
+  },
+  "engineers": [
+    {
+      "id": "E00",
+      "name": "Иван Петров",
+      "latitude": 55.706842,
+      "longitude": 37.572545,
+      "shift_start": "08:30",
+      "shift_end": "18:30",
+      "skills": [
+        "local",
+        "installation",
+        "emergency"
+      ],
+      "transport": "car",
+      "available": true
+    },
+    {
+      "id": "E01",
+      "name": "Мария Соколова",
+      "latitude": 55.759102,
+      "longitude": 37.666355,
+      "shift_start": "08:30",
+      "shift_end": "18:30",
+      "skills": [
+        "installation",
+        "emergency"
+      ],
+      "transport": "walk",
+      "available": true
+    },
+    {
+      "id": "E02",
+      "name": "Алексей Кузнецов",
+      "latitude": 55.805747,
+      "longitude": 37.616599,
+      "shift_start": "08:30",
+      "shift_end": "18:00",
+      "skills": [
+        "local",
+        "installation"
+      ],
+      "transport": "bike",
+      "available": true
+    },
+    {
+      "id": "E03",
+      "name": "Ольга Смирнова",
+      "latitude": 55.72726,
+      "longitude": 37.662335,
+      "shift_start": "09:30",
+      "shift_end": "17:30",
+      "skills": [
+        "local"
+      ],
+      "transport": "public_transport",
+      "available": true
+    },
+    {
+      "id": "E04",
+      "name": "Дмитрий Волков",
+      "latitude": 55.799014,
+      "longitude": 37.552214,
+      "shift_start": "08:30",
+      "shift_end": "20:00",
+      "skills": [
+        "local",
+        "installation",
+        "emergency"
+      ],
+      "transport": "car",
+      "available": true
+    },
+    {
+      "id": "E05",
+      "name": "Екатерина Морозова",
+      "latitude": 55.791341,
+      "longitude": 37.618985,
+      "shift_start": "08:00",
+      "shift_end": "19:00",
+      "skills": [
+        "local",
+        "installation"
+      ],
+      "transport": "walk",
+      "available": true
+    },
+    {
+      "id": "E06",
+      "name": "Сергей Новиков",
+      "latitude": 55.721903,
+      "longitude": 37.569578,
+      "shift_start": "08:30",
+      "shift_end": "20:00",
+      "skills": [
+        "local"
+      ],
+      "transport": "bike",
+      "available": true
+    },
+    {
+      "id": "E07",
+      "name": "Анна Фёдорова",
+      "latitude": 55.811979,
+      "longitude": 37.537564,
+      "shift_start": "09:30",
+      "shift_end": "19:00",
+      "skills": [
+        "installation",
+        "emergency"
+      ],
+      "transport": "public_transport",
+      "available": true
+    },
+    {
+      "id": "E08",
+      "name": "Павел Егоров",
+      "latitude": 55.716621,
+      "longitude": 37.58515,
+      "shift_start": "08:30",
+      "shift_end": "18:00",
+      "skills": [
+        "local",
+        "installation",
+        "emergency"
+      ],
+      "transport": "car",
+      "available": true
+    },
+    {
+      "id": "E09",
+      "name": "Татьяна Павлова",
+      "latitude": 55.748722,
+      "longitude": 37.548439,
+      "shift_start": "08:00",
+      "shift_end": "20:00",
+      "skills": [
+        "local"
+      ],
+      "transport": "walk",
+      "available": true
+    },
+    {
+      "id": "E10",
+      "name": "Никита Козлов",
+      "latitude": 55.758927,
+      "longitude": 37.547728,
+      "shift_start": "09:00",
+      "shift_end": "17:30",
+      "skills": [
+        "installation",
+        "emergency"
+      ],
+      "transport": "bike",
+      "available": true
+    },
+    {
+      "id": "E11",
+      "name": "Юлия Орлова",
+      "latitude": 55.744927,
+      "longitude": 37.553618,
+      "shift_start": "08:30",
+      "shift_end": "19:00",
+      "skills": [
+        "local",
+        "installation"
+      ],
+      "transport": "public_transport",
+      "available": true
+    }
+  ],
+  "requests": [
+    {
+      "id": "R000",
+      "latitude": 55.864421,
+      "longitude": 37.501286,
+      "address": "Синтетический адрес, Москва, район 0",
+      "duration_minutes": 60,
+      "window_start": "09:00",
+      "window_end": "11:00",
+      "priority": "normal",
+      "required_skill": "local",
+      "required_transport": "car"
+    },
+    {
+      "id": "R001",
+      "latitude": 55.656337,
+      "longitude": 37.519027,
+      "address": "Синтетический адрес, Москва, район 1",
+      "duration_minutes": 60,
+      "window_start": "10:00",
+      "window_end": "12:00",
+      "priority": "normal",
+      "required_skill": "installation",
+      "required_transport": null
+    },
+    {
+      "id": "R002",
+      "latitude": 55.834891,
+      "longitude": 37.721584,
+      "address": "Синтетический адрес, Москва, район 2",
+      "duration_minutes": 20,
+      "window_start": "11:00",
+      "window_end": "13:00",
+      "priority": "normal",
+      "required_skill": "emergency",
+      "required_transport": null
+    },
+    {
+      "id": "R003",
+      "latitude": 55.862232,
+      "longitude": 37.620077,
+      "address": "Синтетический адрес, Москва, район 3",
+      "duration_minutes": 20,
+      "window_start": "12:00",
+      "window_end": "14:00",
+      "priority": "normal",
+      "required_skill": "local",
+      "required_transport": null
+    },
+    {
+      "id": "R004",
+      "latitude": 55.672811,
+      "longitude": 37.657599,
+      "address": "Синтетический адрес, Москва, район 4",
+      "duration_minutes": 20,
+      "window_start": "13:00",
+      "window_end": "15:00",
+      "priority": "normal",
+      "required_skill": "installation",
+      "required_transport": "car"
+    },
+    {
+      "id": "R005",
+      "latitude": 55.771384,
+      "longitude": 37.632206,
+      "address": "Синтетический адрес, Москва, район 5",
+      "duration_minutes": 90,
+      "window_start": "14:00",
+      "window_end": "16:00",
+      "priority": "urgent",
+      "required_skill": "emergency",
+      "required_transport": null
+    },
+    {
+      "id": "R006",
+      "latitude": 55.754254,
+      "longitude": 37.632797,
+      "address": "Синтетический адрес, Москва, район 6",
+      "duration_minutes": 20,
+      "window_start": "15:00",
+      "window_end": "17:00",
+      "priority": "normal",
+      "required_skill": "local",
+      "required_transport": null
+    },
+    {
+      "id": "R007",
+      "latitude": 55.748242,
+      "longitude": 37.733812,
+      "address": "Синтетический адрес, Москва, район 7",
+      "duration_minutes": 60,
+      "window_start": "16:00",
+      "window_end": "18:00",
+      "priority": "normal",
+      "required_skill": "installation",
+      "required_transport": "public_transport"
+    },
+    {
+      "id": "R008",
+      "latitude": 55.736471,
+      "longitude": 37.593607,
+      "address": "Синтетический адрес, Москва, район 8",
+      "duration_minutes": 30,
+      "window_start": "09:00",
+      "window_end": "11:00",
+      "priority": "normal",
+      "required_skill": "emergency",
+      "required_transport": "car"
+    },
+    {
+      "id": "R009",
+      "latitude": 55.742448,
+      "longitude": 37.732662,
+      "address": "Синтетический адрес, Москва, район 9",
+      "duration_minutes": 30,
+      "window_start": "10:00",
+      "window_end": "12:00",
+      "priority": "normal",
+      "required_skill": "local",
+      "required_transport": null
+    },
+    {
+      "id": "R010",
+      "latitude": 55.785741,
+      "longitude": 37.591756,
+      "address": "Синтетический адрес, Москва, район 0",
+      "duration_minutes": 45,
+      "window_start": "11:00",
+      "window_end": "13:00",
+      "priority": "normal",
+      "required_skill": "installation",
+      "required_transport": null
+    },
+    {
+      "id": "R011",
+      "latitude": 55.664509,
+      "longitude": 37.634961,
+      "address": "Синтетический адрес, Москва, район 1",
+      "duration_minutes": 45,
+      "window_start": "12:00",
+      "window_end": "14:00",
+      "priority": "normal",
+      "required_skill": "emergency",
+      "required_transport": null
+    },
+    {
+      "id": "R012",
+      "latitude": 55.636627,
+      "longitude": 37.57386,
+      "address": "Синтетический адрес, Москва, район 2",
+      "duration_minutes": 90,
+      "window_start": "13:00",
+      "window_end": "15:00",
+      "priority": "normal",
+      "required_skill": "local",
+      "required_transport": "car"
+    },
+    {
+      "id": "R013",
+      "latitude": 55.68969,
+      "longitude": 37.655759,
+      "address": "Синтетический адрес, Москва, район 3",
+      "duration_minutes": 45,
+      "window_start": "14:00",
+      "window_end": "16:00",
+      "priority": "normal",
+      "required_skill": "installation",
+      "required_transport": null
+    },
+    {
+      "id": "R014",
+      "latitude": 55.703639,
+      "longitude": 37.524441,
+      "address": "Синтетический адрес, Москва, район 4",
+      "duration_minutes": 90,
+      "window_start": "15:00",
+      "window_end": "17:00",
+      "priority": "normal",
+      "required_skill": "emergency",
+      "required_transport": "public_transport"
+    },
+    {
+      "id": "R015",
+      "latitude": 55.732311,
+      "longitude": 37.671242,
+      "address": "Синтетический адрес, Москва, район 5",
+      "duration_minutes": 90,
+      "window_start": "16:00",
+      "window_end": "18:00",
+      "priority": "normal",
+      "required_skill": "local",
+      "required_transport": null
+    },
+    {
+      "id": "R016",
+      "latitude": 55.751761,
+      "longitude": 37.676039,
+      "address": "Синтетический адрес, Москва, район 6",
+      "duration_minutes": 90,
+      "window_start": "09:00",
+      "window_end": "11:00",
+      "priority": "normal",
+      "required_skill": "installation",
+      "required_transport": "car"
+    },
+    {
+      "id": "R017",
+      "latitude": 55.672642,
+      "longitude": 37.564094,
+      "address": "Синтетический адрес, Москва, район 7",
+      "duration_minutes": 45,
+      "window_start": "10:00",
+      "window_end": "12:00",
+      "priority": "normal",
+      "required_skill": "emergency",
+      "required_transport": null
+    },
+    {
+      "id": "R018",
+      "latitude": 55.862744,
+      "longitude": 37.695733,
+      "address": "Синтетический адрес, Москва, район 8",
+      "duration_minutes": 45,
+      "window_start": "11:00",
+      "window_end": "13:00",
+      "priority": "normal",
+      "required_skill": "local",
+      "required_transport": null
+    },
+    {
+      "id": "R019",
+      "latitude": 55.664084,
+      "longitude": 37.693112,
+      "address": "Синтетический адрес, Москва, район 9",
+      "duration_minutes": 90,
+      "window_start": "12:00",
+      "window_end": "14:00",
+      "priority": "normal",
+      "required_skill": "installation",
+      "required_transport": null
+    },
+    {
+      "id": "R020",
+      "latitude": 55.849553,
+      "longitude": 37.692182,
+      "address": "Синтетический адрес, Москва, район 0",
+      "duration_minutes": 90,
+      "window_start": "13:00",
+      "window_end": "15:00",
+      "priority": "normal",
+      "required_skill": "emergency",
+      "required_transport": "car"
+    },
+    {
+      "id": "R021",
+      "latitude": 55.823639,
+      "longitude": 37.516424,
+      "address": "Синтетический адрес, Москва, район 1",
+      "duration_minutes": 20,
+      "window_start": "14:00",
+      "window_end": "16:00",
+      "priority": "normal",
+      "required_skill": "local",
+      "required_transport": "public_transport"
+    },
+    {
+      "id": "R022",
+      "latitude": 55.678258,
+      "longitude": 37.60046,
+      "address": "Синтетический адрес, Москва, район 2",
+      "duration_minutes": 20,
+      "window_start": "15:00",
+      "window_end": "17:00",
+      "priority": "normal",
+      "required_skill": "installation",
+      "required_transport": null
+    },
+    {
+      "id": "R023",
+      "latitude": 55.665311,
+      "longitude": 37.568608,
+      "address": "Синтетический адрес, Москва, район 3",
+      "duration_minutes": 30,
+      "window_start": "16:00",
+      "window_end": "18:00",
+      "priority": "urgent",
+      "required_skill": "emergency",
+      "required_transport": null
+    },
+    {
+      "id": "R024",
+      "latitude": 55.655813,
+      "longitude": 37.63632,
+      "address": "Синтетический адрес, Москва, район 4",
+      "duration_minutes": 30,
+      "window_start": "09:00",
+      "window_end": "11:00",
+      "priority": "normal",
+      "required_skill": "local",
+      "required_transport": "car"
+    },
+    {
+      "id": "R025",
+      "latitude": 55.739234,
+      "longitude": 37.62801,
+      "address": "Синтетический адрес, Москва, район 5",
+      "duration_minutes": 45,
+      "window_start": "10:00",
+      "window_end": "12:00",
+      "priority": "normal",
+      "required_skill": "installation",
+      "required_transport": null
+    },
+    {
+      "id": "R026",
+      "latitude": 55.85535,
+      "longitude": 37.534771,
+      "address": "Синтетический адрес, Москва, район 6",
+      "duration_minutes": 45,
+      "window_start": "11:00",
+      "window_end": "13:00",
+      "priority": "normal",
+      "required_skill": "emergency",
+      "required_transport": null
+    },
+    {
+      "id": "R027",
+      "latitude": 55.644275,
+      "longitude": 37.688805,
+      "address": "Синтетический адрес, Москва, район 7",
+      "duration_minutes": 90,
+      "window_start": "12:00",
+      "window_end": "14:00",
+      "priority": "normal",
+      "required_skill": "local",
+      "required_transport": null
+    },
+    {
+      "id": "R028",
+      "latitude": 55.746925,
+      "longitude": 37.533098,
+      "address": "Синтетический адрес, Москва, район 8",
+      "duration_minutes": 30,
+      "window_start": "13:00",
+      "window_end": "15:00",
+      "priority": "normal",
+      "required_skill": "installation",
+      "required_transport": "car"
+    },
+    {
+      "id": "R029",
+      "latitude": 55.729373,
+      "longitude": 37.584373,
+      "address": "Синтетический адрес, Москва, район 9",
+      "duration_minutes": 20,
+      "window_start": "14:00",
+      "window_end": "16:00",
+      "priority": "normal",
+      "required_skill": "emergency",
+      "required_transport": null
+    },
+    {
+      "id": "R030",
+      "latitude": 55.802451,
+      "longitude": 37.693315,
+      "address": "Синтетический адрес, Москва, район 0",
+      "duration_minutes": 20,
+      "window_start": "15:00",
+      "window_end": "17:00",
+      "priority": "normal",
+      "required_skill": "local",
+      "required_transport": null
+    },
+    {
+      "id": "R031",
+      "latitude": 55.866126,
+      "longitude": 37.664131,
+      "address": "Синтетический адрес, Москва, район 1",
+      "duration_minutes": 20,
+      "window_start": "16:00",
+      "window_end": "18:00",
+      "priority": "normal",
+      "required_skill": "installation",
+      "required_transport": null
+    },
+    {
+      "id": "R032",
+      "latitude": 55.698302,
+      "longitude": 37.556561,
+      "address": "Синтетический адрес, Москва, район 2",
+      "duration_minutes": 60,
+      "window_start": "09:00",
+      "window_end": "11:00",
+      "priority": "normal",
+      "required_skill": "emergency",
+      "required_transport": "car"
+    },
+    {
+      "id": "R033",
+      "latitude": 55.654248,
+      "longitude": 37.681215,
+      "address": "Синтетический адрес, Москва, район 3",
+      "duration_minutes": 60,
+      "window_start": "10:00",
+      "window_end": "12:00",
+      "priority": "normal",
+      "required_skill": "local",
+      "required_transport": null
+    },
+    {
+      "id": "R034",
+      "latitude": 55.675065,
+      "longitude": 37.633183,
+      "address": "Синтетический адрес, Москва, район 4",
+      "duration_minutes": 45,
+      "window_start": "11:00",
+      "window_end": "13:00",
+      "priority": "normal",
+      "required_skill": "installation",
+      "required_transport": null
+    },
+    {
+      "id": "R035",
+      "latitude": 55.766907,
+      "longitude": 37.598777,
+      "address": "Синтетический адрес, Москва, район 5",
+      "duration_minutes": 60,
+      "window_start": "12:00",
+      "window_end": "14:00",
+      "priority": "normal",
+      "required_skill": "emergency",
+      "required_transport": "public_transport"
+    },
+    {
+      "id": "R036",
+      "latitude": 55.794848,
+      "longitude": 37.513469,
+      "address": "Синтетический адрес, Москва, район 6",
+      "duration_minutes": 20,
+      "window_start": "13:00",
+      "window_end": "15:00",
+      "priority": "normal",
+      "required_skill": "local",
+      "required_transport": "car"
+    },
+    {
+      "id": "R037",
+      "latitude": 55.827501,
+      "longitude": 37.669369,
+      "address": "Синтетический адрес, Москва, район 7",
+      "duration_minutes": 60,
+      "window_start": "14:00",
+      "window_end": "16:00",
+      "priority": "normal",
+      "required_skill": "installation",
+      "required_transport": null
+    },
+    {
+      "id": "R038",
+      "latitude": 55.828475,
+      "longitude": 37.639115,
+      "address": "Синтетический адрес, Москва, район 8",
+      "duration_minutes": 20,
+      "window_start": "15:00",
+      "window_end": "17:00",
+      "priority": "normal",
+      "required_skill": "emergency",
+      "required_transport": null
+    },
+    {
+      "id": "R039",
+      "latitude": 55.739662,
+      "longitude": 37.584293,
+      "address": "Синтетический адрес, Москва, район 9",
+      "duration_minutes": 90,
+      "window_start": "16:00",
+      "window_end": "18:00",
+      "priority": "normal",
+      "required_skill": "local",
+      "required_transport": null
+    },
+    {
+      "id": "R040",
+      "latitude": 55.680261,
+      "longitude": 37.516907,
+      "address": "Синтетический адрес, Москва, район 0",
+      "duration_minutes": 30,
+      "window_start": "09:00",
+      "window_end": "11:00",
+      "priority": "normal",
+      "required_skill": "installation",
+      "required_transport": "car"
+    },
+    {
+      "id": "R041",
+      "latitude": 55.672518,
+      "longitude": 37.509068,
+      "address": "Синтетический адрес, Москва, район 1",
+      "duration_minutes": 30,
+      "window_start": "10:00",
+      "window_end": "12:00",
+      "priority": "normal",
+      "required_skill": "emergency",
+      "required_transport": null
+    },
+    {
+      "id": "R042",
+      "latitude": 55.762303,
+      "longitude": 37.52421,
+      "address": "Синтетический адрес, Москва, район 2",
+      "duration_minutes": 60,
+      "window_start": "11:00",
+      "window_end": "13:00",
+      "priority": "normal",
+      "required_skill": "local",
+      "required_transport": "public_transport"
+    },
+    {
+      "id": "R043",
+      "latitude": 55.708917,
+      "longitude": 37.6853,
+      "address": "Синтетический адрес, Москва, район 3",
+      "duration_minutes": 30,
+      "window_start": "12:00",
+      "window_end": "14:00",
+      "priority": "normal",
+      "required_skill": "installation",
+      "required_transport": null
+    },
+    {
+      "id": "R044",
+      "latitude": 55.850211,
+      "longitude": 37.648994,
+      "address": "Синтетический адрес, Москва, район 4",
+      "duration_minutes": 60,
+      "window_start": "13:00",
+      "window_end": "15:00",
+      "priority": "normal",
+      "required_skill": "emergency",
+      "required_transport": "car"
+    }
+  ]
+}
