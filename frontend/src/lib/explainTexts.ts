@@ -51,12 +51,9 @@ export interface ReasonContext {
   skill: string;
   transport: string | null;
   window: string;
-  /** Подходящие по навыку и транспорту бригады — для NO_CAPACITY. */
+  /** Подходящие по навыку и транспорту бригады. */
   names: string[];
 }
-
-const namesText = (names: string[]) =>
-  names.length <= 3 ? names.join(', ') : `${names.slice(0, 3).join(', ')} и ещё ${names.length - 3}`;
 
 const REASONS: Record<string, ReasonTemplate> = {
   NO_SKILL: {
@@ -83,12 +80,10 @@ const REASONS: Record<string, ReasonTemplate> = {
       `Работа не помещается в окно ${window} и в смену ни у одного подходящего инженера`,
     help: 'Продлите смену или добавьте инженера',
   },
+  // Текст бэка: «нет места» — вывод найденного плана, а не доказательство, что все заняты.
   NO_CAPACITY: {
     icon: Users,
-    reason: ({ window, names }) =>
-      names.length
-        ? `Все подходящие инженеры заняты в окне ${window}: ${namesText(names)}`
-        : `Все подходящие инженеры заняты в окне ${window}`,
+    reason: null,
     help: 'Добавьте инженера или переназначьте вручную менее срочную заявку',
   },
   NO_EQUIPMENT: { icon: Package, reason: null, help: null },
