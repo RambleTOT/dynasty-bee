@@ -10,7 +10,7 @@
 
 ```
 frontend/
-  index.html, vite.config.ts   точка входа страницы; dev-порт 5173 и прокси /api
+  index.html, vite.config.ts   точка входа страницы; dev-порт 5173, превью 4173, прокси /api
   .env.example                 шаблон переменных окружения
   src/
     main.tsx                   запуск: стили, моки MSW (если VITE_USE_MOCKS=true), <App/>
@@ -52,7 +52,7 @@ frontend/
 
 **Базовый URL.** `API_URL = VITE_API_URL || '/api/v1'` (`src/config.ts`). Адрес запроса собирает `buildUrl` в `src/api/client.ts`: `API_URL + путь + query`. По умолчанию путь относительный, то есть запросы идут на тот же хост, что и страница:
 
-- в dev их проксирует Vite на `DEV_API_TARGET` или на стенд `https://api.bee-dynasty.ru` (`vite.config.ts`, WebSocket тоже);
+- в dev и в превью их проксирует Vite на `DEV_API_TARGET` (из окружения или `.env.local`) или на стенд `https://api.bee-dynasty.ru` (`vite.config.ts`, WebSocket тоже);
 - на сервере — nginx сайта: `location /api/` → апстрим `beeline_api` (`deploy/nginx/bee-dynasty.conf`).
 
 Токен уходит заголовком `Authorization: Bearer …`. Ошибки бэкенда трёх форматов сводит `toApiError` (`src/api/errors.ts`). Метода DELETE в клиенте нет.
@@ -101,15 +101,10 @@ frontend/
 
 «Загрузить» создаёт участок (`POST /regions`) или обновляет его (`PATCH /regions/{id}`), сохраняет состав (`PUT /regions/{id}/roster`) и отправляет файл, приведённый к формату Билайна, в тот же `POST /data/import-beeline` вместе с `engineers_file`. Дальше — тот же отчёт.
 
-## Требует уточнения
+## Заметки к запуску
 
-1. **CSV для проверки.** Файлы кейса в репозиторий не входят (`frontend/.gitignore`: `samples/`). Проверяющий берёт их из материалов кейса. Если файлы нужны в репозитории — решение команды.
-2. **Пароль демо-учёток.** Логины перечислены в README, пароль в репозитории не публикуется. Где его получить проверяющему — не указано.
-3. **Бэкенд.** В этом репозитории бэкенда нет. Адрес стенда `https://api.bee-dynasty.ru` зашит в `vite.config.ts` (прокси) и в `npm run gen:types`. Ссылка на репозиторий бэкенда не заполнена.
-4. **Версии Node и npm.** `.nvmrc` и `engines` — Node 20, но для `npm run check` нужна 20.19+. Версия npm в конфигах не зафиксирована (`frontend/README.md` пишет «npm 10+»).
-5. **`DEV_API_TARGET`** читается из окружения процесса (`process.env` в `vite.config.ts`). Из `.env.local` Vite её не подхватывает, а `frontend/README.md` перечисляет её среди переменных `.env.local`.
-6. **Порт `npm run preview`** в конфиге не задан.
-7. **`npm run design:unpack`** требует папку `frontend/design/`, а корневой `.gitignore` её исключает.
-8. **`npm run deploy` и `scripts/deploy-nginx.sh`** выкладывают на сервер команды по SSH-ключу — для стороннего запуска не нужны.
-9. **`frontend/docs/api-examples/`** пуста (`.gitkeep`), хотя `frontend/docs/ARCHITECTURE.md` ссылается на снимки ответов оттуда. Тесты адаптеров берут фикстуры из `src/adapters/__fixtures__/`.
-10. **Моки MSW** (`VITE_USE_MOCKS=true`) закрывают только вход. Без бэкенда остальные экраны не работают.
+- **Бэкенд.** По умолчанию фронтенд работает со стендом `https://api.bee-dynasty.ru`: dev-сервер и превью проксируют к нему `/api`. Свою копию бэкенда подключает `DEV_API_TARGET` — в окружении или в `.env.local`.
+- **Вход.** Логины ролей — в README, пароль передан в форме сдачи.
+- **Данные.** CSV кейса загружаются через «Загрузить CSV» из материалов кейса. На сегодня у каждого участка есть демо-день — его можно открыть из календаря без загрузки.
+- **Окружение.** Node.js 20.19+ (`.nvmrc`), npm 10+.
+- **Служебные команды:** `npm run deploy` и `scripts/deploy-nginx.sh` — выкладка на стенд по SSH-ключу, `npm run snapshot` — снимок ответов стенда, `npm run design:unpack` — распаковка макетов из `design/` (макеты в репозиторий сдачи не входят). Для проверки они не нужны.

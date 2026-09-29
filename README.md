@@ -88,7 +88,7 @@ CSV (заявки, инженеры)
 
 ### Frontend (`frontend/`)
 
-**Требования.** Node.js 20: в `frontend/.nvmrc` — `20`, в `package.json` — `"engines": { "node": ">=20" }`. Для `npm run check` нужна Node 20.19 или новее: линтер тянет пакет `eslint-visitor-keys` с требованием `^20.19.0 || ^22.13.0 || >=24` (`package-lock.json`). Пакеты ставит npm по `package-lock.json`.
+**Требования.** Node.js 20.19 или новее (`frontend/.nvmrc`, `engines` в `package.json`), npm 10+. Пакеты ставит npm по `package-lock.json`.
 
 ```bash
 cd frontend
@@ -98,7 +98,7 @@ npm run dev    # dev-сервер Vite: http://localhost:5173
 ```
 
 - **Порт** 5173 задан в `frontend/vite.config.ts` (`server.port`). Если он занят, Vite возьмёт следующий свободный (`strictPort` не включён) и напишет адрес в консоли.
-- **Бэкенд.** Dev-сервер проксирует `/api/*` (и WebSocket) на стенд `https://api.bee-dynasty.ru`, поэтому свой бэкенд поднимать не обязательно. Другой адрес задаётся переменной `DEV_API_TARGET` в командной строке, например `DEV_API_TARGET=http://127.0.0.1:8001 npm run dev`.
+- **Бэкенд.** Dev-сервер проксирует `/api/*` (и WebSocket) на стенд `https://api.bee-dynasty.ru`, поэтому свой бэкенд поднимать не обязательно. Другой адрес задаётся переменной `DEV_API_TARGET` — в командной строке или в `frontend/.env.local`, например `DEV_API_TARGET=http://127.0.0.1:8001 npm run dev`.
 - **Вход** — по логину и паролю роли: диспетчер, оператор или инженер. Учётки заводит бэкенд, пароли в репозитории не хранятся.
 - **Дальше:** войти диспетчером → «Загрузить CSV» → выбрать файлы участка → «Загрузить» → «Открыть день» → «Построить план». Как устроена загрузка — [docs/FRONTEND.md](docs/FRONTEND.md#загрузка-csv).
 
@@ -107,7 +107,7 @@ npm run dev    # dev-сервер Vite: http://localhost:5173
 | Команда | Что делает |
 |---|---|
 | `npm run build` | проверка типов и прод-сборка в `frontend/dist/` |
-| `npm run preview` | раздать собранный `dist/` (`vite preview`) |
+| `npm run preview` | раздать собранный `dist/` на http://localhost:4173, `/api` — через тот же прокси |
 | `npm run check` | `tsc --noEmit` для приложения и `vite.config.ts`, затем `eslint .` |
 | `npm test` | тесты (vitest, jsdom) |
 | `npm run format` | prettier по всему `frontend/` |
@@ -121,7 +121,7 @@ npm run dev    # dev-сервер Vite: http://localhost:5173
 | Переменная | По умолчанию | Для чего |
 |---|---|---|
 | `VITE_API_URL` | `/api/v1` | база API (`src/config.ts`). Относительный путь — тот же хост: в dev запросы идут через прокси Vite, на сервере — через прокси nginx |
-| `DEV_API_TARGET` | `https://api.bee-dynasty.ru` | куда dev-сервер проксирует `/api` (`vite.config.ts`). Читается из окружения процесса, в `.env.example` её нет |
+| `DEV_API_TARGET` | `https://api.bee-dynasty.ru` | куда dev-сервер и превью проксируют `/api` (`vite.config.ts`). Читается из окружения или `.env.local` |
 | `VITE_USE_MOCKS` | `false` | `true` — моки MSW вместо бэкенда; замокан только вход (`/auth/login`, `/auth/me`, `/auth/logout`) |
 | `VITE_FEATURES` | пусто | включить флаги через запятую; имена флагов — `FEATURE_DEFAULTS` в `src/config.ts` |
 | `VITE_YANDEX_MAPS_KEY` | пусто | ключ JavaScript API Яндекс Карт. Без ключа карта дня — Leaflet с тайлами OpenStreetMap |
@@ -129,7 +129,7 @@ npm run dev    # dev-сервер Vite: http://localhost:5173
 | `VITE_DEV_IMPORT_DATE` | — | только в dev-режиме: дата по умолчанию в окне «Загрузка CSV» (`YYYY-MM-DD`) |
 | `API_URL`, `DEMO_DISPATCHER`, `DEMO_OPERATOR`, `DEMO_ENGINEER`, `DEMO_PASSWORD` | — | только для `npm run snapshot` |
 
-Фронтенд проверен 29.09.2026 на чистой копии `frontend/` из `git archive HEAD`, без `node_modules` (Node 23.11, npm 11.12): `npm ci` → `npm run build` → `npm run dev`. Страница открылась, `/api` проксируется на стенд. Чего не хватает для запуска с нуля — список «Требует уточнения» в [docs/FRONTEND.md](docs/FRONTEND.md#требует-уточнения).
+Фронтенд проверен 29.09.2026 на чистой копии `frontend/` из `git archive HEAD`, без `node_modules` (Node 23.11, npm 11.12): `npm ci` → `npm run build` → `npm run dev`. Страница открылась, `/api` проксируется на стенд. Заметки к запуску — [docs/FRONTEND.md](docs/FRONTEND.md#заметки-к-запуску).
 
 ---
 
