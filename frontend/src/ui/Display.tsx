@@ -152,7 +152,7 @@ export function Table<Row>({
   );
 }
 
-/** Официальный логотип Билайна (public/brand/beeline_logo.svg) и название продукта. */
+/** Логотип (public/brand/beeline_logo.svg) и название продукта. */
 export function Logo({
   size = 36,
   wordmark = true,
@@ -164,10 +164,10 @@ export function Logo({
 }) {
   return (
     <span className={styles.logo}>
-      <img src="/brand/beeline_logo.svg" width={size} height={size} alt="Билайн" />
+      <img src="/brand/beeline_logo.svg" width={size} height={size} alt="Логотип" />
       {wordmark && (
         <span className={styles.wordmark}>
-          <span className={styles.brand}>Билайн Бизнес</span>
+          <span className={styles.brand}>Оператор связи</span>
           {product && <span className={styles.product}>{product}</span>}
         </span>
       )}

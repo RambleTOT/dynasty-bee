@@ -256,11 +256,11 @@ def load_demo(
     "/import-beeline",
     response_model=ScenarioSummary,
     status_code=status.HTTP_201_CREATED,
-    summary="Импорт выданного CSV Билайна",
+    summary="Импорт выданного CSV оператора связи",
     response_description="Сводка дня и отчёт импорта.",
     responses=error_responses("validation"),
     description=(
-        "Принимает CSV Билайна (cp1251/utf-8, разделитель `;`), опционально контрольный файл "
+        "Принимает CSV оператора связи (cp1251/utf-8, разделитель `;`), опционально контрольный файл "
         "и файл инженеров. Определяет регион, маппит типы заявок в навыки и длительности, "
         "применяет правило требуемого транспорта, геокодирует адреса."
     ),
@@ -274,7 +274,7 @@ async def import_beeline_csv(
     repository: Repository = Depends(get_repository),
     settings: Settings = Depends(get_app_settings),
 ) -> ScenarioSummary:
-    """Импортирует CSV Билайна и сохраняет рабочий день."""
+    """Импортирует CSV оператора связи и сохраняет рабочий день."""
     from app.core.timeutils import today_str
     from app.services.geocoder import Geocoder
 

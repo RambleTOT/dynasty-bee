@@ -1,7 +1,7 @@
 /**
  * Колонки CSV другого участка (§14, `anyRegionEnabled`): поле угадываем по названию колонки,
  * диспетчер поправляет, ячейки разбираем в поля заявки. На бэк строки уходят в выданном формате
- * Билайна (canonicalCsv.ts): другой формат бэк не читает.
+ * оператора связи (canonicalCsv.ts): другой формат бэк не читает.
  */
 import { FEATURES } from '@/config';
 import { transportRuleText } from '@/lib/booking';
@@ -76,7 +76,7 @@ export const REQUEST_FIELDS: readonly FieldDef<RequestField>[] = [
   {
     key: 'typeHd',
     label: 'Подтип (HD)',
-    hint: 'уточнение типа, как в выгрузке Билайна',
+    hint: 'уточнение типа, как в выданной выгрузке',
     extra: true,
     names: ['тип заявки hd', 'подтип', 'type_hd', 'hd'],
   },

@@ -91,7 +91,7 @@ export function LoginPage() {
           Войти
         </Button>
       </form>
-      <footer className={styles.footer}>Кейс от Билайн Бизнес · ЛЦТ 2026 · прототип</footer>
+      <footer className={styles.footer}>Прототип сервиса для оператора связи</footer>
     </main>
   );
 }

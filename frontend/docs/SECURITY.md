@@ -40,7 +40,7 @@ ssh -i ~/.ssh/beeline_deploy root@185.166.196.106 'SSH_KEY_ONLY=yes bash -s' < d
 
 На стенде `ALLOW_DESTRUCTIVE=true`, а пароль демо-учёток — тот, что открыто написан в описании Swagger (`/docs`) и в гайде бэка. Значит, любой может войти диспетчером и вызвать `DELETE /api/v1/data/scenarios` и `DELETE /api/v1/events` напрямую в `api.bee-dynasty.ru`: сайт `DELETE` уже не пропускает, но API открыт и сам по себе.
 
-В `/root/beeline_rps/.env`: `ALLOW_DESTRUCTIVE=false`, новый `DEMO_PASSWORD` и новый `JWT_SECRET` — иначе токены, выданные по старому паролю, работают ещё 21 день. Пароль убрать из описания Swagger (`app/main.py`, `_DESCRIPTION`) и из гайда, жюри передать отдельно. После смены всем, включая команду, нужно войти заново.
+В `/root/beeline_rps/.env`: `ALLOW_DESTRUCTIVE=false`, новый `DEMO_PASSWORD` и новый `JWT_SECRET` — иначе токены, выданные по старому паролю, работают ещё 21 день. Пароль убрать из описания Swagger (`app/main.py`, `_DESCRIPTION`) и из гайда, проверяющим передать отдельно. После смены всем, включая команду, нужно войти заново.
 
 ### 3. Бэк открыт наружу мимо nginx — P0
 
@@ -65,7 +65,7 @@ cd /root/beeline_rps && docker compose up -d --build api
 
 ### 5. Лимиты для api.bee-dynasty.ru — P1
 
-API открыт напрямую (Swagger, жюри), и лимиты сайта его не защищают. Зоны лимитов уже объявлены в nginx — в конфиг API нужно добавить несколько строк, они в `deploy/nginx/api-limits.conf`. Там же — `server_tokens off` и таймауты. Проверка и применение: `nginx -t && systemctl reload nginx`.
+API открыт напрямую (Swagger доступен всем), и лимиты сайта его не защищают. Зоны лимитов уже объявлены в nginx — в конфиг API нужно добавить несколько строк, они в `deploy/nginx/api-limits.conf`. Там же — `server_tokens off` и таймауты. Проверка и применение: `nginx -t && systemctl reload nginx`.
 
 ### 6. DDoS по каналу — P1
 

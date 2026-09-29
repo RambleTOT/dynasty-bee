@@ -53,7 +53,7 @@ REGIONS: dict[str, dict[str, Any]] = {
 
 DEFAULT_REGION_ID = "east"
 
-#: Нормативы Билайна: тип заявки BK → навык и длительность работ (у участков кейса).
+#: Нормативы оператора связи: тип заявки BK → навык и длительность работ (у участков кейса).
 BEELINE_NORMS: dict[str, Any] = {
     "types": [
         {"type_bk": "Подключение", "skill": "installation", "duration_minutes": 70},

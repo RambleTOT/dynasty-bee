@@ -12,7 +12,7 @@ export const REGION_STORAGE_KEY = 'operator_region';
 export interface OperatorRegion {
   id: string;
   name: string;
-  /** Свой участок (§14): типы заявок из его нормативов; `null` — типы Билайна. */
+  /** Свой участок (§14): типы заявок из его нормативов; `null` — типы из нормативов оператора связи. */
   types: readonly string[] | null;
 }
 

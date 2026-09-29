@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { readCsvTable, toCsvTable } from './csvTable';
 
 describe('toCsvTable', () => {
-  it('выгрузка Билайна: заголовок, строки, пустые хвосты и адрес офиса', () => {
+  it('выгрузка оператора связи: заголовок, строки, пустые хвосты и адрес офиса', () => {
     const table = toCsvTable(
       [
         'Заявка;Тип заявки BK;Начало;Окончание;Адрес;;',

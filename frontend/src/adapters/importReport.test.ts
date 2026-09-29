@@ -275,7 +275,7 @@ describe('importReportFromError', () => {
     const error = new ApiError(
       422,
       'BAD_CSV',
-      'В файле нет колонок: Тип заявки BK, Адрес. Проверьте, что это выгрузка Билайна',
+      'В файле нет колонок: Тип заявки BK, Адрес. Проверьте, что это выгрузка оператора связи',
     );
     expect(importReportFromError('south_center', error)).toEqual({
       regionId: 'south_center',
@@ -284,7 +284,7 @@ describe('importReportFromError', () => {
         {
           kind: 'error',
           tone: 'danger',
-          text: 'В файле нет колонок: Тип заявки BK, Адрес. Проверьте, что это выгрузка Билайна',
+          text: 'В файле нет колонок: Тип заявки BK, Адрес. Проверьте, что это выгрузка оператора связи',
         },
       ],
       loaded: null,

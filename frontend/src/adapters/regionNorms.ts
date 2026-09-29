@@ -1,6 +1,6 @@
 /**
  * Нормативы участка (§14, `anyRegionEnabled`): тип заявки BK → навык и длительность работ без
- * дороги. У участков кейса — нормативы Билайна (у бэка — `_SKILL_BY_TYPE`, `_DURATION_BY_TYPE`);
+ * дороги. У участков кейса — нормативы оператора связи (у бэка — `_SKILL_BY_TYPE`, `_DURATION_BY_TYPE`);
  * у своего участка — свои: диспетчер задаёт их при загрузке, бэк хранит их в участке.
  */
 import type { RegionNorms } from '@/api/types';
@@ -13,7 +13,7 @@ export interface Norm {
   duration: number;
 }
 
-/** Нормативы Билайна по типам BK выданных файлов. */
+/** Нормативы оператора связи по типам BK выданных файлов. */
 export const BEELINE_NORMS: Readonly<Record<string, Norm>> = {
   [BK.connection]: { skill: 'installation', duration: 70 },
   [BK.extra]: { skill: 'installation', duration: 20 },
@@ -21,10 +21,10 @@ export const BEELINE_NORMS: Readonly<Record<string, Norm>> = {
   [BK.emergency]: { skill: 'emergency', duration: 80 },
 };
 
-/** Длительность по навыку для незнакомого типа — как у типа Билайна с тем же навыком. */
+/** Длительность по навыку для незнакомого типа — как у типа из нормативов оператора связи с тем же навыком. */
 const DURATION_BY_SKILL: Record<Skill, number> = { installation: 70, local: 30, emergency: 80 };
 
-/** Норматив участка, норматив Билайна, угадали по названию или поправил диспетчер. */
+/** Норматив участка, норматив оператора связи, угадали по названию или поправил диспетчер. */
 export type NormSource = 'saved' | 'beeline' | 'guess' | 'edited';
 
 export interface NormRow {
@@ -59,7 +59,7 @@ function savedOf(norms: RegionNorms | null | undefined, typeBk: string): Norm | 
   return { skill: item.skill, duration: item.duration_minutes };
 }
 
-/** Типы из файла — чаще встречающиеся выше; значения: норматив участка → Билайна → по названию. */
+/** Типы из файла — чаще встречающиеся выше; значения: норматив участка → оператора связи → по названию. */
 export function normRows(
   requests: readonly Pick<RequestRow, 'typeBk'>[],
   saved: RegionNorms | null | undefined,

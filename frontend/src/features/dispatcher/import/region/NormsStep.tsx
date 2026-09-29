@@ -8,7 +8,7 @@ import styles from './RegionWizard.module.css';
 
 const SOURCE_CHIP: Record<NormSource, { tone: 'neutral' | 'info' | 'warning'; text: string }> = {
   saved: { tone: 'neutral', text: 'норматив участка' },
-  beeline: { tone: 'info', text: 'как у Билайна' },
+  beeline: { tone: 'info', text: 'как у оператора связи' },
   guess: { tone: 'warning', text: 'новый тип' },
   edited: { tone: 'neutral', text: 'изменён' },
 };
@@ -99,7 +99,7 @@ export function NormsStep({ draft, disabled }: { draft: RegionDraft; disabled: b
       </p>
       {guessed > 0 && (
         <Callout tone="warning">
-          Типов нет в нормативах Билайна: {formatInt(guessed)}. Навык угадали по названию —
+          Типов нет в нормативах оператора связи: {formatInt(guessed)}. Навык угадали по названию —
           проверьте его и минуты
         </Callout>
       )}

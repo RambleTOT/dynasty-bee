@@ -8,7 +8,7 @@ import {
   readCsvRowCount,
 } from './csv';
 
-/** Текст → байты Windows-1251 (кириллица и ASCII) — так выгружает Билайн. */
+/** Текст → байты Windows-1251 (кириллица и ASCII) — так выгружает оператор связи. */
 function cp1251(text: string) {
   return new Uint8Array(
     [...text].map((char) => {

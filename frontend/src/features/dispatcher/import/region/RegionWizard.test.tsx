@@ -172,7 +172,7 @@ afterEach(() => {
 vi.setConfig({ testTimeout: 20_000 });
 
 describe('«Другой участок» (§14)', () => {
-  it('новый участок: файлы → колонки → нормативы → бригады → точки → участок, ростер и CSV Билайна', async () => {
+  it('новый участок: файлы → колонки → нормативы → бригады → точки → участок, ростер и CSV оператора связи', async () => {
     renderModal();
     const card = await screen.findByRole('region', { name: 'Другой участок' });
     fireEvent.click(within(card).getByRole('button', { name: 'Настроить загрузку' }));
@@ -222,9 +222,9 @@ describe('«Другой участок» (§14)', () => {
     ).toBeInTheDocument();
     next();
 
-    // шаг 3: типы из файла — Билайн, новый тип, угаданная авария
+    // шаг 3: типы из файла — оператор связи, новый тип, угаданная авария
     expect(await subtitle('3 из 5 · нормативы')).toBeInTheDocument();
-    expect(screen.getByText('как у Билайна')).toBeInTheDocument();
+    expect(screen.getByText('как у оператора связи')).toBeInTheDocument();
     expect(screen.getAllByText('новый тип')).toHaveLength(2);
     fireEvent.change(screen.getByRole('spinbutton', { name: 'Минут · Ремонт ТВ' }), {
       target: { value: '45' },

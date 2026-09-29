@@ -31,7 +31,7 @@ const BEELINE_HEADER = [
 ];
 
 describe('guessMapping', () => {
-  it('заголовок Билайна — все поля на месте', () => {
+  it('заголовок оператора связи — все поля на месте', () => {
     const mapping = guessMapping(REQUEST_FIELDS, BEELINE_HEADER);
     expect(mapping).toMatchObject({
       id: 0,

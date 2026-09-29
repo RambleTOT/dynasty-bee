@@ -4,7 +4,7 @@ import { guessSkill, normError, normLookup, normRows, toRegionNorms } from './re
 const rows = (...types: string[]) => types.map((typeBk) => ({ typeBk }));
 
 describe('normRows', () => {
-  it('частые типы выше; Билайн, участок, угадали по названию', () => {
+  it('частые типы выше; оператор связи, участок, угадали по названию', () => {
     const result = normRows(
       rows('Ремонт ТВ', 'Подключение', 'Подключение', 'Монтаж камер', 'Ремонт ТВ', 'Подключение'),
       { types: [{ type_bk: 'ремонт тв', skill: 'local', duration_minutes: 45 }] },

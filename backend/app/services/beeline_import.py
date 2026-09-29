@@ -1,4 +1,4 @@
-"""Адаптер выданных CSV Билайна (``POST /data/import-beeline``)."""
+"""Адаптер выданных CSV оператора связи (``POST /data/import-beeline``)."""
 from __future__ import annotations
 
 import csv
@@ -263,7 +263,7 @@ def import_beeline(
     geocoder=None,
     region: dict | None = None,
 ) -> tuple[dict, dict]:
-    """Разбирает CSV Билайна и возвращает (scenario, import_report).
+    """Разбирает CSV оператора связи и возвращает (scenario, import_report).
 
     ``geocoder`` — необязательный :class:`app.services.geocoder.Geocoder` с кэшем
     в БД. Если он настроен (yandex/nominatim) и адрес не найден — координаты
@@ -433,7 +433,7 @@ def import_beeline(
     }
     scenario = {
         "name": f"{region['name']} · {date} · CSV",
-        "description": f"Импорт CSV Билайна, регион {region['name']}",
+        "description": f"Импорт CSV оператора связи, регион {region['name']}",
         "engineers": engineers,
         "requests": requests,
         "scenario_metadata": {

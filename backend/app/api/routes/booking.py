@@ -42,7 +42,7 @@ _DURATION_BY_TYPE = {
 
 
 def _skill_duration(type_bk: str | None, region: dict | None = None) -> tuple[str, int]:
-    """Навык и длительность: у своего участка (§14) — его нормативы, у участков кейса — Билайна."""
+    """Навык и длительность: у своего участка (§14) — его нормативы, у участков кейса — оператора связи."""
     if region is not None and not region.get("builtin", True):
         return norm_for(region, type_bk) or ("local", 30)
     return _DURATION_BY_TYPE.get((type_bk or "").strip().lower(), ("local", 30))
