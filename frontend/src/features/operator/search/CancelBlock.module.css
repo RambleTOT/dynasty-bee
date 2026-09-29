@@ -1,0 +1,23 @@
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: 18px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-surface-nested);
+}
+
+.title {
+  font: var(--font-h3);
+}
+
+/* поле на сером блоке — белое, как поля tone="white" */
+.comment {
+  background: var(--bg-surface);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-2);
+}

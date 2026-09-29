@@ -1,0 +1,227 @@
+/* Мастер «Другой участок» (§14): те же карточки и поля, что в DS-02. */
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  gap: var(--space-3);
+  align-items: start;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--bg-surface-nested);
+}
+
+.sectionHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+.sectionTitle {
+  font: var(--font-h3);
+}
+
+.sectionNote {
+  color: var(--text-secondary);
+  font: var(--font-caption);
+}
+
+.text {
+  margin: 0;
+  color: var(--text-primary);
+  font: var(--font-body);
+  text-wrap: pretty;
+}
+
+.muted {
+  color: var(--text-secondary);
+}
+
+.files {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+  padding-left: 18px;
+}
+
+/* сопоставление колонок: поле и зачем оно, колонка файла, первое значение */
+.mapping {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 220px) minmax(0, 1fr);
+  gap: 8px var(--space-3);
+  align-items: center;
+}
+
+.mappingHead {
+  color: var(--text-secondary);
+  font: var(--font-caption-medium);
+}
+
+.fieldLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  font: var(--font-body);
+}
+
+.fieldHint {
+  color: var(--text-secondary);
+  font: var(--font-caption);
+}
+
+.required {
+  color: var(--st-danger);
+}
+
+.sample {
+  overflow: hidden;
+  color: var(--text-secondary);
+  font: var(--font-caption);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* таблицы нормативов и бригад на белом: ширины колонок — по заголовкам, поля — по ширине колонки */
+.table {
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+}
+
+.table table {
+  table-layout: fixed;
+}
+
+.number {
+  width: 88px;
+}
+
+.skills {
+  display: flex;
+  gap: var(--space-2);
+  white-space: nowrap;
+}
+
+/* имя бригады и её смена под ним */
+.nameCell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.shiftCaption {
+  color: var(--text-secondary);
+  font: var(--font-caption);
+}
+
+.shift {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--space-2);
+}
+
+.time {
+  width: 120px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* точки: прогресс и адреса без точки */
+.progress {
+  height: 6px;
+  overflow: hidden;
+  border-radius: var(--radius-pill);
+  background: var(--bg-surface);
+}
+
+.progressBar {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--text-primary);
+  transition: width var(--dur-base) var(--ease-standard);
+}
+
+.missed {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.missedRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 44px;
+  border-top: 1px solid var(--line-subtle);
+}
+
+.missedRow:first-child {
+  border-top: 0;
+}
+
+.missedText {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font: var(--font-body);
+}
+
+.missedLine {
+  color: var(--text-secondary);
+  font: var(--font-caption);
+}
+
+.placed {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--st-success);
+  font: var(--font-caption-medium);
+  white-space: nowrap;
+}
+
+.footerNote {
+  flex: 1;
+  min-width: 0;
+  color: var(--text-secondary);
+  font: var(--font-caption);
+}
+
+@media (max-width: 720px) {
+  .fields,
+  .files,
+  .mapping {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .mappingHead {
+    display: none;
+  }
+}

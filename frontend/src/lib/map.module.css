@@ -1,0 +1,9 @@
+/* Подложку OSM приглушаем, чтобы читались маршруты (DESIGN_SPEC §2.5). Класс вешается на MapContainer. */
+.muted :global(.leaflet-tile-pane) {
+  filter: saturate(0.3) brightness(1.03);
+}
+
+.muted :global(.leaflet-control-attribution) {
+  font: var(--font-caption);
+  font-size: 11px;
+}

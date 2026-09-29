@@ -1,0 +1,15 @@
+/* раскладка O-01.2: сводка 420 px слева, «Дата и окно» справа */
+.split {
+  display: grid;
+  flex: 1 0 auto;
+  grid-template-columns: 420px minmax(0, 1fr);
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-6) var(--space-6);
+}
+
+.center {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,15 @@
+dist
+coverage
+node_modules
+package-lock.json
+public/mockServiceWorker.js
+src/api/schema.d.ts
+docs/api-examples
+# токены — дословно как в спеке (HEX в верхнем регистре)
+src/styles/tokens.css
+
+# спеки, макет и данные кейса не форматируем
+docs/spec
+design
+samples
+.*/

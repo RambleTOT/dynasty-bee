@@ -1,0 +1,166 @@
+/* DS-09 «Состав и ресурсы» (макет Dispatcher_Flow, кадр DS-09; DESIGN_SPEC §6 DS-09). */
+.body {
+  gap: var(--space-3);
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ИНЖЕНЕР · НАВЫКИ | ТРАНСПОРТ | СМЕНА | В ДЕНЬ */
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 180px 84px 44px;
+  gap: 0 var(--space-2);
+  align-items: center;
+  min-height: var(--control-h-lg);
+  padding: var(--space-1) 0;
+  border-top: 1px solid var(--line-subtle);
+}
+
+.headRow {
+  min-height: 0;
+  padding: 0 0 var(--space-1);
+  border-top: 0;
+  color: var(--text-secondary);
+  font: var(--font-axis);
+  letter-spacing: 0.04em;
+}
+
+/* выключенная бригада приглушена */
+.off {
+  opacity: 0.55;
+}
+
+.who {
+  min-width: 0;
+}
+
+.nameLine {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.dot {
+  flex: none;
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-pill);
+}
+
+.name {
+  overflow: hidden;
+  font: var(--font-body-medium);
+  font-size: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin-top: var(--space-1);
+  padding-left: calc(10px + var(--space-2));
+}
+
+.skill {
+  display: inline-flex;
+  align-items: center;
+  height: 18px;
+  padding: 0 var(--space-2);
+  border-radius: var(--radius-pill);
+  background: var(--bg-surface-nested);
+  font: var(--font-axis);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* select транспорта — компактный, как в макете */
+.transport select {
+  font: var(--font-caption);
+}
+
+.shift,
+.plain {
+  font: var(--font-caption);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.hint {
+  color: var(--text-secondary);
+  font: var(--font-caption);
+}
+
+.addRow {
+  margin-left: calc(-1 * var(--space-3));
+}
+
+/* форма «+ Добавить инженера» */
+.addForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--bg-surface-nested);
+}
+
+.skillsField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.legend {
+  padding: 0;
+  color: var(--text-secondary);
+  font: var(--font-caption-medium);
+}
+
+.skillsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+}
+
+.addGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--space-3);
+}
+
+.fieldError {
+  color: var(--st-danger);
+  font: var(--font-caption);
+}
+
+.addActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-2);
+}
+
+.footNote {
+  flex: 1;
+  color: var(--text-secondary);
+  font: var(--font-caption);
+  text-wrap: pretty;
+}

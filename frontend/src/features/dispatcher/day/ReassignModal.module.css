@@ -1,0 +1,117 @@
+/* DS-08 «Ручное переназначение» (макет Dispatcher_Flow, кадры DS-08 «ок» и «нарушение»; DESIGN_SPEC §6 DS-08). */
+.body {
+  gap: var(--space-4);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.candidate {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: var(--control-h-lg);
+  padding: 0 var(--space-4);
+  border: 0;
+  border-radius: var(--radius-md);
+  background: var(--bg-surface-nested);
+  color: var(--text-primary);
+  font: inherit;
+  text-align: left;
+  transition: background var(--dur-fast) var(--ease-standard);
+}
+
+.candidate:hover {
+  background: var(--bg-control);
+}
+
+.selected,
+.selected:hover {
+  background: var(--bg-surface);
+  box-shadow: inset 0 0 0 2px var(--text-primary);
+}
+
+.dot {
+  flex: none;
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-pill);
+}
+
+.name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  font: var(--font-body-medium);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.info {
+  flex: none;
+  color: var(--text-secondary);
+  font: var(--font-caption);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* результат проверки: зелёная плашка или список нарушений */
+.result {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  font: var(--font-body-medium);
+}
+
+.resultOk {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-3);
+  background: var(--st-success-bg);
+  color: var(--st-success);
+}
+
+.resultBad {
+  background: var(--st-danger-bg);
+  color: var(--st-danger);
+}
+
+.resultRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.resultRow svg,
+.resultOk svg {
+  flex: none;
+}
+
+/* чипы-последствия */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  height: var(--control-h-sm);
+  padding: 0 var(--space-3);
+  border-radius: var(--radius-pill);
+  background: var(--bg-surface-nested);
+  font: var(--font-caption);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.previewRow {
+  display: flex;
+  justify-content: flex-end;
+}

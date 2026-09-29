@@ -1,0 +1,10 @@
+.line {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) 14px;
+  border-radius: var(--radius-md);
+  background: var(--bg-surface-nested);
+  color: var(--text-primary);
+  font: var(--font-caption-medium);
+}

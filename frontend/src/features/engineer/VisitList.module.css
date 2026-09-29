@@ -1,0 +1,271 @@
+/* E-03 «Мои заявки» по макету: карточка текущей, «Далее по маршруту», «Завершённые». */
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* Белая карточка 24 px: текущая заявка, карточка заявки, «Все заявки закрыты». */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  border-radius: var(--radius-card);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+.eyebrow {
+  color: var(--text-secondary);
+  font: var(--font-axis);
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.titleRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.title {
+  color: var(--text-primary);
+  font: var(--font-h2);
+  text-decoration: none;
+}
+
+a.title:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--line-strong);
+  text-underline-offset: 3px;
+}
+
+.address {
+  font: var(--font-body-medium);
+  overflow-wrap: anywhere;
+}
+
+.missing {
+  color: var(--text-secondary);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-4);
+  color: var(--text-secondary);
+  font: var(--font-caption);
+  font-variant-numeric: tabular-nums;
+}
+
+.equipment {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text-secondary);
+  font: var(--font-caption);
+}
+
+.equipment > svg {
+  flex: none;
+}
+
+/* «Ждёт решения диспетчера. Можно ехать к следующей заявке» */
+.waiting {
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--st-warning-bg);
+  color: var(--st-warning);
+  font: var(--font-caption-medium);
+}
+
+/* Панель статуса: primary на всю ширину, под ней «Инцидент» · «Прервать». */
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.card .actions {
+  margin-top: var(--space-1);
+}
+
+.pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--space-2);
+}
+
+.doneIcon {
+  color: var(--st-success);
+}
+
+/* «Далее по маршруту» — цель прокрутки от баннера: не прятать под шапкой 56 px. */
+.anchor {
+  scroll-margin-top: calc(56px + var(--space-2));
+}
+
+.sectionTitle {
+  padding: 0 var(--space-1);
+  color: var(--text-secondary);
+  font: var(--font-caption-medium);
+}
+
+/* Строки маршрута */
+.list {
+  margin: 0;
+  padding: var(--space-1) 0;
+  border-radius: var(--radius-card);
+  background: var(--bg-surface);
+  list-style: none;
+}
+
+.item + .item {
+  border-top: 1px solid var(--line-subtle);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: var(--hit-min);
+  padding: var(--space-3) var(--space-4);
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.row:focus-visible {
+  border-radius: var(--radius-md);
+}
+
+/* Кружок с номером цветом маршрута (§10.2) */
+.seq {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-pill);
+  box-shadow: inset 0 0 0 2px var(--engineer-route, var(--route-1));
+  color: var(--text-primary);
+  font: 600 12px/1 var(--font);
+  font-variant-numeric: tabular-nums;
+}
+
+.rowMain {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.rowTop {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.rowTime {
+  flex: none;
+  font: var(--font-body-medium);
+  font-variant-numeric: tabular-nums;
+}
+
+.rowAddress {
+  min-width: 0;
+  overflow: hidden;
+  font: var(--font-body);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.rowSub {
+  color: var(--text-secondary);
+  font: var(--font-caption);
+}
+
+.rowFlags {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.chevron {
+  flex: none;
+  color: var(--text-tertiary);
+}
+
+/* «Завершённые · N» — свёрнуто */
+.completed {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--bg-surface);
+}
+
+.completedToggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  min-height: var(--hit-min);
+  padding: var(--space-3) var(--space-4);
+  border: 0;
+  background: transparent;
+  color: var(--text-primary);
+  font: var(--font-body-medium);
+  text-align: left;
+}
+
+.completedLabel {
+  flex: 1;
+}
+
+.toggleChevron {
+  flex: none;
+  color: var(--text-tertiary);
+  transition: transform var(--dur-base) var(--ease-standard);
+}
+
+.open .toggleChevron {
+  transform: rotate(180deg);
+}
+
+.completedList {
+  margin: 0;
+  padding: 0 0 var(--space-1);
+  border-top: 1px solid var(--line-subtle);
+  list-style: none;
+}
+
+.closedMark {
+  display: inline-flex;
+  flex: none;
+  color: var(--st-success);
+}
+
+/* Скелетоны загрузки */
+.skeletonRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: var(--hit-min);
+  padding: var(--space-3) var(--space-4);
+}
+
+.skeletonText {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toggleChevron {
+    transition: none;
+  }
+}

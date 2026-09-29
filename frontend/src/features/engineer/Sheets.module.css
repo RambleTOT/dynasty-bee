@@ -1,0 +1,27 @@
+/* Шторки инженера по макету: радио-строки 52 px (E-06, точка слева) и 56 px с иконкой (E-02, E-07, E-08). */
+.reasons > label {
+  min-height: 52px;
+  border-radius: var(--radius-lg);
+}
+
+.options > label {
+  min-height: 56px;
+  border-radius: var(--radius-lg);
+  font: var(--font-body-medium);
+}
+
+.options > label > svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* «С какого времени» — поле 52 px, как строки ниже. */
+.timeBox {
+  height: 52px;
+  border-radius: var(--radius-lg);
+}
+
+.text {
+  color: var(--text-primary);
+  font: var(--font-body);
+}

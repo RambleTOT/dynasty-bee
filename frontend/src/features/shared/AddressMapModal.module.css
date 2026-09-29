@@ -1,0 +1,16 @@
+/* Выбор адреса точкой на карте. */
+.status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 24px;
+  font: var(--font-body);
+}
+
+.map {
+  height: 420px;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--bg-surface-nested);
+  isolation: isolate;
+}

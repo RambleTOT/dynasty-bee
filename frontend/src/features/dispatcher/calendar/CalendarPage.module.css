@@ -1,0 +1,162 @@
+/* DS-01 — по кадру «Календарь заявок» макета (pages/DispatcherCalendar.dc.html), 1440×900. */
+
+/*
+ * Сетка страницы: шапка, фильтры, дни недели и месяц на всю оставшуюся высоту экрана.
+ * `--weeks` (5 или 6) задаёт страница. Недели делят высоту поровну, но ячейка не ниже
+ * `--cell-min-height`: на низком экране страница прокручивается.
+ */
+.page {
+  --cell-min-height: 124px;
+  --month-min-height: calc(
+    var(--weeks, 5) * var(--cell-min-height) + (var(--weeks, 5) - 1) * var(--space-2)
+  );
+
+  display: grid;
+  flex: 1 0 auto;
+  grid-template-rows: auto auto auto minmax(var(--month-min-height), 1fr);
+  gap: var(--space-4);
+  min-height: 100%;
+  padding: var(--space-6) var(--space-8);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.title {
+  font: var(--font-h1);
+  white-space: nowrap;
+}
+
+.monthNav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.monthTitle {
+  min-width: 150px;
+  font: var(--font-h3);
+  text-align: center;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.summary {
+  color: var(--text-secondary);
+  font: var(--font-caption);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* фильтры и легенда */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend {
+  display: flex;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  color: var(--text-secondary);
+  font: var(--font-caption);
+  list-style: none;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.swatch {
+  flex: none;
+  width: 10px;
+  height: 6px;
+  border-radius: var(--radius-pill);
+}
+
+/* сетка */
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: var(--space-2);
+  color: var(--text-secondary);
+  font: var(--font-axis);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.gridArea {
+  position: relative;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr);
+}
+
+.grid {
+  display: grid;
+  grid-template-rows: repeat(var(--weeks, 5), minmax(0, 1fr));
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: var(--space-2);
+}
+
+.gridEmpty {
+  opacity: 0.7;
+}
+
+.skeletonCell {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+}
+
+/* карточка поверх сетки: пустой месяц */
+.emptyCard {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  width: 440px;
+  padding: calc(var(--space-6) + var(--space-1));
+  border-radius: var(--radius-card);
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-float);
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.emptyIcon {
+  color: var(--text-tertiary);
+}
+
+.emptyTitle {
+  font: var(--font-h3);
+}
+
+.emptyText {
+  color: var(--text-secondary);
+  font: var(--font-body);
+}
+
+/* ошибка сети */
+.errorPanel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-card);
+  background: var(--bg-surface);
+}

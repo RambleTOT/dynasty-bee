@@ -1,0 +1,96 @@
+/* DS-10 «Итоги дня» (макет Dispatcher_Flow, кадр DS-10; DESIGN_SPEC §6 DS-10). */
+.body {
+  gap: var(--space-4);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-2);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--bg-surface-nested);
+}
+
+.cardLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font: var(--font-caption);
+}
+
+.tone_done {
+  color: var(--st-success);
+}
+
+.tone_cancelled {
+  color: var(--text-secondary);
+}
+
+.tone_rescheduled {
+  color: var(--st-warning);
+}
+
+.tone_unassigned {
+  color: var(--st-danger);
+}
+
+.cardValue {
+  color: var(--text-primary);
+  font: var(--font-h1);
+  font-variant-numeric: tabular-nums;
+}
+
+.cardNote {
+  color: var(--text-secondary);
+  font: var(--font-caption);
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-2);
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--bg-surface-nested);
+  color: var(--text-primary);
+}
+
+/* жёлтая плашка ключевой метрики — пробег */
+.metricAccent {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.metricLabel {
+  font: var(--font-caption);
+}
+
+.metricValue {
+  font: var(--font-metric);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.metricDelta {
+  font: var(--font-caption-medium);
+  font-variant-numeric: tabular-nums;
+}
+
+.tableBox {
+  overflow: hidden;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-lg);
+  background: var(--bg-surface-nested);
+}

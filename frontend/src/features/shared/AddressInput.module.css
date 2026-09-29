@@ -1,0 +1,42 @@
+/* Поле адреса с подсказками: список под полем, поверх соседних полей. */
+.wrap {
+  position: relative;
+  min-width: 0;
+}
+
+.list {
+  position: absolute;
+  top: calc(100% + var(--space-1));
+  right: 0;
+  left: 0;
+  z-index: 20;
+  max-height: 296px;
+  margin: 0;
+  padding: var(--space-1) 0;
+  overflow: auto;
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-float);
+  list-style: none;
+}
+
+.option {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--space-2) var(--space-3);
+  cursor: pointer;
+}
+
+.active {
+  background: var(--row-hover);
+}
+
+.title {
+  font: var(--font-body-medium);
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font: var(--font-caption);
+}

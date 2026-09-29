@@ -1,0 +1,184 @@
+.scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  background: var(--overlay);
+  animation: fade var(--dur-base) var(--ease-standard);
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  max-height: calc(100vh - 2 * var(--space-6));
+  border-radius: var(--radius-card);
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-drawer);
+  outline: none;
+  animation: rise var(--dur-base) var(--ease-standard);
+}
+
+.header {
+  display: flex;
+  flex: none;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-6) var(--space-6) var(--space-4);
+}
+
+.titles {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  color: var(--text-primary);
+  font: var(--font-h2);
+}
+
+.subtitle {
+  margin-top: 2px;
+  color: var(--text-secondary);
+  font: var(--font-caption);
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-height: 0;
+  padding: 0 var(--space-6) var(--space-6);
+  overflow: auto;
+}
+
+.footer {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-6);
+  border-top: 1px solid var(--line-subtle);
+}
+
+/* дровер справа */
+.scrimDrawer {
+  justify-content: flex-end;
+  padding: 0;
+}
+
+.drawer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 100%;
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-drawer);
+  outline: none;
+  animation: slide var(--dur-slow) var(--ease-standard);
+}
+
+.drawerHeader {
+  padding: var(--space-5) var(--space-5) var(--space-3) var(--space-6);
+}
+
+.drawerBody {
+  padding: 0 var(--space-6) var(--space-6);
+}
+
+.drawerFooter {
+  padding: var(--space-4) var(--space-6);
+}
+
+/* шторка телефона */
+.scrimSheet {
+  align-items: flex-end;
+  padding: 0;
+}
+
+.sheet {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 430px;
+  max-height: 88vh;
+  border-radius: var(--radius-card) var(--radius-card) 0 0;
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-drawer);
+  outline: none;
+  animation: up var(--dur-slow) var(--ease-standard);
+}
+
+.handle {
+  flex: none;
+  width: 40px;
+  height: 4px;
+  margin: var(--space-2) auto 0;
+  border-radius: 2px;
+  background: var(--bg-control);
+}
+
+.sheetHeader {
+  flex: none;
+  padding: var(--space-4) var(--space-5) var(--space-3);
+}
+
+.sheetBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-height: 0;
+  padding: 0 var(--space-5) var(--space-4);
+  overflow: auto;
+}
+
+.sheetFooter {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-5) var(--space-6);
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(24px);
+    opacity: 0;
+  }
+}
+
+@keyframes up {
+  from {
+    transform: translateY(24px);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scrim,
+  .modal,
+  .drawer,
+  .sheet {
+    animation: none;
+  }
+}

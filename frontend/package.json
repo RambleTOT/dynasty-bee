@@ -1,0 +1,61 @@
+{
+  "name": "beeline-routes-frontend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "check": "tsc --noEmit && tsc --noEmit -p tsconfig.node.json && eslint .",
+    "test": "vitest run",
+    "format": "prettier --write .",
+    "gen:types": "openapi-typescript https://api.bee-dynasty.ru/openapi.json -o src/api/schema.d.ts",
+    "snapshot": "node scripts/snapshot-api.mjs",
+    "design:unpack": "node scripts/unpack-design.mjs design/Dispatcher_Flow.html && node scripts/unpack-design.mjs design/Engineer.html && node scripts/unpack-design.mjs design/Operator.html",
+    "deploy": "bash scripts/deploy.sh"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.104.0",
+    "@tanstack/react-query-devtools": "^5.104.0",
+    "date-fns": "^3.6.0",
+    "leaflet": "~1.9.4",
+    "lucide-react": "^1.48.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-leaflet": "^4.2.1",
+    "react-router-dom": "^6.30.6"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "@testing-library/dom": "^10.4.2",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.3",
+    "@types/leaflet": "^1.9.22",
+    "@types/node": "^20.19.43",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^4.7.0",
+    "dotenv": "^18.0.4",
+    "eslint": "^9.39.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.5.7",
+    "globals": "^17.12.0",
+    "jsdom": "^26.1.0",
+    "msw": "^2.15.0",
+    "openapi-typescript": "^7.13.0",
+    "prettier": "^3.9.9",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.70.1",
+    "vite": "^5.4.21",
+    "vitest": "^2.1.9"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
+  }
+}

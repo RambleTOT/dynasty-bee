@@ -1,0 +1,109 @@
+.chip {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: var(--space-1);
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+}
+
+.md {
+  height: 24px;
+  padding: 0 var(--space-2);
+  font: 600 13px/18px var(--font);
+}
+
+.sm {
+  height: 20px;
+  padding: 0 6px;
+  font: 600 11px/14px var(--font);
+}
+
+.success {
+  background: var(--st-success-bg);
+  color: var(--st-success);
+}
+
+.info {
+  background: var(--st-info-bg);
+  color: var(--st-info);
+}
+
+.warning {
+  background: var(--st-warning-bg);
+  color: var(--st-warning);
+}
+
+.danger {
+  background: var(--st-danger-bg);
+  color: var(--st-danger);
+}
+
+.changed {
+  background: var(--st-changed-bg);
+  color: var(--st-changed);
+}
+
+.neutral {
+  background: var(--st-neutral-bg);
+  color: var(--st-neutral);
+}
+
+.urgent {
+  background: var(--flag-urgent-bg);
+  color: var(--flag-urgent-text);
+}
+
+.flagIcon {
+  display: inline-flex;
+  flex: none;
+}
+
+.fg_success {
+  color: var(--st-success);
+}
+
+.fg_info {
+  color: var(--st-info);
+}
+
+.fg_warning {
+  color: var(--st-warning);
+}
+
+.fg_danger {
+  color: var(--st-danger);
+}
+
+.fg_changed {
+  color: var(--st-changed);
+}
+
+.fg_neutral {
+  color: var(--st-neutral);
+}
+
+.badge {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  height: 20px;
+  padding: 0 var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--bg-control);
+  color: var(--text-primary);
+  font: var(--font-caption-medium);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.micro {
+  font: var(--font-axis);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.inverse {
+  background: var(--bg-inverse);
+  color: var(--on-inverse);
+}

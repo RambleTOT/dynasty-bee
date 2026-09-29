@@ -1,0 +1,37 @@
+/* E-04: карта маршрута на всю высоту (DESIGN_SPEC §2.5): линия 4 px цветом маршрута, маркеры-номера. */
+.map {
+  position: absolute;
+  inset: 0;
+  background: var(--bg-control);
+  font: var(--font-caption);
+}
+
+/* Подписи Leaflet не прячем под шторкой, которая заходит на карту на радиус скругления. */
+.map :global(.leaflet-bottom) {
+  bottom: var(--radius-card);
+}
+
+/* Цвет линии — классом: Leaflet пишет цвет в атрибут stroke, где var() не работает. */
+.casing {
+  stroke: var(--bg-surface);
+  stroke-width: calc(var(--map-route-width) * 2);
+  stroke-opacity: 0.9;
+}
+
+.line {
+  stroke: var(--engineer-route, var(--route-1));
+  stroke-width: var(--map-route-width);
+}
+
+/* Маркер визита: белый круг 24 px, обводка 3 px цветом маршрута, тёмный номер. */
+.marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-pill);
+  background: var(--bg-surface);
+  box-shadow: inset 0 0 0 var(--map-marker-stroke) var(--engineer-route, var(--route-1));
+  color: var(--text-primary);
+  font: 700 11px/1 var(--font);
+  font-variant-numeric: tabular-nums;
+}

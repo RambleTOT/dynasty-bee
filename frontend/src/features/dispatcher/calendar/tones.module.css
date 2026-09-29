@@ -1,0 +1,25 @@
+/* Цвет сегмента полосы, точки легенды и подсказки по тону статуса (lib/statuses.ts).
+   «Запланирована» (neutral) в полосе — светло-серая, как в макете DS-01. */
+.success {
+  background: var(--st-success);
+}
+
+.info {
+  background: var(--st-info);
+}
+
+.warning {
+  background: var(--st-warning);
+}
+
+.danger {
+  background: var(--st-danger);
+}
+
+.changed {
+  background: var(--st-changed);
+}
+
+.neutral {
+  background: var(--line-strong);
+}

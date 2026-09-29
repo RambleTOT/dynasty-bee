@@ -1,0 +1,19 @@
+# зависимости и сборка
+node_modules
+dist
+coverage
+*.tsbuildinfo
+
+# локальные переменные: пароли демо-учёток — только здесь
+.env.local
+.env.*.local
+
+# данные кейса в git не кладём
+samples/
+
+# системное и логи
+.DS_Store
+*.log
+
+# распаковка макетов (npm run design:unpack)
+design/_unpacked/

@@ -1,0 +1,80 @@
+.button {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-pill);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-standard);
+}
+
+.button:disabled {
+  color: var(--text-tertiary);
+  cursor: not-allowed;
+}
+
+.sm {
+  width: var(--control-h-sm);
+  height: var(--control-h-sm);
+}
+
+.md {
+  width: var(--control-h-md);
+  height: var(--control-h-md);
+}
+
+.lg {
+  width: var(--control-h-lg);
+  height: var(--control-h-lg);
+}
+
+.secondary {
+  background: var(--bg-surface);
+}
+
+.secondary:hover:not(:disabled) {
+  background: var(--secondary-hover);
+}
+
+.tertiary {
+  background: var(--bg-control);
+}
+
+.tertiary:hover:not(:disabled) {
+  background: var(--tertiary-hover);
+}
+
+.ghost {
+  background: transparent;
+}
+
+.ghost:hover:not(:disabled) {
+  background: var(--ghost-hover);
+}
+
+.primary {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.primary:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: var(--radius-pill);
+  background: var(--st-danger);
+  color: var(--on-inverse);
+  font: 600 11px/18px var(--font);
+  font-variant-numeric: tabular-nums;
+}

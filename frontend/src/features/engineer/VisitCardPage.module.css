@@ -1,0 +1,27 @@
+/* E-03.1 / E-05 «Карточка заявки» по макету. */
+.why {
+  color: var(--text-primary);
+  font: var(--font-body);
+  text-wrap: pretty;
+}
+
+.whyLabel {
+  font-weight: 600;
+}
+
+/* «Начать можно после завершения текущей заявки №…» — белая плашка под карточкой */
+.note {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  font: var(--font-caption-medium);
+}
+
+.noteIcon {
+  flex: none;
+  color: var(--text-secondary);
+}

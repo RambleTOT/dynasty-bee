@@ -1,0 +1,427 @@
+/* Таймлайн дня (DESIGN_SPEC §6 DS-03): колонка бригад 240 px, строки 56 px. */
+.timeline {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.c1 {
+  --c: var(--route-1);
+}
+
+.c2 {
+  --c: var(--route-2);
+}
+
+.c3 {
+  --c: var(--route-3);
+}
+
+.c4 {
+  --c: var(--route-4);
+}
+
+.c5 {
+  --c: var(--route-5);
+}
+
+.c6 {
+  --c: var(--route-6);
+}
+
+.c7 {
+  --c: var(--route-7);
+}
+
+.c8 {
+  --c: var(--route-8);
+}
+
+.c9 {
+  --c: var(--route-9);
+}
+
+.c10 {
+  --c: var(--route-10);
+}
+
+.c11 {
+  --c: var(--route-11);
+}
+
+.c12 {
+  --c: var(--route-12);
+}
+
+.head {
+  display: flex;
+  flex: none;
+  align-items: flex-end;
+  height: 40px;
+  padding-bottom: 6px;
+}
+
+.headName {
+  flex: none;
+  width: 240px;
+  padding-left: var(--space-4);
+  color: var(--text-secondary);
+  font: var(--font-axis);
+  letter-spacing: 0.04em;
+}
+
+.headAxis {
+  position: relative;
+  flex: 1;
+  height: 22px;
+  margin-right: 20px;
+}
+
+.hour {
+  position: absolute;
+  bottom: 0;
+  color: var(--text-secondary);
+  font: var(--font-axis);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  transform: translateX(-50%);
+}
+
+.nowLabel {
+  position: absolute;
+  bottom: -4px;
+  z-index: 4;
+  height: 22px;
+  padding: 0 var(--space-2);
+  border-radius: var(--radius-pill);
+  background: var(--bg-inverse);
+  color: var(--on-inverse);
+  font: 600 11px/22px var(--font);
+  font-variant-numeric: tabular-nums;
+  transform: translateX(-50%);
+}
+
+.body {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+
+.rows {
+  position: relative;
+  min-height: 100%;
+}
+
+.grid {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  bottom: 0;
+  left: 240px;
+  pointer-events: none;
+}
+
+.gridLine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--line-subtle);
+}
+
+.nowLine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 3;
+  width: 2px;
+  margin-left: -1px;
+  background: var(--bg-inverse);
+}
+
+.row {
+  position: relative;
+  display: flex;
+  min-height: 56px;
+  border-top: 1px solid var(--line-subtle);
+}
+
+.rowActive {
+  background: var(--row-hover);
+}
+
+.name {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 10px;
+  box-sizing: border-box;
+  width: 240px;
+  padding: 0 var(--space-3) 0 var(--space-4);
+}
+
+.dot {
+  flex: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--c);
+}
+
+.dotDanger {
+  background: var(--st-danger);
+}
+
+.nameText {
+  min-width: 0;
+}
+
+.nameLabel {
+  overflow: hidden;
+  font: var(--font-caption-medium);
+  font-size: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.muted {
+  color: var(--text-secondary);
+}
+
+.danger {
+  color: var(--st-danger);
+}
+
+.nameMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  color: var(--text-secondary);
+  font: var(--font-caption);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.metaText {
+  margin-left: var(--space-1);
+}
+
+.track {
+  position: relative;
+  flex: 1;
+  margin-right: 20px;
+}
+
+.shift {
+  position: absolute;
+  top: 22px;
+  height: 12px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface-nested);
+}
+
+.window {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  border-right: 1.5px dashed var(--text-primary);
+  border-left: 1.5px dashed var(--text-primary);
+  background: var(--ghost-hover);
+}
+
+.windowLabel {
+  position: absolute;
+  bottom: -1px;
+  left: 4px;
+  color: var(--text-primary);
+  font: var(--font-axis);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.road {
+  position: absolute;
+  top: 22px;
+  height: 12px;
+  border-radius: 4px;
+  background: repeating-linear-gradient(135deg, var(--line-strong) 0 2px, transparent 2px 5px);
+}
+
+.wait {
+  position: absolute;
+  top: 16px;
+  box-sizing: border-box;
+  height: 24px;
+  border: 1.5px dashed var(--line-strong);
+  border-radius: 6px;
+}
+
+.block {
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  min-width: 6px;
+  padding: 3px 4px 3px 7px;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: var(--bg-control);
+  box-shadow: inset 3px 0 0 var(--c);
+  color: var(--text-primary);
+  text-align: left;
+  cursor: pointer;
+}
+
+.block:hover {
+  filter: brightness(0.97);
+}
+
+.block:focus-visible,
+.unBlock:focus-visible {
+  outline: none;
+  box-shadow: inset 3px 0 0 var(--c, transparent), var(--focus-ring);
+}
+
+.sDone {
+  background: var(--st-success-bg);
+}
+
+.sWork {
+  background: var(--st-info-bg);
+}
+
+.sPlan {
+  background: var(--bg-control);
+}
+
+.sPending {
+  background: var(--st-warning-bg);
+}
+
+.sDanger {
+  background: var(--st-danger-bg);
+}
+
+.sClosed {
+  background: var(--bg-surface-nested);
+  color: var(--text-tertiary);
+}
+
+.selectedBlock {
+  box-shadow: inset 3px 0 0 var(--c, var(--st-danger)), 0 0 0 2px var(--text-primary);
+}
+
+.blockId {
+  font: 600 11px/14px var(--font);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.blockSub {
+  color: var(--text-secondary);
+  font: 400 11px/14px var(--font);
+  white-space: nowrap;
+}
+
+.flags {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  display: flex;
+  gap: 1px;
+  padding-left: 2px;
+  background: inherit;
+}
+
+.f_danger {
+  color: var(--st-danger);
+}
+
+.f_warning {
+  color: var(--st-warning);
+}
+
+.f_changed {
+  color: var(--st-changed);
+}
+
+.f_neutral {
+  color: var(--st-neutral);
+}
+
+.f_info {
+  color: var(--st-info);
+}
+
+.f_success {
+  color: var(--st-success);
+}
+
+.unBlock {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 40px;
+  padding: 3px var(--space-2);
+  overflow: hidden;
+  border: 1.5px solid var(--st-danger);
+  border-radius: var(--radius-sm);
+  background: var(--st-danger-bg);
+  color: var(--st-danger);
+  text-align: left;
+  cursor: pointer;
+}
+
+.unBlock .blockSub {
+  color: var(--st-danger);
+}
+
+.unRow .track {
+  min-height: 56px;
+}
+
+.dim {
+  opacity: 0.3;
+}
+
+/* черновик: бригада с изменениями, визит на новом месте и прежнее место — пунктиром */
+.rowChanged {
+  background: var(--row-hover);
+}
+
+.movedBlock {
+  box-shadow: inset 3px 0 0 var(--c), 0 0 0 2px var(--st-changed);
+}
+
+.ghost {
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  min-width: 6px;
+  padding: 0 4px 0 7px;
+  overflow: hidden;
+  border: 1.5px dashed var(--line-strong);
+  border-radius: var(--radius-sm);
+  color: var(--text-tertiary);
+  pointer-events: auto;
+}
+
+.empty {
+  padding: var(--space-8);
+  color: var(--text-secondary);
+  text-align: center;
+}

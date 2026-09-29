@@ -1,0 +1,24 @@
+.center {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  min-height: 240px;
+  padding: var(--space-6);
+}
+
+.screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--space-6);
+  background: var(--bg-canvas);
+}
+
+.card {
+  width: 100%;
+  max-width: 480px;
+  border-radius: var(--radius-card);
+  background: var(--bg-surface);
+}

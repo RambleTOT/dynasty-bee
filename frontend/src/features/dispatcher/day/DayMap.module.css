@@ -1,0 +1,342 @@
+/* Карта дня (DESIGN_SPEC §6 DS-03): маркеры и линии цветом бригады (--route-N через класс .cN). */
+.wrap {
+  position: absolute;
+  inset: 0;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+  background: var(--bg-surface-nested);
+  font: var(--font-caption);
+}
+
+.c1 {
+  --c: var(--route-1);
+}
+
+.c2 {
+  --c: var(--route-2);
+}
+
+.c3 {
+  --c: var(--route-3);
+}
+
+.c4 {
+  --c: var(--route-4);
+}
+
+.c5 {
+  --c: var(--route-5);
+}
+
+.c6 {
+  --c: var(--route-6);
+}
+
+.c7 {
+  --c: var(--route-7);
+}
+
+.c8 {
+  --c: var(--route-8);
+}
+
+.c9 {
+  --c: var(--route-9);
+}
+
+.c10 {
+  --c: var(--route-10);
+}
+
+.c11 {
+  --c: var(--route-11);
+}
+
+.c12 {
+  --c: var(--route-12);
+}
+
+/* линия маршрута: цвет из класса поверх атрибута stroke */
+.route {
+  stroke: var(--c);
+}
+
+.ghost {
+  stroke: var(--line-strong);
+}
+
+.marker {
+  border: 0;
+  background: none;
+  transition: opacity var(--dur-fast) var(--ease-standard);
+}
+
+.dim {
+  opacity: 0.3;
+}
+
+/* точка маршрута: белая с номером; выполнена — заливка с галочкой */
+.stop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 24px;
+  height: 24px;
+  border: var(--map-marker-stroke) solid var(--c, var(--text-secondary));
+  border-radius: 50%;
+  background: var(--bg-surface);
+  color: var(--c, var(--text-primary));
+  font: 700 11px/1 var(--font);
+  font-variant-numeric: tabular-nums;
+}
+
+.done {
+  background: var(--c, var(--text-secondary));
+  color: var(--on-inverse);
+}
+
+.active {
+  box-shadow: 0 0 0 3px var(--bg-surface), 0 0 0 5px var(--c, var(--text-secondary));
+}
+
+.selected {
+  box-shadow: 0 0 0 3px var(--bg-surface), 0 0 0 5px var(--text-primary);
+}
+
+/* авария: красный круг с молнией */
+.urgent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--st-danger);
+  box-shadow: 0 0 0 3px var(--bg-surface);
+  color: var(--on-inverse);
+}
+
+/* неназначенная: пунктирный красный круг с «!» */
+.unassigned {
+  box-sizing: border-box;
+  width: 24px;
+  height: 24px;
+  border: 3px dashed var(--st-danger);
+  border-radius: 50%;
+  background: var(--bg-surface);
+  color: var(--st-danger);
+  font: 700 12px/18px var(--font);
+  text-align: center;
+}
+
+/* до плана: нейтральные точки */
+.plain {
+  box-sizing: border-box;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--bg-surface);
+  border-radius: 50%;
+  background: var(--text-secondary);
+  box-shadow: var(--shadow-knob);
+}
+
+.office {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-inverse);
+  box-shadow: 0 0 0 2px var(--bg-surface);
+  color: var(--on-inverse);
+}
+
+/* тултип: тёмная плашка */
+.tooltip {
+  padding: 10px 12px;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: var(--bg-inverse);
+  box-shadow: var(--shadow-float);
+  color: var(--on-inverse);
+  font: var(--font-caption);
+  white-space: nowrap;
+}
+
+.tooltip::before {
+  display: none;
+}
+
+.tipTitle {
+  font: var(--font-caption-medium);
+}
+
+.tipSub {
+  color: var(--on-inverse-soft);
+}
+
+.zoom {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.topPill {
+  position: absolute;
+  top: var(--space-4);
+  left: 50%;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: var(--control-h-md);
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-pill);
+  background: var(--bg-bar);
+  backdrop-filter: blur(20px);
+  font: var(--font-caption-medium);
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+
+.topPillSecond {
+  top: calc(var(--space-4) + var(--control-h-md) + var(--space-2));
+}
+
+.legend {
+  position: absolute;
+  bottom: var(--space-4);
+  left: var(--space-4);
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  border-radius: 18px;
+  background: var(--bg-bar);
+  backdrop-filter: blur(20px);
+}
+
+.legendOpen {
+  border-radius: var(--radius-lg);
+}
+
+.legendToggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 36px;
+  padding: 0 var(--space-3) 0 14px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: none;
+  color: var(--text-primary);
+  font: var(--font-caption-medium);
+  cursor: pointer;
+}
+
+.legendToggle svg:last-child {
+  color: var(--text-tertiary);
+}
+
+.legendList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: 0;
+  padding: var(--space-3) 14px var(--space-1);
+  list-style: none;
+  font: var(--font-caption);
+}
+
+.legendList li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.legendIcon {
+  --c: var(--route-1);
+  flex: none;
+  width: 18px;
+  height: 18px;
+  font-size: 10px;
+  line-height: 12px;
+}
+
+.legendIcon.stop,
+.legendIcon.unassigned {
+  border-width: 2px;
+}
+
+.legendLine {
+  flex: none;
+  width: 18px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--route-1);
+}
+
+.legendNote {
+  color: var(--text-secondary);
+}
+
+/* Яндекс: ссылка на маршрут выбранной бригады в Яндекс Картах */
+.yandexBar {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  z-index: 500;
+  display: flex;
+  gap: var(--space-2);
+}
+
+/* Яндекс Карта дня: свой контекст наложения — панели карты (z-index 500) остаются сверху */
+.ycanvas {
+  position: absolute;
+  inset: 0;
+  isolation: isolate;
+  background: var(--bg-surface-nested);
+}
+
+/* слои Яндекса (z-index до тысяч) — внутри карты, кнопки масштаба над ней */
+.ycanvas .map {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.yloading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* метка Яндекса ставит макет левым верхним углом в точку — центрируем маркер на точке */
+.ymarker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+
+/* подсказка Яндекса — та же тёмная плашка, что и на карте OSM; ширина — по тексту (у слоя подсказки её нет) */
+.yhint {
+  width: max-content;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  background: var(--bg-inverse);
+  box-shadow: var(--shadow-float);
+  color: var(--on-inverse);
+  font: var(--font-caption);
+  white-space: nowrap;
+}

@@ -1,0 +1,124 @@
+.button {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  border: 0;
+  border-radius: var(--radius-pill);
+  font: 600 15px/22px var(--font);
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background var(--dur-fast) var(--ease-standard),
+    transform var(--dur-fast) var(--ease-standard);
+}
+
+.button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.button:disabled {
+  background: var(--bg-control);
+  color: var(--text-tertiary);
+  cursor: not-allowed;
+}
+
+.sm {
+  height: var(--control-h-sm);
+  padding: 0 14px;
+  font: var(--font-caption-medium);
+}
+
+.md {
+  height: var(--control-h-md);
+  padding: 0 var(--space-5);
+}
+
+.lg {
+  height: var(--control-h-lg);
+  padding: 0 var(--space-6);
+}
+
+.full {
+  width: 100%;
+}
+
+.primary {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.primary:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.primary:active:not(:disabled) {
+  background: var(--accent-press);
+}
+
+.secondary {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+.secondary:hover:not(:disabled) {
+  background: var(--secondary-hover);
+}
+
+.tertiary {
+  background: var(--bg-control);
+  color: var(--text-primary);
+}
+
+.tertiary:hover:not(:disabled) {
+  background: var(--tertiary-hover);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--text-primary);
+}
+
+.ghost:hover:not(:disabled) {
+  background: var(--ghost-hover);
+}
+
+.ghost:disabled {
+  background: transparent;
+}
+
+.danger {
+  background: var(--st-danger-bg);
+  color: var(--st-danger);
+}
+
+.danger:hover:not(:disabled) {
+  background: var(--danger-hover);
+}
+
+.inverse {
+  background: var(--bg-inverse);
+  color: var(--on-inverse);
+}
+
+.inverse:hover:not(:disabled) {
+  background: var(--inverse-hover);
+}
+
+.spin {
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spin {
+    animation-duration: 2.4s;
+  }
+}

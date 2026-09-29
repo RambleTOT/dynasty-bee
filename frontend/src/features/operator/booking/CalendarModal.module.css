@@ -1,0 +1,65 @@
+/* Календарь даты записи — сетка месяца в стиле календаря диспетчера (DS-01). */
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.title {
+  font: var(--font-h3);
+}
+
+.weekdays,
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: var(--space-1);
+}
+
+.weekdays {
+  margin-bottom: var(--space-1);
+  color: var(--text-secondary);
+  font: var(--font-axis);
+  letter-spacing: 0.04em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.cell {
+  height: 48px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: var(--bg-surface-nested);
+  color: var(--text-primary);
+  font: var(--font-body-medium);
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-standard);
+}
+
+.cell:hover:not(:disabled):not(.selected) {
+  background: var(--bg-control);
+}
+
+.cell:disabled {
+  background: none;
+  color: var(--text-tertiary);
+  cursor: default;
+}
+
+/* дни соседних месяцев — бледнее, но выбрать можно */
+.outside:not(:disabled) {
+  color: var(--text-secondary);
+}
+
+.today {
+  box-shadow: inset 0 0 0 1.5px var(--text-primary);
+}
+
+.selected {
+  background: var(--bg-inverse);
+  color: var(--on-inverse);
+}

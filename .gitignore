@@ -8,3 +8,7 @@ __pycache__/
 *.pyc
 .venv/
 venv/
+
+# Макеты и распакованные прототипы
+frontend/design/
+**/_unpacked/

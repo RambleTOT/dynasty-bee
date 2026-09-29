@@ -1,0 +1,216 @@
+/* DS-02 — по кадрам «Загрузка CSV · файлы» и «Отчёт импорта» макета диспетчера. */
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* подтверждение замены загруженного CSV */
+.confirmText {
+  margin: 0;
+  color: var(--text-primary);
+  font: var(--font-body);
+}
+
+/* шаг 1: дата плана */
+.dateField {
+  max-width: 320px;
+}
+
+/* шаг 1: карточка региона */
+.region {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--bg-surface-nested);
+}
+
+.regionHead {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+.regionName {
+  font: var(--font-h3);
+}
+
+.regionNote {
+  color: var(--text-secondary);
+  font: var(--font-caption);
+}
+
+/* свой участок и «Другой участок» (§14) */
+.regionText {
+  margin: 0;
+  color: var(--text-secondary);
+  font: var(--font-body);
+}
+
+.files {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+/* зона файла */
+.drop {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 0;
+  height: 64px;
+  padding: 0 14px;
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  transition: box-shadow var(--dur-fast) var(--ease-standard);
+}
+
+.dropEmpty {
+  padding: 0;
+  box-shadow: inset 0 0 0 1.5px var(--line-strong);
+}
+
+.dropOver {
+  box-shadow: inset 0 0 0 1.5px var(--text-primary);
+}
+
+.fileInput {
+  display: none;
+}
+
+.dropButton {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 0;
+  height: 100%;
+  padding: 0 14px;
+  border: 0;
+  border-radius: inherit;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-standard);
+}
+
+.dropButton:hover:not(:disabled) {
+  background: var(--row-hover);
+}
+
+.dropButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.fileIcon {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: var(--bg-surface-nested);
+  color: var(--text-secondary);
+}
+
+.fileIconDone {
+  background: var(--st-success-bg);
+  color: var(--st-success);
+}
+
+.fileText {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.fileTitle,
+.fileSub {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fileTitle {
+  font: var(--font-caption-medium);
+}
+
+.fileSub {
+  color: var(--text-secondary);
+  font: var(--font-caption);
+}
+
+/* шаг 2: отчёт по региону */
+.report {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-lg);
+  background: var(--bg-surface-nested);
+}
+
+.reportHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.reportName {
+  flex: 1;
+  font: var(--font-h3);
+}
+
+.lines {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.line {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font: var(--font-body);
+}
+
+.lineIcon {
+  flex: none;
+  margin-top: 2px;
+}
+
+.lineText {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
+}
+
+.tone_success {
+  color: var(--st-success);
+}
+
+.tone_warning {
+  color: var(--st-warning);
+}
+
+.tone_danger {
+  color: var(--st-danger);
+}
+
+/* подвал шага 2: «Всего …» слева */
+.totals {
+  margin-right: auto;
+  color: var(--text-secondary);
+  font: var(--font-caption);
+  font-variant-numeric: tabular-nums;
+}

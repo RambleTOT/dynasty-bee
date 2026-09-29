@@ -1,0 +1,67 @@
+/* Поиск заявки по номеру в шапке диспетчера: поле 280 px, список найденных под ним. */
+.wrap {
+  position: relative;
+  width: 280px;
+}
+
+.list {
+  position: absolute;
+  top: calc(100% + var(--space-1));
+  left: 0;
+  z-index: 50;
+  width: 400px;
+  max-height: 420px;
+  margin: 0;
+  padding: var(--space-1) 0;
+  overflow: auto;
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-float);
+  list-style: none;
+}
+
+.option {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--space-2) var(--space-3);
+  cursor: pointer;
+}
+
+.active {
+  background: var(--row-hover);
+}
+
+.head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.number {
+  font: var(--font-body-medium);
+  font-variant-numeric: tabular-nums;
+}
+
+.status {
+  color: var(--text-secondary);
+  font: var(--font-caption);
+}
+
+.sub {
+  overflow: hidden;
+  color: var(--text-secondary);
+  font: var(--font-caption);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.empty {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  color: var(--text-secondary);
+  font: var(--font-caption);
+}

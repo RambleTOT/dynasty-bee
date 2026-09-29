@@ -1,0 +1,143 @@
+.callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  font: var(--font-caption-medium);
+}
+
+.calloutIcon {
+  flex: none;
+  margin-top: 1px;
+}
+
+.calloutText {
+  flex: 1;
+  min-width: 0;
+}
+
+.success {
+  background: var(--st-success-bg);
+  color: var(--st-success);
+}
+
+.info {
+  background: var(--st-info-bg);
+  color: var(--st-info);
+}
+
+.warning {
+  background: var(--st-warning-bg);
+  color: var(--st-warning);
+}
+
+.danger {
+  background: var(--st-danger-bg);
+  color: var(--st-danger);
+}
+
+.changed {
+  background: var(--st-changed-bg);
+  color: var(--st-changed);
+}
+
+.neutral {
+  background: var(--bg-surface-nested);
+  color: var(--text-primary);
+}
+
+.neutral .calloutIcon {
+  color: var(--text-secondary);
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  background: var(--bg-inverse);
+  color: var(--on-inverse);
+}
+
+.strip {
+  padding: 10px var(--space-6);
+}
+
+.card {
+  padding: 12px var(--space-4);
+  border-radius: var(--radius-lg);
+}
+
+.bannerIcon {
+  flex: none;
+  color: var(--on-inverse);
+}
+
+.bannerText {
+  flex: 1;
+  min-width: 0;
+}
+
+.bannerTitle {
+  font: var(--font-body-medium);
+}
+
+.bannerBody {
+  color: var(--on-inverse-soft);
+  font: var(--font-caption);
+}
+
+.strip .bannerBody {
+  color: var(--on-inverse);
+  font: var(--font-body-medium);
+}
+
+.bannerAside {
+  flex: none;
+  color: var(--on-inverse-muted);
+  font: var(--font-caption);
+  font-variant-numeric: tabular-nums;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-8) var(--space-6);
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.emptyIcon {
+  color: var(--text-tertiary);
+}
+
+.emptyTitle {
+  max-width: 360px;
+  color: var(--text-primary);
+  font: var(--font-body-medium);
+}
+
+.emptyBody {
+  max-width: 360px;
+  font: var(--font-caption);
+}
+
+.skeleton {
+  display: block;
+  background: var(--bg-control);
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton {
+    animation: none;
+  }
+}

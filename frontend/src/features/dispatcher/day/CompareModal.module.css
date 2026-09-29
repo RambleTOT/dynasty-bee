@@ -1,0 +1,106 @@
+/* DS-05 «Сравнение на весь экран» (макет Dispatcher_Flow, кадр DS-05; DESIGN_SPEC §6 DS-05). */
+.body {
+  gap: var(--space-6);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: var(--space-6);
+  align-items: start;
+}
+
+/* три колонки крупно: подпись | Наш план | FIFO | диспетчер */
+.big {
+  display: grid;
+  grid-template-columns: 120px repeat(3, minmax(0, 1fr));
+  font-variant-numeric: tabular-nums;
+}
+
+.row {
+  display: contents;
+}
+
+.head {
+  padding: var(--space-3) var(--space-4) var(--space-1);
+  color: var(--text-secondary);
+  font: var(--font-body-medium);
+}
+
+.oursHead {
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  background: var(--bg-surface-nested);
+  color: var(--text-primary);
+}
+
+.label {
+  padding: var(--space-4) var(--space-2) var(--space-4) 0;
+  border-top: 1px solid var(--line-subtle);
+  color: var(--text-secondary);
+  font: var(--font-body);
+}
+
+.ours {
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg-surface-nested);
+  color: var(--text-primary);
+}
+
+/* жёлтая плашка ключевой метрики — пробег нашего плана: во всю ширину колонки, без скруглений */
+.oursAccent {
+  border-radius: 0;
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.oursLast {
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+
+.oursValue {
+  font: var(--font-metric);
+  white-space: nowrap;
+}
+
+.delta {
+  font: var(--font-caption-medium);
+}
+
+.cell {
+  padding: var(--space-3) var(--space-4);
+  border-top: 1px solid var(--line-subtle);
+  color: var(--text-secondary);
+}
+
+.value {
+  font: var(--font-metric);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.noData {
+  font: var(--font-body-medium);
+}
+
+.note {
+  color: var(--text-secondary);
+  font: var(--font-caption);
+}
+
+/* таблица по бригадам */
+.tableBox {
+  overflow: hidden;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-lg);
+  background: var(--bg-surface-nested);
+}
+
+.footnote {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  max-width: 900px;
+  color: var(--text-secondary);
+  font: var(--font-caption);
+  text-wrap: pretty;
+}

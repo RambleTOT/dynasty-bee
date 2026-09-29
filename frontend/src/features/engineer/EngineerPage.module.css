@@ -1,0 +1,152 @@
+/* Каркас экрана инженера по макету 390 px: шапка 56, контент с отступами 16, действия внизу. */
+.page {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* Карта: экран ровно по высоте окна, прокрутки нет. */
+.fill {
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: var(--space-3);
+  height: 56px;
+  padding: 0 var(--space-2) 0 var(--space-4);
+  background: var(--bg-bar);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.titles {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.name,
+.sub {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.name {
+  color: var(--text-primary);
+  font: var(--font-h3);
+}
+
+/* регион и дата дня */
+.sub {
+  color: var(--text-secondary);
+  font: var(--font-caption);
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-height: 0;
+  padding: var(--space-2) var(--space-4) var(--space-6);
+}
+
+.fill .content {
+  padding: 0;
+}
+
+/* Нижняя панель действий: в зоне большого пальца, поверх прокрутки. */
+.footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3) var(--space-4) max(var(--space-6), env(safe-area-inset-bottom));
+  background: var(--bg-bar);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* E-09: тёмная плашка под шапкой. */
+.banner {
+  position: relative;
+  z-index: 5;
+  flex: none;
+  margin: var(--space-1) var(--space-3) 0;
+  padding-right: var(--space-3);
+  box-shadow: var(--shadow-float);
+}
+
+.bannerTitle {
+  font: var(--font-caption-medium);
+}
+
+/* E-03.3: белая карточка сверху на 4 с. */
+.doneToast {
+  position: fixed;
+  top: calc(56px + var(--space-1));
+  right: var(--space-3);
+  left: var(--space-3);
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  max-width: calc(430px - 2 * var(--space-3));
+  margin: 0 auto;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-float);
+  animation: drop var(--dur-base) var(--ease-standard);
+}
+
+.doneIcon {
+  flex: none;
+  color: var(--st-success);
+}
+
+.doneText {
+  flex: 1;
+  min-width: 0;
+}
+
+.doneTitle {
+  color: var(--text-primary);
+  font: var(--font-caption-medium);
+}
+
+.doneDescription {
+  color: var(--text-secondary);
+  font: var(--font-caption);
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes drop {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .doneToast {
+    animation: none;
+  }
+}

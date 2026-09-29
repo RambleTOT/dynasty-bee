@@ -1,0 +1,86 @@
+/* формы O-01 (обычная заявка и авария): поля — сетка в 2 колонки, как в макете */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px var(--space-4);
+}
+
+.wide {
+  grid-column: 1 / -1;
+}
+
+/* подпись и контрол без <input> (регион) — как у Field */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.label {
+  color: var(--text-secondary);
+  font: var(--font-caption-medium);
+}
+
+.single {
+  display: flex;
+  align-items: center;
+  height: var(--control-h-md);
+  font: var(--font-body-medium);
+}
+
+/* «Гигабит»: подпись слева, переключатель справа, на сером поле */
+.gigabit {
+  display: flex;
+  align-items: center;
+  height: var(--control-h-lg);
+  padding: 0 14px;
+  border-radius: var(--radius-md);
+  background: var(--bg-surface-nested);
+}
+
+.gigabit > label {
+  flex: 1;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+/* FMC / FTTB — только для Востока */
+.technology {
+  display: flex;
+  gap: var(--space-1);
+  height: var(--control-h-lg);
+  padding: var(--space-1);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface-nested);
+}
+
+.technologyOption {
+  flex: 1;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-tertiary);
+  font: var(--font-body-medium);
+  transition:
+    background var(--dur-fast) var(--ease-standard),
+    color var(--dur-fast) var(--ease-standard);
+}
+
+.technologyOption:hover:not(.technologyActive) {
+  color: var(--text-secondary);
+}
+
+.technologyActive {
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-knob);
+  color: var(--text-primary);
+}
+
+/* главная кнопка — внизу справа карточки */
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-2);
+  margin-top: auto;
+}

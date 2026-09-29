@@ -1,0 +1,273 @@
+/* Экран дня (DESIGN_SPEC §6 DS-03): шапка 64 px, баннер 48 px, слева карта / таймлайн, справа панель 440 px. */
+.page {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.header {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: var(--space-4);
+  height: 64px;
+  padding: 0 var(--space-6);
+  background: var(--bg-surface);
+}
+
+.dateNav {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.dateTitle {
+  margin: 0;
+  font: var(--font-h2);
+  white-space: nowrap;
+}
+
+.dayMeta {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.metaText {
+  color: var(--text-secondary);
+  font: var(--font-caption);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.filters {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.actions {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  gap: var(--space-4);
+  min-height: 0;
+  padding: var(--space-4);
+}
+
+.left {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.toolbar {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: var(--space-3);
+  height: 40px;
+}
+
+.stage {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  background: var(--bg-surface);
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.panel {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: var(--space-3);
+  box-sizing: border-box;
+  width: 440px;
+  padding: var(--space-5);
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  background: var(--bg-surface);
+}
+
+.panelBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-height: 0;
+  overflow: auto;
+}
+
+.center {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+}
+
+/* чипы бригад: прокрутка по горизонтали + затухание по краю */
+.chips {
+  display: flex;
+  flex: 1;
+  gap: 6px;
+  min-width: 0;
+  padding: 2px 32px 2px 2px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  mask-image: linear-gradient(90deg, var(--text-primary) 92%, transparent);
+}
+
+.chips::-webkit-scrollbar {
+  display: none;
+}
+
+.chip {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 var(--space-3) 0 10px;
+  border: 2px solid transparent;
+  border-radius: var(--radius-pill);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  font: var(--font-caption-medium);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.chip:first-child {
+  padding: 0 14px;
+}
+
+.chip:hover {
+  background: var(--secondary-hover);
+}
+
+.chip:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.chipActive {
+  border-color: var(--text-primary);
+}
+
+.chipOff {
+  opacity: 0.55;
+}
+
+.chipDot {
+  flex: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.chipIcon {
+  color: var(--text-secondary);
+}
+
+.chipMeta {
+  color: var(--text-secondary);
+  font: var(--font-caption);
+  font-variant-numeric: tabular-nums;
+}
+
+.c1 {
+  background: var(--route-1);
+}
+
+.c2 {
+  background: var(--route-2);
+}
+
+.c3 {
+  background: var(--route-3);
+}
+
+.c4 {
+  background: var(--route-4);
+}
+
+.c5 {
+  background: var(--route-5);
+}
+
+.c6 {
+  background: var(--route-6);
+}
+
+.c7 {
+  background: var(--route-7);
+}
+
+.c8 {
+  background: var(--route-8);
+}
+
+.c9 {
+  background: var(--route-9);
+}
+
+.c10 {
+  background: var(--route-10);
+}
+
+.c11 {
+  background: var(--route-11);
+}
+
+.c12 {
+  background: var(--route-12);
+}
+
+.highlightBar,
+.building {
+  position: absolute;
+  bottom: var(--space-4);
+  left: 50%;
+  z-index: 600;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 6px 6px 6px var(--space-4);
+  border-radius: var(--radius-pill);
+  background: var(--bg-inverse);
+  box-shadow: var(--shadow-float);
+  color: var(--on-inverse);
+  font: var(--font-caption-medium);
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+
+.building {
+  top: 50%;
+  bottom: auto;
+  padding: var(--space-3) var(--space-5);
+  transform: translate(-50%, -50%);
+}
