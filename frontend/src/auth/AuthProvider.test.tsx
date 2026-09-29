@@ -6,12 +6,17 @@ import { authApi } from '@/api/auth';
 import { UNAUTHORIZED_EVENT } from '@/api/client';
 import { ApiError } from '@/api/errors';
 import type { UserOut } from '@/api/types';
+import { dismissAll } from '@/lib/notify';
 import { AuthProvider } from './AuthProvider';
 import { tokenStorage } from './tokenStorage';
 import { useAuth } from './useAuth';
 
 vi.mock('@/api/auth', () => ({
   authApi: { login: vi.fn(), me: vi.fn(), logout: vi.fn() },
+}));
+vi.mock('@/lib/notify', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('@/lib/notify')>()),
+  dismissAll: vi.fn(),
 }));
 
 const dispatcher: UserOut = {
@@ -138,10 +143,11 @@ describe('AuthProvider', () => {
     expect(text('url')).toBe('/login?next=%2Fdispatcher');
   });
 
-  it('«Выйти» → ручка logout, сброс токена, /login без next', async () => {
+  it('«Выйти» → ручка logout, сброс токена, /login без next, тосты прежней роли закрыты', async () => {
     tokenStorage.set('t1');
     vi.mocked(authApi.me).mockResolvedValue(dispatcher);
     vi.mocked(authApi.logout).mockResolvedValue(undefined);
+    vi.mocked(dismissAll).mockClear();
     renderAt('/dispatcher/day/2026-09-28');
     await waitFor(() => expect(text('status')).toBe('authenticated'));
 
@@ -150,6 +156,7 @@ describe('AuthProvider', () => {
     expect(authApi.logout).toHaveBeenCalledTimes(1);
     expect(tokenStorage.get()).toBeNull();
     expect(text('status')).toBe('anonymous');
+    expect(dismissAll).toHaveBeenCalled();
   });
 
   it('«Выйти» при ошибке ручки — всё равно выходим', async () => {
@@ -167,13 +174,23 @@ describe('AuthProvider', () => {
 
 describe('AuthProvider: инженеру /auth/me отвечает 403 (бэк 28.09)', () => {
   it('профиль берём из токена — сессия жива', async () => {
-    const claims = { sub: 'u6', login: 'eng-east-06', name: 'Бригада 6', role: 'engineer', region_ids: ['east'], engineer_id: 'E06', exp: 4_000_000_000 };
+    const claims = {
+      sub: 'u6',
+      login: 'eng-east-06',
+      name: 'Бригада 6',
+      role: 'engineer',
+      region_ids: ['east'],
+      engineer_id: 'E06',
+      exp: 4_000_000_000,
+    };
     const payload = btoa(String.fromCharCode(...new TextEncoder().encode(JSON.stringify(claims))))
       .replace(/\+/g, '-')
       .replace(/\//g, '_')
       .replace(/=+$/, '');
     tokenStorage.set(`h.${payload}.s`);
-    vi.mocked(authApi.me).mockRejectedValue(new ApiError(403, 'FORBIDDEN', 'Недостаточно прав для этой роли'));
+    vi.mocked(authApi.me).mockRejectedValue(
+      new ApiError(403, 'FORBIDDEN', 'Недостаточно прав для этой роли'),
+    );
     renderAt('/engineer');
     await waitFor(() => expect(screen.getByTestId('status')).toHaveTextContent('authenticated'));
     expect(screen.getByTestId('user')).toHaveTextContent('Бригада 6/engineer');

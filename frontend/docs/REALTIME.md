@@ -30,18 +30,18 @@
 
 ## Модули
 
-| Файл                            | Что делает                                                                                                                                                      |
-| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `api/realtime.ts`               | `POST /realtime/ticket` — одноразовый билет по токену; адрес `wss://<сайт>/api/v1/realtime/ws?ticket=…&since=…`. Токен в адрес не кладём: он попал бы в журналы |
-| `realtime/protocol.ts`          | типы сообщений (`hello`, `event`, `ping`, `resync`, `error`) и безопасный разбор; незнакомое — пропускаем                                                       |
-| `realtime/client.ts`            | `RealtimeClient`: билет → сокет, переподключение, `since`, сторож тишины, повторы по `seq`, состояние                                                           |
-| `realtime/effects.ts`           | таблица «вид события → какие запросы обновить и какой тост показать» по роли                                                                                    |
-| `realtime/invalidationBatch.ts` | события за 250 мс — одним обновлением, каждый ключ один раз                                                                                                     |
-| `realtime/RealtimeProvider.tsx` | открывает сокет после входа и закрывает при выходе; тосты с «Открыть»; событие `online` — переподключиться сразу                                                |
-| `realtime/useRealtime.ts`       | `useRealtimeStatus()`, `usePollInterval(base)`: пока сокет открыт, опрос страховочный (`REALTIME.safetyPollMs`) — на случай потерянного события                 |
-| `config.ts`                     | `REALTIME` (паузы, сторож, пачка, страховочный опрос), флаг `FEATURES.realtime`                                                                                 |
-| `vite.config.ts`                | прокси `/api` с `ws: true` — сокет в dev идёт на бэк                                                                                                            |
-| `deploy/nginx/bee-dynasty.conf` | `location = /api/v1/realtime/ws`: `Upgrade`, `proxy_read_timeout 1h`, без буфера; `wss://` сайта в CSP `connect-src`                                            |
+| Файл                            | Что делает                                                                                                                                                                                                                                      |
+| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `api/realtime.ts`               | `POST /realtime/ticket` — одноразовый билет по токену; адрес `wss://<сайт>/api/v1/realtime/ws?ticket=…&since=…`. Токен в адрес не кладём: он попал бы в журналы                                                                                 |
+| `realtime/protocol.ts`          | типы сообщений (`hello`, `event`, `ping`, `resync`, `error`) и безопасный разбор; незнакомое — пропускаем                                                                                                                                       |
+| `realtime/client.ts`            | `RealtimeClient`: билет → сокет, переподключение, `since`, сторож тишины, повторы по `seq`, состояние                                                                                                                                           |
+| `realtime/effects.ts`           | таблица «вид события → какие запросы обновить и какой тост показать» по роли; тост «ждёт решения» — только на чужое предложение (автор — `actor` или `data.source`), закрывается по `plan.applied` / `plan.rejected` того же плана и при выходе |
+| `realtime/invalidationBatch.ts` | события за 250 мс — одним обновлением, каждый ключ один раз                                                                                                                                                                                     |
+| `realtime/RealtimeProvider.tsx` | открывает сокет после входа и закрывает при выходе; тосты с «Открыть»; событие `online` — переподключиться сразу                                                                                                                                |
+| `realtime/useRealtime.ts`       | `useRealtimeStatus()`, `usePollInterval(base)`: пока сокет открыт, опрос страховочный (`REALTIME.safetyPollMs`) — на случай потерянного события                                                                                                 |
+| `config.ts`                     | `REALTIME` (паузы, сторож, пачка, страховочный опрос), флаг `FEATURES.realtime`                                                                                                                                                                 |
+| `vite.config.ts`                | прокси `/api` с `ws: true` — сокет в dev идёт на бэк                                                                                                                                                                                            |
+| `deploy/nginx/bee-dynasty.conf` | `location = /api/v1/realtime/ws`: `Upgrade`, `proxy_read_timeout 1h`, без буфера; `wss://` сайта в CSP `connect-src`                                                                                                                            |
 
 Провайдер стоит в корне роутера внутри `AuthProvider` (`app/router.tsx`): ему нужны пользователь и роль, а тостам — переход по «Открыть».
 

@@ -5,6 +5,7 @@ import { authApi } from '@/api/auth';
 import { UNAUTHORIZED_EVENT } from '@/api/client';
 import { isApiError } from '@/api/errors';
 import { queryKeys } from '@/api/queryKeys';
+import { dismissAll } from '@/lib/notify';
 import { isRole } from './roles';
 import { userFromToken } from './tokenClaims';
 import { tokenStorage } from './tokenStorage';
@@ -26,7 +27,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         return await authApi.me(signal);
       } catch (error) {
         // инженеру бэк отвечает на /auth/me 403 — профиль из токена (docs/API_NOTES.md)
-        const fromToken = isApiError(error) && error.status === 403 ? userFromToken(tokenStorage.get()) : null;
+        const fromToken =
+          isApiError(error) && error.status === 403 ? userFromToken(tokenStorage.get()) : null;
         if (fromToken) return fromToken;
         throw error;
       }
@@ -36,12 +38,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   });
 
   // Токен, кэш и адрес меняем в одном обновлении, чтобы защищённый экран не отрисовался без
-  // пользователя. `to = null` — адрес не трогаем.
+  // пользователя. `to = null` — адрес не трогаем. Тосты прежней роли («ждёт решения») закрываем.
   const endSession = useCallback(
     (to: string | null) => {
       tokenStorage.clear();
       setToken(null);
       queryClient.clear();
+      dismissAll();
       if (to) navigate(to, { replace: true });
     },
     [navigate, queryClient],

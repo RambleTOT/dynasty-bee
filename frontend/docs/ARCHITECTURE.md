@@ -7,7 +7,7 @@ pages / features  →  adapters  →  api (client, schema)  →  бэк
 ```
 
 - **`api/`** — транспорт и контракты: `client.ts` (единственное место с `fetch`), `errors.ts` (`toApiError` сводит три формата ошибок бэка), модули ручек `api/<domain>.ts`, типы из `schema.d.ts`.
-- **`adapters/`** — превращают сырые ответы API в модели экранов: склейка, запасные подписи, синтетика (FRONTEND_SPEC §6). Покрываются тестами на снимках `docs/api-examples`.
+- **`adapters/`** — превращают сырые ответы API в модели экранов: склейка, запасные подписи, синтетика (FRONTEND_SPEC §6). Покрываются тестами на фикстурах `src/adapters/__fixtures__/` — по форме живых ответов API.
 - **`features/`** — экраны и их части по ролям; **`pages/`** — служебные страницы (404, лоадер).
 - Компоненты **не ходят в `fetch`** напрямую и **не читают сырые ответы API** — только модели из `adapters/`. ESLint запрещает `fetch` вне `api/client.ts`.
 - Общие модули: `lib/time.ts` (время Москвы, часы дня, окна), `lib/statuses.ts` (подписи статусов, флагов, справочников), `lib/notify.tsx` (уведомления), `hooks/useSearchState.ts` (query-параметры).
@@ -43,7 +43,7 @@ pages / features  →  adapters  →  api (client, schema)  →  бэк
 
 1. **Роут** в `app/router.tsx` — или query-параметр, если это модалка (схема параметров — через `searchParam` в `useSearchState`).
 2. **Модуль ручек** в `api/` (если нужных ручек ещё нет) — см. ниже.
-3. **Адаптер** в `adapters/`: из ответов API — модель экрана, с тестом на снимке из `docs/api-examples`.
+3. **Адаптер** в `adapters/`: из ответов API — модель экрана, с тестом на фикстуре из `src/adapters/__fixtures__/`.
 4. **Фича** в `features/<роль>/…`: компоненты берут модель адаптера и данные react-query, стили — CSS Modules на токенах `styles/tokens.css`.
 
 ## Как добавить ручку

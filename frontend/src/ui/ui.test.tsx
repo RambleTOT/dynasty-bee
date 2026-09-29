@@ -2,7 +2,7 @@ import { act, fireEvent, render, screen } from '@testing-library/react';
 import { Car } from 'lucide-react';
 import { useState } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { dismissAll, notify, NotifyProvider } from '@/lib/notify';
+import { dismiss, dismissAll, notify, NotifyProvider } from '@/lib/notify';
 import { Button } from './Button';
 import { FlagChip, StatusChip } from './Chip';
 import { RadioCards } from './Choice';
@@ -210,5 +210,21 @@ describe('notify', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Новая запись' }));
     expect(onAgain).toHaveBeenCalled();
     expect(screen.queryByText('Заявка записана')).not.toBeInTheDocument();
+  });
+
+  it('dismiss(key) закрывает тост с этим ключом, остальные остаются', () => {
+    render(<NotifyProvider>{null}</NotifyProvider>);
+    act(() => {
+      notify('Авария №7 — ждёт решения', 'info', { persistent: true, key: 'proposal:P7' });
+      notify('Оператор отменил №8 — ждёт решения', 'info', {
+        persistent: true,
+        key: 'proposal:P8',
+      });
+    });
+    act(() => dismiss('proposal:P7'));
+    expect(screen.queryByText('Авария №7 — ждёт решения')).not.toBeInTheDocument();
+    expect(screen.getByText('Оператор отменил №8 — ждёт решения')).toBeInTheDocument();
+    act(() => dismiss('proposal:нет-такого'));
+    expect(screen.getByText('Оператор отменил №8 — ждёт решения')).toBeInTheDocument();
   });
 });

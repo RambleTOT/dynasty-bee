@@ -117,12 +117,15 @@ describe('RealtimeProvider', () => {
 
   it('событие → обновление запросов, тост «ждёт решения», «Открыть» ведёт к предложению', async () => {
     const { invalidate, unmount } = renderProvider();
-    await waitFor(() => expect(FakeWebSocket.instances).toHaveLength(1));
+    // сеанс грузится отдельным чанком: под нагрузкой полного прогона секунды бывает мало
+    await waitFor(() => expect(FakeWebSocket.instances).toHaveLength(1), { timeout: 5_000 });
     expect(FakeWebSocket.last.url).toMatch(/\/api\/v1\/realtime\/ws\?ticket=ticket-1$/);
 
     FakeWebSocket.last.receive({ type: 'hello', protocol: 1, seq: 5, resumed: false });
     // сокет открыт: опрос — страховочный (пока бэк шлёт только события плана — не реже обычного)
-    expect(screen.getByTestId('poll')).toHaveTextContent(String(Math.max(10_000, REALTIME.safetyPollMs)));
+    expect(screen.getByTestId('poll')).toHaveTextContent(
+      String(Math.max(10_000, REALTIME.safetyPollMs)),
+    );
 
     FakeWebSocket.last.receive({
       type: 'event',

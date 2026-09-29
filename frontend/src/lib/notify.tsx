@@ -11,6 +11,8 @@ export interface NotifyOptions {
   action?: { label: string; onClick: () => void };
   /** Не скрывать через 4 с — висит, пока не закроют. */
   persistent?: boolean;
+  /** Ключ: по нему тост закрывают, когда повод исчез (`dismiss`) — например, предложение уже решено. */
+  key?: string;
 }
 
 interface Notice extends NotifyOptions {
@@ -64,7 +66,20 @@ export function notify(text: string, kind: NotifyKind = 'info', options: NotifyO
   emit();
 }
 
-/** Закрыть все тосты (например, при уходе со страницы записи). */
+/** Закрыть тосты с ключом `key`: повод исчез — предложение приняли или отклонили. */
+// eslint-disable-next-line react-refresh/only-export-components -- API стека, а не компонент
+export function dismiss(key: string): void {
+  const gone = notices.filter((notice) => notice.key === key);
+  if (gone.length === 0) return;
+  for (const notice of gone) {
+    clearTimeout(timers.get(notice.id));
+    timers.delete(notice.id);
+  }
+  notices = notices.filter((notice) => notice.key !== key);
+  emit();
+}
+
+/** Закрыть все тосты (например, при уходе со страницы записи или при выходе из учётки). */
 // eslint-disable-next-line react-refresh/only-export-components -- API стека, а не компонент
 export function dismissAll(): void {
   for (const id of timers.keys()) clearTimeout(timers.get(id));

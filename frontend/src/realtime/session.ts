@@ -5,7 +5,7 @@
 import type { QueryClient } from '@tanstack/react-query';
 import { getRealtimeTicket, realtimeUrl } from '@/api/realtime';
 import type { Role } from '@/api/types';
-import { notify } from '@/lib/notify';
+import { dismiss, notify } from '@/lib/notify';
 import { RealtimeClient, type RealtimeStatus } from './client';
 import { effectsFor, RESYNC_KEYS } from './effects';
 import { createInvalidationBatch } from './invalidationBatch';
@@ -25,13 +25,15 @@ export function startRealtime({ role, queryClient, navigate, onStatus }: Realtim
     getTicket: getRealtimeTicket,
     url: (ticket, since) => realtimeUrl(ticket, since),
     onEvent: (event) => {
-      const { invalidate, notice } = effectsFor(event, role);
+      const { invalidate, notice, dismiss: decided } = effectsFor(event, role);
       batch.add(invalidate);
+      for (const key of decided) dismiss(key);
       if (!notice) return;
       const link = notice.link;
       notify(notice.text, notice.kind, {
         description: notice.description,
         persistent: notice.persistent,
+        key: notice.key,
         action: link ? { label: 'Открыть', onClick: () => navigate(link) } : undefined,
       });
     },

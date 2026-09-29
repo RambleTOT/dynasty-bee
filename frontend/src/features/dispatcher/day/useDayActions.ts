@@ -6,7 +6,8 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { applyEvent, type DispatcherEvent } from '@/api/events';
 import { errorMessage } from '@/api/errors';
 import { applyPlan, reassign, rejectPlan, runPlan, type ReassignBody } from '@/api/planning';
-import { notify } from '@/lib/notify';
+import { dismiss, notify } from '@/lib/notify';
+import { proposalNoticeKey } from '@/realtime/effects';
 
 export const versionAppliedText = (version: number) =>
   `Версия ${version} применена. Инженеры получили обновление`;
@@ -52,7 +53,9 @@ export function useDayActions(date: string) {
   /** Принять предложение. Ошибки (в т. ч. STALE_PROPOSAL) разбирает дровер. */
   const acceptProposal = useMutation({
     mutationFn: ({ planId }: { planId: string; nextVersion: number }) => applyPlan(planId),
-    onSuccess: async (_result, { nextVersion }) => {
+    onSuccess: async (_result, { planId, nextVersion }) => {
+      // тост «ждёт решения» по этому предложению больше не нужен, даже если сокет молчит
+      dismiss(proposalNoticeKey(planId));
       await invalidate();
       notify(versionAppliedText(nextVersion), 'success');
     },
@@ -60,7 +63,8 @@ export function useDayActions(date: string) {
 
   const rejectProposal = useMutation({
     mutationFn: (planId: string) => rejectPlan(planId),
-    onSuccess: async () => {
+    onSuccess: async (_result, planId) => {
+      dismiss(proposalNoticeKey(planId));
       await invalidate();
       notify('Предложение отклонено', 'info');
     },
@@ -78,7 +82,14 @@ export function useDayActions(date: string) {
    * не нужно (§6.7). `/apply` нужен и когда бэк уже вернул `applied`: он гасит прежнюю версию.
    */
   const reassignMutation = useMutation({
-    mutationFn: async ({ planId, body }: { planId: string; body: ReassignBody; nextVersion: number }) => {
+    mutationFn: async ({
+      planId,
+      body,
+    }: {
+      planId: string;
+      body: ReassignBody;
+      nextVersion: number;
+    }) => {
       const result = await reassign(planId, body);
       await applyPlan(result.plan.plan_id);
       return result;

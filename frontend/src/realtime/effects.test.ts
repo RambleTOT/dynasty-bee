@@ -34,6 +34,7 @@ describe('события живых обновлений → запросы и �
       description: 'Восток · 29.09',
       link: '/dispatcher/day/2026-09-29?region=east&proposal=P9',
       persistent: true,
+      key: 'proposal:P9',
     });
     expect(invalidate).toEqual([
       ['days', '2026-09-29'],
@@ -77,6 +78,33 @@ describe('события живых обновлений → запросы и �
     });
     expect(effectsFor(foreign, 'engineer').notice).toBeNull();
     expect(effectsFor(foreign, 'operator').notice).toBeNull();
+    // бэк шлёт plan.proposed без actor — автор из source события
+    const ownBySource = ev('plan.proposed', {
+      data: {
+        plan_id: 'P2',
+        event_type: 'urgent_order_added',
+        source: 'dispatcher',
+        order_id: 'U-1',
+      },
+    });
+    expect(effectsFor(ownBySource, 'dispatcher').notice).toBeNull();
+    const operatorBySource = ev('plan.proposed', {
+      data: { plan_id: 'P3', event_type: 'order_cancelled', source: 'operator', order_id: '10211' },
+    });
+    expect(effectsFor(operatorBySource, 'dispatcher').notice?.key).toBe('proposal:P3');
+  });
+
+  it('предложение приняли или отклонили — тост «ждёт решения» по нему закрываем', () => {
+    expect(
+      effectsFor(ev('plan.applied', { data: { plan_id: 'P3' } }), 'dispatcher').dismiss,
+    ).toEqual(['proposal:P3']);
+    expect(
+      effectsFor(ev('plan.rejected', { data: { plan_id: 'P3' } }), 'dispatcher').dismiss,
+    ).toEqual(['proposal:P3']);
+    expect(effectsFor(ev('plan.applied', { data: {} }), 'dispatcher').dismiss).toEqual([]);
+    expect(
+      effectsFor(ev('plan.proposed', { data: { plan_id: 'P3' } }), 'dispatcher').dismiss,
+    ).toEqual([]);
   });
 
   it('решение диспетчера — тост оператору', () => {
@@ -112,6 +140,7 @@ describe('события живых обновлений → запросы и �
         ['engineerRoute'],
       ],
       notice: null,
+      dismiss: [],
     });
     expect(effectsFor(ev('что-то.новое'), 'dispatcher').invalidate).toEqual([
       ['days', '2026-09-29'],

@@ -22,12 +22,19 @@ export interface RealtimeNotice {
   link?: string;
   /** Висит, пока не закроют: ждёт решения. */
   persistent?: boolean;
+  /** Ключ тоста: по нему тост закрывают, когда предложение решено. */
+  key?: string;
 }
 
 export interface RealtimeEffects {
   invalidate: QueryKey[];
   notice: RealtimeNotice | null;
+  /** Ключи тостов, которые пора закрыть: предложение уже приняли или отклонили. */
+  dismiss: string[];
 }
+
+/** Ключ тоста «ждёт решения» по предложению: `plan.applied` / `plan.rejected` его закрывают. */
+export const proposalNoticeKey = (planId: string) => `proposal:${planId}`;
 
 /** Всё, что приходит с сервера: после `resync` (события пропущены) обновляем разом. */
 export const RESYNC_KEYS: readonly QueryKey[] = [
@@ -154,12 +161,10 @@ function decisionNotice(event: RealtimeEvent): RealtimeNotice | null {
 export function effectsFor(event: RealtimeEvent, role: Role | null): RealtimeEffects {
   const invalidate = keysFor(event);
   let notice: RealtimeNotice | null = null;
+  // `actor` бэк в plan.proposed не шлёт — автора берём из `source` события
+  const author = event.actor?.role ?? text(event.data.source);
 
-  if (
-    role === 'dispatcher' &&
-    event.kind === 'plan.proposed' &&
-    event.actor?.role !== 'dispatcher'
-  ) {
+  if (role === 'dispatcher' && event.kind === 'plan.proposed' && author !== 'dispatcher') {
     const planId = text(event.data.plan_id);
     notice = {
       text: `${proposalText(event)} — ждёт решения`,
@@ -170,10 +175,15 @@ export function effectsFor(event: RealtimeEvent, role: Role | null): RealtimeEff
           ? `/dispatcher/day/${event.date}?region=${event.regionId}&proposal=${encodeURIComponent(planId)}`
           : undefined,
       persistent: true,
+      ...(planId ? { key: proposalNoticeKey(planId) } : {}),
     };
   } else if (role === 'operator' && event.kind === 'booking.decision') {
     notice = decisionNotice(event);
   }
 
-  return { invalidate, notice };
+  const decided =
+    event.kind === 'plan.applied' || event.kind === 'plan.rejected'
+      ? text(event.data.plan_id)
+      : null;
+  return { invalidate, notice, dismiss: decided ? [proposalNoticeKey(decided)] : [] };
 }

@@ -31,6 +31,7 @@ npm run dev          # http://localhost:5173, /api проксируется на
 | `npm run check`         | `tsc --noEmit` (приложение и `vite.config.ts`) + `eslint .`                             |
 | `npm test`              | тесты (vitest, jsdom)                                                                   |
 | `npm run build`         | проверка типов + прод-сборка в `dist/`                                                  |
+| `npm run preview`       | прод-сборка из `dist/` на http://localhost:4173, `/api` — через тот же прокси           |
 | `npm run deploy`        | сборка и выкладка на сервер (ниже)                                                      |
 | `npm run gen:types`     | типы API из живой схемы → `src/api/schema.d.ts`                                         |
 | `npm run design:unpack` | распаковать макеты в `design/_unpacked/` (в git не попадает)                            |
